@@ -5,5 +5,5 @@ At the beginning, I wanted to democratize online dating with a video game. It's 
 This game is developed with [Unity](https://unity.com/fr).
 
 <p align="center">
-  <img src="cover.png" alt="Couverture du jeu" height="400">
+  <img src="cover.png" alt="Couverture du jeu" height="500">
 </p>
