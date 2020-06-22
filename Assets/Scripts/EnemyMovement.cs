@@ -4,6 +4,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     public bool isFocused = false;
+
     public Transform[] waypoints;
 
     public int damageOnCollision = 10;
@@ -32,13 +33,21 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void OnMouseDown() 
+    private void OnMouseOver() 
     {
-        isFocused = true;
-        CursorController.instance.ActivateTargetCursor();
+        if (Input.GetMouseButtonDown(1))
+        {
+            isFocused = true;
+            CursorController.instance.ActivateTargetCursor();
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            isFocused = false;
+            CursorController.instance.ClearCursor();
+        }
     }
 
-    private void OnMouseUp() 
+    private void OnMouseExit()
     {
         isFocused = false;
         CursorController.instance.ClearCursor();

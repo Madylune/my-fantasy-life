@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rigidbody;
 
     private Vector2 change;
+    private Vector3 targetPosition;
+
+    private bool isMoving = false;
 
     public Animator animator;
 
@@ -21,8 +24,59 @@ public class PlayerMovement : MonoBehaviour
         change = Vector2.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        
+
         UpdateAnimationAndMove();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            SetTargetPosition();
+        }
+        if (isMoving)
+        {
+            OnClickMoving();
+        }
+    }
+
+    void SetTargetPosition()
+    {
+        targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        targetPosition.z = transform.position.z;
+
+        isMoving = true;
+    }
+
+    void OnClickMoving()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        if (Mathf.Round(targetPosition.x) > Mathf.Round(transform.position.x))
+        {
+            animator.SetFloat("moveX", 1);
+            animator.SetFloat("moveY", 0);
+        }
+        if (Mathf.Round(targetPosition.x) < Mathf.Round(transform.position.x))
+        {
+            animator.SetFloat("moveX", -1);
+            animator.SetFloat("moveY", 0);
+        }
+        if (Mathf.Round(targetPosition.y) > Mathf.Round(transform.position.y))
+        {
+            animator.SetFloat("moveY", 1);
+            animator.SetFloat("moveX", 0);
+        }
+        if (Mathf.Round(targetPosition.y) < Mathf.Round(transform.position.y))
+        {
+            animator.SetFloat("moveY", -1);
+            animator.SetFloat("moveX", 0);
+        }
+
+        animator.SetFloat("Speed", targetPosition.sqrMagnitude);
+        animator.SetBool("moving", true);
+
+        if (transform.position == targetPosition)
+        {
+            isMoving = false;
+        }
     }
 
     void UpdateAnimationAndMove()
