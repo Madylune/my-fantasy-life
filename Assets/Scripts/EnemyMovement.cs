@@ -3,6 +3,7 @@
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+    public bool isFocused = false;
     public Transform[] waypoints;
 
     public int damageOnCollision = 10;
@@ -29,6 +30,18 @@ public class EnemyMovement : MonoBehaviour
             target = waypoints[destinationPoint];
             graphics.flipX = !graphics.flipX;
         }
+    }
+
+    private void OnMouseDown() 
+    {
+        isFocused = true;
+        CursorController.instance.ActivateTargetCursor();
+    }
+
+    private void OnMouseUp() 
+    {
+        isFocused = false;
+        CursorController.instance.ClearCursor();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

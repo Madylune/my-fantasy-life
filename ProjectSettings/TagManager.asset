@@ -12,6 +12,7 @@ TagManager:
   - DialogueText
   - Inventory
   - HealthPotion
+  - Enemy
   layers:
   - Default
   - TransparentFX

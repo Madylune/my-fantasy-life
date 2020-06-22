@@ -76,9 +76,10 @@ GameObject:
   - component: {fileID: 4051891469306126049}
   - component: {fileID: 4051891469306126050}
   - component: {fileID: 4051891469306126054}
+  - component: {fileID: 8050272104098237152}
   m_Layer: 0
   m_Name: Graphics
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +212,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &8050272104098237152
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051891469306126051}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.021063685, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4040438
 --- !u!1 &4051891469690983242
 GameObject:
   m_ObjectHideFlags: 0
