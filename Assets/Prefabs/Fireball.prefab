@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7356185425655860138}
   - component: {fileID: 1378913713331262517}
   - component: {fileID: 511318628264573968}
+  - component: {fileID: 8835860431391126}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -154,3 +155,29 @@ CircleCollider2D:
   m_Offset: {x: 1.5822481, y: 0}
   serializedVersion: 2
   m_Radius: 0.57775176
+--- !u!61 &8835860431391126
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326474511052640201}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5642989, y: -0.024829388}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.32, y: 1.44}
+    newSize: {x: 4.32, y: 1.44}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1914024, y: 1.125485}
+  m_EdgeRadius: 0

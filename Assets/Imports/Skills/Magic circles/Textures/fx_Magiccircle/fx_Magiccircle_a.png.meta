@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: f0bf8c83046d9e546b17e2e78cb06782
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7480495211233734308
+    second: fx_Magiccircle_a_0
+  - first:
+      213: 3127360510684028496
+    second: fx_Magiccircle_a_1
+  - first:
+      213: -1867761546878850268
+    second: fx_Magiccircle_a_2
+  - first:
+      213: 7675748956815157604
+    second: fx_Magiccircle_a_3
+  - first:
+      213: 1529452415813814798
+    second: fx_Magiccircle_a_4
+  - first:
+      213: 8422416668031920657
+    second: fx_Magiccircle_a_5
+  - first:
+      213: 9183659968116218026
+    second: fx_Magiccircle_a_6
+  - first:
+      213: -5046325920626550932
+    second: fx_Magiccircle_a_7
+  - first:
+      213: -7804483028913673787
+    second: fx_Magiccircle_a_8
+  - first:
+      213: -8118833718443045314
+    second: fx_Magiccircle_a_9
+  - first:
+      213: -1809040558142096895
+    second: fx_Magiccircle_a_10
+  - first:
+      213: -8463227235962708210
+    second: fx_Magiccircle_a_11
+  - first:
+      213: 5407319353968433271
+    second: fx_Magiccircle_a_12
+  - first:
+      213: -4180198850513813679
+    second: fx_Magiccircle_a_13
+  - first:
+      213: -8993717688662658082
+    second: fx_Magiccircle_a_14
+  - first:
+      213: -8398672590515439396
+    second: fx_Magiccircle_a_15
+  - first:
+      213: -6357988942585423559
+    second: fx_Magiccircle_a_16
+  - first:
+      213: -5212143917272487447
+    second: fx_Magiccircle_a_17
+  - first:
+      213: -2320928153692013533
+    second: fx_Magiccircle_a_18
+  - first:
+      213: -7499986187756540344
+    second: fx_Magiccircle_a_19
+  - first:
+      213: 1616655504344536240
+    second: fx_Magiccircle_a_20
+  - first:
+      213: -2184965741140886076
+    second: fx_Magiccircle_a_21
+  - first:
+      213: -6474885334259708730
+    second: fx_Magiccircle_a_22
+  - first:
+      213: -970725743332342342
+    second: fx_Magiccircle_a_23
+  - first:
+      213: -2596506365354160679
+    second: fx_Magiccircle_a_24
+  - first:
+      213: -2526807759141604572
+    second: fx_Magiccircle_a_25
+  - first:
+      213: 3284474812679879166
+    second: fx_Magiccircle_a_26
+  - first:
+      213: 5739504020047456276
+    second: fx_Magiccircle_a_27
+  - first:
+      213: -3789539026164813332
+    second: fx_Magiccircle_a_28
+  - first:
+      213: 1386657593858959038
+    second: fx_Magiccircle_a_29
+  - first:
+      213: -859571687409112846
+    second: fx_Magiccircle_a_30
+  - first:
+      213: -111026988896455684
+    second: fx_Magiccircle_a_31
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 0
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aee891e2ce00d760800000000000000
+      internalID: 7480495211233734308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ed7e3a0dd966b20800000000000000
+      internalID: 3127360510684028496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42be629d4c06416e0800000000000000
+      internalID: -1867761546878850268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469ea04220db58a60800000000000000
+      internalID: 7675748956815157604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a02796ed4b93510800000000000000
+      internalID: 1529452415813814798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a2f50f55f62e470800000000000000
+      internalID: 8422416668031920657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8da89751ae27f70800000000000000
+      internalID: 9183659968116218026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fx_Magiccircle_a_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c675530df49d7f9b0800000000000000
+      internalID: -5046325920626550932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 127fc6605f4294823a7938479bea2076
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

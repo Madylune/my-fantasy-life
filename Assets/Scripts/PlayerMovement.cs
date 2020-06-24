@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 3;
+    public int facingIndex = 2;
     
     public Rigidbody2D rigidbody;
 
@@ -26,15 +27,16 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
 
         UpdateAnimationAndMove();
+        UpdateFacing();
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            SetTargetPosition();
-        }
-        if (isMoving)
-        {
-            OnClickMoving();
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     SetTargetPosition();
+        // }
+        // if (isMoving)
+        // {
+        //     OnClickMoving();
+        // }
     }
 
     void SetTargetPosition()
@@ -98,5 +100,25 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         rigidbody.MovePosition(rigidbody.position + change * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    void UpdateFacing()
+    {
+        if (change.y == -1)
+        {
+            facingIndex = 2; //UP
+        }
+        if (change.x == 1) 
+        {
+            facingIndex = 1; //RIGHT
+        }
+        if (change.y == 1)
+        {
+            facingIndex = 0; //DOWN
+        }
+        if (change.x == -1) 
+        {
+            facingIndex = 3; //LEFT
+        }
     }
 }

@@ -3,15 +3,12 @@
 public class Projectile : MonoBehaviour
 {
     public float speed;
-    // public GameObject impactEffect;
-
     private Rigidbody2D rigidbody;
     private Transform target;
 
     void Start() 
     {
         rigidbody = GetComponent<Rigidbody2D>();
-
         target = GameObject.FindGameObjectWithTag("Enemy").transform;
     }
 
@@ -26,7 +23,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        // Instantiate(impactEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
