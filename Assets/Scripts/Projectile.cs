@@ -5,21 +5,24 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rigidbody;
-    private Transform target;
+
+    public Transform MyTarget { get; set; }
 
     void Start() 
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Enemy").transform;
     }
 
     private void FixedUpdate() 
     {
-        Vector2 direction = target.position - transform.position;
-        rigidbody.velocity = direction.normalized * speed;
+        if (MyTarget != null)
+        {
+            Vector2 direction = MyTarget.position - transform.position;
+            rigidbody.velocity = direction.normalized * speed;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); 
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); 
+        }
     }
 
     private void Update() 
@@ -29,9 +32,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("HitBox") && other.transform == MyTarget)
         {
-            Destroy(gameObject);
+            GetComponent<Animator>().SetTrigger("impact");
+            rigidbody.velocity = Vector2.zero;
+            MyTarget = null;
         }
     }
 

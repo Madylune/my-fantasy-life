@@ -22,10 +22,13 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                player.MyTarget = hit.transform;
+                if (hit.collider.tag == "Enemy")
+                {
+                    player.MyTarget = hit.transform.GetChild(1); //Select HitBox
 
-                targetIcon = hit.transform.GetChild(0).gameObject;
-                targetIcon.SetActive(true);
+                    targetIcon = hit.transform.GetChild(0).gameObject;
+                    targetIcon.SetActive(true);
+                }
             }
             else 
             {

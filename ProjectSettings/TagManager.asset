@@ -13,6 +13,7 @@ TagManager:
   - Inventory
   - HealthPotion
   - Enemy
+  - HitBox
   layers:
   - Default
   - TransparentFX

@@ -20,28 +20,28 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            Block();
-            if (MyTarget != null && InLineOfSight())
-            {
-                attackRoutine = StartCoroutine(Attack());
-            }
-        }    
+  
     }
 
-    private IEnumerator Attack()
+    private IEnumerator Attack(int spellIndex)
     {
         magicCircle.SetActive(true);
         yield return new WaitForSeconds(3);
 
-        CastSpell();
+        Projectile projectile = Instantiate(projectiles[spellIndex], transform.position, Quaternion.identity).GetComponent<Projectile>();
+        projectile.MyTarget = MyTarget;
+
         magicCircle.SetActive(false);
     }
 
-    public void CastSpell()
+    public void CastSpell(int spellIndex)
     {
-        Instantiate(projectiles[0], transform.position, Quaternion.identity);
+        Block();
+
+        if (MyTarget != null && InLineOfSight())
+        {
+            attackRoutine = StartCoroutine(Attack(spellIndex));
+        }
     }
 
     private bool InLineOfSight()
