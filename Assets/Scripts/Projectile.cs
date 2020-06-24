@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
@@ -21,11 +22,22 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward); 
     }
 
+    private void Update() 
+    {
+        StartCoroutine(RemoveProjectile());
+    }
+
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator RemoveProjectile()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }

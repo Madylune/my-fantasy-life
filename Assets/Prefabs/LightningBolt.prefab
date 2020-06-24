@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2003333809055863849}
   - component: {fileID: 7356185425655860138}
   - component: {fileID: 1378913713331262517}
-  - component: {fileID: 3185639790371648061}
   - component: {fileID: 5211424444603236065}
   m_Layer: 0
   m_Name: LightningBolt
@@ -118,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712c2daeb32c454698f4aacaabebdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
 --- !u!50 &1378913713331262517
 Rigidbody2D:
   serializedVersion: 4
@@ -139,23 +138,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &3185639790371648061
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326474511052640201}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.010464191}
-  serializedVersion: 2
-  m_Radius: 0.31163406
+  m_Constraints: 4
 --- !u!61 &5211424444603236065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +149,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.015697181, y: 0.00000025331974}

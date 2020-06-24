@@ -8,13 +8,13 @@ public class PlayerAttack : MonoBehaviour
     public GameObject magicCircle;
 
     private Coroutine attackRoutine;
-    private Transform target;
+    
+    public Transform MyTarget { get; set; }
 
     private PlayerMovement player;
 
     private void Start() 
     {
-        target = GameObject.FindGameObjectWithTag("Enemy").transform;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
 
@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Block();
-            if (InLineOfSight())
+            if (MyTarget != null && InLineOfSight())
             {
                 attackRoutine = StartCoroutine(Attack());
             }
@@ -41,14 +41,14 @@ public class PlayerAttack : MonoBehaviour
 
     public void CastSpell()
     {
-        Instantiate(projectiles[2], transform.position, Quaternion.identity);
+        Instantiate(projectiles[0], transform.position, Quaternion.identity);
     }
 
     private bool InLineOfSight()
     {
-        Vector3 targetDirection = (target.transform.position - transform.position).normalized;
+        Vector3 targetDirection = (MyTarget.transform.position - transform.position).normalized;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, target.transform.position), 256);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, MyTarget.transform.position), 256);
 
         if (hit.collider == null)
         {

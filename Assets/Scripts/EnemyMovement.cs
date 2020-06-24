@@ -3,7 +3,6 @@
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
-    public bool isFocused = false;
 
     public Transform[] waypoints;
 
@@ -35,21 +34,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnMouseOver() 
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            isFocused = true;
-            CursorController.instance.ActivateTargetCursor();
-        }
-        if (Input.GetMouseButtonUp(1))
-        {
-            isFocused = false;
-            CursorController.instance.ClearCursor();
-        }
+        CursorController.instance.ActivateTargetCursor();
     }
 
     private void OnMouseExit()
     {
-        isFocused = false;
         CursorController.instance.ClearCursor();
     }
 
