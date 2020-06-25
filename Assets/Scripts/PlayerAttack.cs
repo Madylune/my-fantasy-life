@@ -20,11 +20,6 @@ public class PlayerAttack : MonoBehaviour
         spellBook = GetComponent<SpellBook>();
     }
 
-    private void Update() 
-    {
-  
-    }
-
     private IEnumerator Attack(int spellIndex)
     {
         Spell spell = spellBook.CastSpell(spellIndex);
@@ -70,5 +65,15 @@ public class PlayerAttack : MonoBehaviour
         }
 
         blocks[movement.facingIndex].Activate();
+    }
+
+    public void StopAttack()
+    {
+        spellBook.StopCasting();
+
+        if (attackRoutine != null)
+        {
+            StopCoroutine(attackRoutine);
+        }
     }
 }

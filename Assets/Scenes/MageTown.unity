@@ -1156,7 +1156,7 @@ RectTransform:
   m_Children:
   - {fileID: 891443574}
   m_Father: {fileID: 130206740}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1270,10 +1270,10 @@ RectTransform:
   - {fileID: 970666444}
   - {fileID: 704176208}
   - {fileID: 1958618872}
-  - {fileID: 932191728}
   - {fileID: 488102385}
   - {fileID: 167302548}
   - {fileID: 109148649}
+  - {fileID: 932191728}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1871,7 +1871,7 @@ RectTransform:
   - {fileID: 1143671233}
   - {fileID: 1893083672}
   m_Father: {fileID: 130206740}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5892,7 +5892,7 @@ GameObject:
   - component: {fileID: 320449774}
   - component: {fileID: 320449773}
   m_Layer: 5
-  m_Name: SkillName
+  m_Name: SpellName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12181,7 +12181,7 @@ RectTransform:
   - {fileID: 785131226}
   - {fileID: 1402905219}
   m_Father: {fileID: 130206740}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12232,6 +12232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d487125ad8bfc4a62a0e51419a56edb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castingBar: {fileID: 995883187}
+  spellName: {fileID: 320449774}
+  castTime: {fileID: 2047123224}
+  icon: {fileID: 1866509031}
+  canvasGroup: {fileID: 891443577}
   spells:
   - name: Fireball
     damage: 5
@@ -12248,7 +12253,7 @@ MonoBehaviour:
     castTime: 1.5
     spellPrefab: {fileID: 1326474511052640201, guid: bca6fd80e0a8746aab95a0df3f63cf1a,
       type: 3}
-    barColor: {r: 0, g: 0, b: 0, a: 0}
+    barColor: {r: 0.80392164, g: 0.6431373, b: 0.9450981, a: 1}
   - name: Waterball
     damage: 5
     icon: {fileID: 21300000, guid: eced15bb959edc54c8457ab75f9a45b5, type: 3}
@@ -12256,7 +12261,7 @@ MonoBehaviour:
     castTime: 2
     spellPrefab: {fileID: 1326474511052640201, guid: 155770983f3e64b3cbcd7f1902265b1f,
       type: 3}
-    barColor: {r: 0, g: 0, b: 0, a: 0}
+    barColor: {r: 0.74509805, g: 0.909804, b: 0.98823535, a: 1}
 --- !u!4 &502487036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 635811274730428349, guid: 5dccf48d78793435bbd7ab007c095b61,
@@ -19635,6 +19640,7 @@ GameObject:
   - component: {fileID: 891443574}
   - component: {fileID: 891443576}
   - component: {fileID: 891443575}
+  - component: {fileID: 891443577}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -19701,6 +19707,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891443573}
   m_CullTransparentMesh: 0
+--- !u!225 &891443577
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891443573}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &895925254
 GameObject:
   m_ObjectHideFlags: 0
@@ -20647,7 +20665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &932191728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20662,7 +20680,7 @@ RectTransform:
   - {fileID: 1562111021}
   - {fileID: 1617029369}
   m_Father: {fileID: 130206740}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -35315,6 +35333,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 515541106360611111, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4051891468619800490, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: m_LocalPosition.x

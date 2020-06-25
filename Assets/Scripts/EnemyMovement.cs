@@ -48,6 +48,9 @@ public class EnemyMovement : MonoBehaviour
         {
             PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damageOnCollision);
+
+            PlayerAttack playerAttack = collision.transform.GetComponent<PlayerAttack>();
+            playerAttack.StopAttack();
         }
     }
 }
