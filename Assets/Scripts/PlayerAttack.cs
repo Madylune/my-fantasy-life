@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject[] projectiles;
     public Block[] blocks;
     public GameObject magicCircle;
 
@@ -11,11 +10,14 @@ public class PlayerAttack : MonoBehaviour
     
     public Transform MyTarget { get; set; }
 
-    private PlayerMovement player;
+    private PlayerMovement movement;
+
+    private SpellBook spellBook;
 
     private void Start() 
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        movement = GetComponent<PlayerMovement>();
+        spellBook = GetComponent<SpellBook>();
     }
 
     private void Update() 
@@ -25,10 +27,12 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack(int spellIndex)
     {
-        magicCircle.SetActive(true);
-        yield return new WaitForSeconds(3);
+        Spell spell = spellBook.CastSpell(spellIndex);
 
-        Projectile projectile = Instantiate(projectiles[spellIndex], transform.position, Quaternion.identity).GetComponent<Projectile>();
+        magicCircle.SetActive(true);
+        yield return new WaitForSeconds(spell.MyCastTime);
+
+        Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
         projectile.MyTarget = MyTarget;
 
         magicCircle.SetActive(false);
@@ -65,6 +69,6 @@ public class PlayerAttack : MonoBehaviour
             block.Deactivate();
         }
 
-        blocks[player.facingIndex].Activate();
+        blocks[movement.facingIndex].Activate();
     }
 }
