@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PlayerAttack player;
 
-    private GameObject targetIcon;
+    private NPC currentTarget;
 
     private void Update() 
     {
@@ -22,19 +22,24 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.tag == "Enemy")
+                if (currentTarget != null)
                 {
-                    player.MyTarget = hit.transform.GetChild(1); //Select HitBox
-
-                    targetIcon = hit.transform.GetChild(0).gameObject;
-                    targetIcon.SetActive(true);
+                    currentTarget.DeSelect();
                 }
+
+                currentTarget = hit.collider.GetComponent<NPC>();
+
+                player.MyTarget = currentTarget.Select();
             }
             else 
             {
-                //Detarget's the target
+                if (currentTarget != null)
+                {
+                    currentTarget.DeSelect();
+                }
+                
+                currentTarget = null;
                 player.MyTarget = null;
-                targetIcon.SetActive(false);
             }
         }
     }

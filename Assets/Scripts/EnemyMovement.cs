@@ -4,43 +4,33 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed;
 
-    public Transform[] waypoints;
+    // public Transform[] waypoints;
 
     public int damageOnCollision = 10;
 
-    public SpriteRenderer graphics;
+    // public SpriteRenderer graphics;
 
     private Transform target;
     private int destinationPoint = 0;
 
-    void Start()
-    {
-        target = waypoints[0];
-    }
+    // void Start()
+    // {
+    //     target = waypoints[0];
+    // }
 
-    void Update()
-    {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+    // void Update()
+    // {
+    //     Vector3 dir = target.position - transform.position;
+    //     transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        //If arrive to destination soon
-        if (Vector3.Distance(transform.position, target.position) < 0.3f)
-        {
-            destinationPoint = (destinationPoint + 1) % waypoints.Length;
-            target = waypoints[destinationPoint];
-            graphics.flipX = !graphics.flipX;
-        }
-    }
-
-    private void OnMouseOver() 
-    {
-        CursorController.instance.ActivateTargetCursor();
-    }
-
-    private void OnMouseExit()
-    {
-        CursorController.instance.ClearCursor();
-    }
+    //     //If arrive to destination soon
+    //     if (Vector3.Distance(transform.position, target.position) < 0.3f)
+    //     {
+    //         destinationPoint = (destinationPoint + 1) % waypoints.Length;
+    //         target = waypoints[destinationPoint];
+    //         graphics.flipX = !graphics.flipX;
+    //     }
+    // }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2003333809055863849}
   - component: {fileID: 7356185425655860138}
   - component: {fileID: 1378913713331262517}
-  - component: {fileID: 5211424444603236065}
+  - component: {fileID: 4971640359663785764}
   m_Layer: 0
   m_Name: LightningBolt
   m_TagString: Untagged
@@ -138,8 +138,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5211424444603236065
-BoxCollider2D:
+--- !u!58 &4971640359663785764
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,16 +151,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.015697181, y: 0.00000025331974}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.010113761, y: -0.02671802}
   serializedVersion: 2
-  m_Size: {x: 0.8011688, y: 0.2046752}
-  m_EdgeRadius: 0
+  m_Radius: 0.14632903

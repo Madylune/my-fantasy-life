@@ -26,11 +26,14 @@ public class PlayerAttack : MonoBehaviour
 
         magicCircle.SetActive(true);
         yield return new WaitForSeconds(spell.MyCastTime);
+        
+        if (MyTarget != null && InLineOfSight())
+        {
+            Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+            projectile.MyTarget = MyTarget;
+        }
 
-        Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-        projectile.MyTarget = MyTarget;
-
-        magicCircle.SetActive(false);
+        StopAttack();
     }
 
     public void CastSpell(int spellIndex)
@@ -70,6 +73,7 @@ public class PlayerAttack : MonoBehaviour
     public void StopAttack()
     {
         spellBook.StopCasting();
+        magicCircle.SetActive(false);
 
         if (attackRoutine != null)
         {
