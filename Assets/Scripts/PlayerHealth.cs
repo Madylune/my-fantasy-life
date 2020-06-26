@@ -9,8 +9,6 @@ public class PlayerHealth : MonoBehaviour
 
     public static PlayerHealth instance;
 
-    private Inventory inventory;
-
     private void Awake() 
     {
         if (instance != null)
@@ -25,16 +23,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
-        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            //Use potion
-        }
     }
 
     public void HealPlayer(int amount)

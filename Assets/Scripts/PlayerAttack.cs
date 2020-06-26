@@ -20,6 +20,14 @@ public class PlayerAttack : MonoBehaviour
         spellBook = GetComponent<SpellBook>();
     }
 
+    private void Update() 
+    {
+        if (MyTarget == null)
+        {
+            StopAttack();
+        }
+    }
+
     private IEnumerator Attack(int spellIndex)
     {
         Spell spell = spellBook.CastSpell(spellIndex);
@@ -30,7 +38,8 @@ public class PlayerAttack : MonoBehaviour
         if (MyTarget != null && InLineOfSight())
         {
             Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-            projectile.MyTarget = MyTarget;
+            // projectile.MyTarget = MyTarget;
+            projectile.Initialize(MyTarget, spell.MyDamage);
         }
 
         StopAttack();
@@ -48,13 +57,16 @@ public class PlayerAttack : MonoBehaviour
 
     private bool InLineOfSight()
     {
-        Vector3 targetDirection = (MyTarget.transform.position - transform.position).normalized;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, MyTarget.transform.position), 256);
-
-        if (hit.collider == null)
+        if (MyTarget != null)
         {
-            return true;
+            Vector3 targetDirection = (MyTarget.transform.position - transform.position).normalized;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, MyTarget.transform.position), 256);
+
+            if (hit.collider == null)
+            {
+                return true;
+            }
         }
         
         return false;

@@ -6,11 +6,19 @@ public class Projectile : MonoBehaviour
     public float speed;
     private Rigidbody2D rigidbody;
 
-    public Transform MyTarget { get; set; }
+    public Transform MyTarget { get; private set; }
+
+    private int damage;
 
     void Start() 
     {
         rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    public void Initialize(Transform target, int damage)
+    {
+        this.MyTarget = target;
+        this.damage = damage;
     }
 
     private void FixedUpdate() 
@@ -34,6 +42,8 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("HitBox") && other.transform == MyTarget)
         {
+            speed = 0;
+            other.GetComponentInParent<Enemy>().TakeDamage(damage);
             GetComponent<Animator>().SetTrigger("impact");
             rigidbody.velocity = Vector2.zero;
             MyTarget = null;

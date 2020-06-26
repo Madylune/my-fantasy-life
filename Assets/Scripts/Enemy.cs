@@ -5,18 +5,18 @@ using UnityEngine;
 public class Enemy : NPC
 {
     [SerializeField]
-    private CanvasGroup healthGroup;
+    private CanvasGroup canvasGroup;
 
     public override Transform Select()
     {
-        healthGroup.alpha = 1;
+        canvasGroup.alpha = 1;
 
         return base.Select();
     }
 
     public override void DeSelect()
     {
-        healthGroup.alpha = 0;
+        canvasGroup.alpha = 0;
         
         base.DeSelect();
     }
