@@ -5,13 +5,40 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {  
+    private static UIManager instance;
+
+    public static UIManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIManager>();
+            }
+            return instance;
+        }
+    }
+
     [SerializeField]
     private Button[] actionButtons;
 
     private KeyCode action1, action2, action3, action4, action5, action6, action7, action8, action9;
 
+    [SerializeField]
+    private GameObject targetFrame;
+
+    public Text targetName;
+    public Text targetLevel;
+    public Image targetIcon;
+    public HealthBar targetHealthBar;
+
+    private Stats stats;
+
     private void Start() 
     {
+        stats = targetFrame.GetComponentInChildren<Stats>();
+        targetHealthBar.SetMaxHealth(stats.maxHealth);
+
         action1 = KeyCode.F1;
         action2 = KeyCode.F2;
         action3 = KeyCode.F3;
@@ -24,7 +51,7 @@ public class UIManager : MonoBehaviour
     }
 
     private void Update() 
-    {
+    {   
         if (Input.GetKeyDown(action1))
         {   
             ActionButtonOnClick(0);
@@ -61,10 +88,39 @@ public class UIManager : MonoBehaviour
         {   
             ActionButtonOnClick(8);
         }
+
+        if (stats != null)
+        {
+            targetHealthBar.SetHealth(stats.currentHealth);
+        }
     }
 
     private void ActionButtonOnClick(int buttonIndex)
     {
         actionButtons[buttonIndex].onClick.Invoke();
+    }
+
+    public void ShowTargetFrame(NPC target)
+    {
+        UpdateTargetFrame(target);
+
+        targetFrame.SetActive(true);
+    }
+
+    public void HideTargetFrame()
+    {
+        targetFrame.SetActive(false);
+        stats = null;
+    }
+
+    public void UpdateTargetFrame(NPC target)
+    {
+        stats = target.GetComponent<Stats>();
+
+        targetName.text = stats.name;
+        targetLevel.text = stats.level.ToString();
+        targetIcon.sprite = stats.icon;
+        
+        targetHealthBar.SetHealth(stats.currentHealth);
     }
 }

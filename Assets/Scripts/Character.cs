@@ -27,11 +27,11 @@ public abstract class Character : MonoBehaviour
         {
             stats.currentHealth -= damage;
         }
-        stats.healthBar.SetHealth(stats.currentHealth);
     }
 
     public void Die()
     {
         Destroy(gameObject);
+        UIManager.MyInstance.HideTargetFrame();
     }
 }
