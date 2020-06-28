@@ -12329,7 +12329,7 @@ Animator:
   m_GameObject: {fileID: 474656780}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9fd65951344f44ee2977e8c11edc567f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2158a583b61a146e3ab580648ea48bcf, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12373,6 +12373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damageOnCollision: 10
+  animator: {fileID: 474656782}
 --- !u!212 &474656785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12409,8 +12410,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 959394329
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 754085303044119588, guid: 98383b58ad95640ebacc9712a94726d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21180,6 +21181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damageOnCollision: 10
+  animator: {fileID: 0}
 --- !u!212 &920280679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23949,7 +23951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1132299165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43478,7 +43480,7 @@ PrefabInstance:
     - target: {fileID: 509387053342320848, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 509387053342320854, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}

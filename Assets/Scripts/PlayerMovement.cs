@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     
     public Rigidbody2D rigidbody;
 
-    private Vector2 change;
+    private Vector2 direction;
     private Vector3 targetPosition;
 
     private bool isMoving = false;
@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        change = Vector2.zero;
-        change.x = Input.GetAxisRaw("Horizontal");
-        change.y = Input.GetAxisRaw("Vertical");
+        direction = Vector2.zero;
+        direction.x = Input.GetAxisRaw("Horizontal");
+        direction.y = Input.GetAxisRaw("Vertical");
 
         UpdateAnimationAndMove();
         UpdateFacing();
@@ -83,12 +83,12 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateAnimationAndMove()
     {
-        if (change != Vector2.zero)
+        if (direction != Vector2.zero)
         {
             MovePlayer();
-            animator.SetFloat("moveX", change.x);
-            animator.SetFloat("moveY", change.y);
-            animator.SetFloat("Speed", change.sqrMagnitude);
+            animator.SetFloat("moveX", direction.x);
+            animator.SetFloat("moveY", direction.y);
+            animator.SetFloat("Speed", direction.sqrMagnitude);
             animator.SetBool("moving", true);
         } 
         else 
@@ -99,24 +99,24 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        rigidbody.MovePosition(rigidbody.position + change * moveSpeed * Time.fixedDeltaTime);
+        rigidbody.MovePosition(rigidbody.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     void UpdateFacing()
     {
-        if (change.y == -1)
+        if (direction.y == -1)
         {
             facingIndex = 2; //UP
         }
-        if (change.x == 1) 
+        if (direction.x == 1) 
         {
             facingIndex = 1; //RIGHT
         }
-        if (change.y == 1)
+        if (direction.y == 1)
         {
             facingIndex = 0; //DOWN
         }
-        if (change.x == -1) 
+        if (direction.x == -1) 
         {
             facingIndex = 3; //LEFT
         }
