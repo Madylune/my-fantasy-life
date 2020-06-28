@@ -11,10 +11,12 @@ class AttackState : IState
   }
 
   public void Update()
-  {    
+  {   
     if (parent.Target != null)
     {
       float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
+      parent.Attack();
+
       if (distance >= parent.MyAttackRange)
       {
         parent.ChangeState(new FollowState());

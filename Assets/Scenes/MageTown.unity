@@ -2483,6 +2483,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 454973223}
+    - target: {fileID: 635811274730428347, guid: 5dccf48d78793435bbd7ab007c095b61,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 635811274730428349, guid: 5dccf48d78793435bbd7ab007c095b61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13728,6 +13733,7 @@ MonoBehaviour:
   hitBox: {fileID: 2104996260}
   canvasGroup: {fileID: 1844377356}
   speed: 0.5
+  atk: 1
 --- !u!95 &474656782
 Animator:
   serializedVersion: 3
@@ -13780,7 +13786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881b2df22f70143c98d7296140ba1dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOnCollision: 10
   animator: {fileID: 474656782}
 --- !u!212 &474656785
 SpriteRenderer:
@@ -13818,8 +13823,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 959394329
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 754085303044119588, guid: 98383b58ad95640ebacc9712a94726d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13847,7 +13852,7 @@ Transform:
   - {fileID: 2104996260}
   - {fileID: 461434020}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &474656787
 CapsuleCollider2D:
@@ -22583,7 +22588,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &891203508
 GameObject:
@@ -23867,6 +23872,7 @@ MonoBehaviour:
   hitBox: {fileID: 1043572066}
   canvasGroup: {fileID: 1300496425}
   speed: 0
+  atk: 0
 --- !u!95 &920280676
 Animator:
   serializedVersion: 3
@@ -23919,7 +23925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881b2df22f70143c98d7296140ba1dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOnCollision: 10
   animator: {fileID: 0}
 --- !u!212 &920280679
 SpriteRenderer:

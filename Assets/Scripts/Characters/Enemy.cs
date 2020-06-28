@@ -17,6 +17,8 @@ public class Enemy : NPC
     
     public float speed;
 
+    public int atk;
+
     public Vector2 Direction
     {
         get {
@@ -82,5 +84,11 @@ public class Enemy : NPC
         currentState = newState;
 
         currentState.Enter(this);
+    }
+
+    public void Attack()
+    {
+        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
+        playerHealth.TakeDamage(atk);
     }
 }

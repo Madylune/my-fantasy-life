@@ -2,8 +2,6 @@
 
 public class EnemyMovement : MonoBehaviour
 {
-    public int damageOnCollision = 10;
-
     private Enemy enemy;
     
     public Animator animator;
@@ -38,9 +36,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(damageOnCollision);
-
             PlayerAttack playerAttack = collision.transform.GetComponent<PlayerAttack>();
             playerAttack.StopAttack();
         }
