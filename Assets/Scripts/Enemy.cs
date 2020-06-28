@@ -8,6 +8,22 @@ public class Enemy : NPC
     private CanvasGroup canvasGroup;
 
     private Transform target;
+    private EnemyMovement movement;
+    private Vector2 direction;
+    
+    private IState currentState;
+    
+    public float speed;
+
+    public Vector2 Direction
+    {
+        get {
+            return direction;
+        }
+        set {
+            direction = value;
+        }
+    }
 
     public Transform Target
     {
@@ -19,16 +35,14 @@ public class Enemy : NPC
         }
     }
 
-    private EnemyMovement movement;
-
-    void Start()
+    private void Awake() 
     {
-        movement = GetComponent<EnemyMovement>();
+        ChangeState(new IdleState());
     }
 
     private void Update() 
     {
-        movement.FollowTarget();    
+        currentState.Update();
     }
 
     public override Transform Select()
@@ -53,5 +67,17 @@ public class Enemy : NPC
     private void OnMouseExit()
     {
         CursorController.instance.ClearCursor();
+    }
+
+    public void ChangeState(IState newState)
+    {
+        if (currentState != null)
+        {
+            currentState.Exit();
+        }
+
+        currentState = newState;
+
+        currentState.Enter(this);
     }
 }

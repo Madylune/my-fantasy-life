@@ -2,12 +2,9 @@
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed;
     public int damageOnCollision = 10;
 
     private Enemy enemy;
-
-    private Vector2 direction;
     
     public Animator animator;
 
@@ -24,29 +21,16 @@ public class EnemyMovement : MonoBehaviour
 
     void UpdateAnimationAndMove()
     {
-        if (direction != Vector2.zero)
+        if (enemy.Direction != Vector2.zero)
         {
-            animator.SetFloat("moveX", direction.x);
-            animator.SetFloat("moveY", direction.y);
-            animator.SetFloat("Speed", direction.sqrMagnitude);
+            animator.SetFloat("moveX", enemy.Direction .x);
+            animator.SetFloat("moveY", enemy.Direction .y);
+            animator.SetFloat("Speed", enemy.Direction .sqrMagnitude);
             animator.SetBool("moving", true);
         } 
         else 
         {
             animator.SetBool("moving", false);
-        }
-    }
-
-    public void FollowTarget()
-    {
-        if (enemy.Target != null)
-        {
-            direction = (enemy.Target.transform.position - transform.position).normalized;
-            transform.position = Vector2.MoveTowards(transform.position, enemy.Target.position, speed * Time.deltaTime);
-        }
-        else 
-        {
-            direction = Vector2.zero;
         }
     }
 
