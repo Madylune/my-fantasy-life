@@ -7,6 +7,30 @@ public class Enemy : NPC
     [SerializeField]
     private CanvasGroup canvasGroup;
 
+    private Transform target;
+
+    public Transform Target
+    {
+        get {
+            return target;
+        }
+        set {
+            target = value;
+        }
+    }
+
+    private EnemyMovement movement;
+
+    void Start()
+    {
+        movement = GetComponent<EnemyMovement>();
+    }
+
+    private void Update() 
+    {
+        movement.FollowTarget();    
+    }
+
     public override Transform Select()
     {
         canvasGroup.alpha = 1;
