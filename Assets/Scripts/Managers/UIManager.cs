@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,8 +35,18 @@ public class UIManager : MonoBehaviour
 
     private Stats stats;
 
-    private void Start() 
+    [SerializeField]
+    private CanvasGroup keybindsPanel;
+
+    private GameObject[] keybindsButtons;
+
+    private void Awake() 
     {
+        keybindsButtons = GameObject.FindGameObjectsWithTag("Keybind");
+    }
+
+    private void Start() 
+    {   
         stats = targetFrame.GetComponentInChildren<Stats>();
         if (stats != null)
         {
@@ -91,6 +102,11 @@ public class UIManager : MonoBehaviour
         {   
             ActionButtonOnClick(8);
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {   
+            TogglePanel();
+        }
 
         if (stats != null)
         {
@@ -125,5 +141,18 @@ public class UIManager : MonoBehaviour
         targetIcon.sprite = stats.icon;
         
         targetHealthBar.SetHealth(stats.currentHealth);
+    }
+
+    public void TogglePanel()
+    {
+        keybindsPanel.alpha = keybindsPanel.alpha > 0 ? 0 : 1;
+        keybindsPanel.blocksRaycasts = keybindsPanel.blocksRaycasts == true ? false : true; 
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+    }
+
+    public void UpdateKeyText(string key, KeyCode code)
+    {
+        Text tmp = Array.Find(keybindsButtons, x => x.name == key).GetComponentInChildren<Text>();
+        tmp.text = code.ToString();
     }
 }
