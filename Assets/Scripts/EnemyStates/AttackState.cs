@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class FollowState : IState
+class AttackState : IState
 {
   private Enemy parent;
   public void Enter(Enemy parent)
@@ -14,13 +14,10 @@ class FollowState : IState
   {    
     if (parent.Target != null)
     {
-      parent.Direction = (parent.Target.transform.position - parent.transform.position).normalized;
-      parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.speed * Time.deltaTime);
-    
       float distance = Vector2.Distance(parent.Target.position, parent.transform.position);
-      if (distance <= parent.MyAttackRange)
+      if (distance >= parent.MyAttackRange)
       {
-        parent.ChangeState(new AttackState());
+        parent.ChangeState(new FollowState());
       }
     }
     else
@@ -31,6 +28,6 @@ class FollowState : IState
 
   public void Exit()
   {
-    parent.Direction = Vector2.zero;
+
   }
 }

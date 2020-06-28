@@ -37,7 +37,10 @@ public class UIManager : MonoBehaviour
     private void Start() 
     {
         stats = targetFrame.GetComponentInChildren<Stats>();
-        targetHealthBar.SetMaxHealth(stats.maxHealth);
+        if (stats != null)
+        {
+            targetHealthBar.SetMaxHealth(stats.maxHealth);
+        }
 
         action1 = KeyCode.F1;
         action2 = KeyCode.F2;

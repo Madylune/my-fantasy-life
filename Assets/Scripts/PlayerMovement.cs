@@ -14,10 +14,13 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    private PlayerAttack playerAttack;
+
     private void Start() 
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();    
+        animator = GetComponent<Animator>();   
+        playerAttack = GetComponent<PlayerAttack>(); 
     }
 
     void Update()
@@ -100,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         rigidbody.MovePosition(rigidbody.position + direction * moveSpeed * Time.fixedDeltaTime);
+        playerAttack.StopAttack();
     }
 
     void UpdateFacing()

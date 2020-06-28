@@ -38,7 +38,6 @@ public class PlayerAttack : MonoBehaviour
         if (MyTarget != null && InLineOfSight())
         {
             Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-            // projectile.MyTarget = MyTarget;
             projectile.Initialize(MyTarget, spell.MyDamage);
         }
 

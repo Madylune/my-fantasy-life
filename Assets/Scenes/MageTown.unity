@@ -12319,7 +12319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitBox: {fileID: 2104996260}
   canvasGroup: {fileID: 1844377356}
-  speed: 1
+  speed: 0.5
 --- !u!95 &474656782
 Animator:
   serializedVersion: 3
@@ -12410,8 +12410,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 959394329
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 754085303044119588, guid: 98383b58ad95640ebacc9712a94726d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21266,7 +21266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &932191728
 RectTransform:
   m_ObjectHideFlags: 0

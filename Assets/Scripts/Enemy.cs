@@ -12,6 +12,8 @@ public class Enemy : NPC
     private Vector2 direction;
     
     private IState currentState;
+
+    public float MyAttackRange { get; set; }
     
     public float speed;
 
@@ -37,6 +39,7 @@ public class Enemy : NPC
 
     private void Awake() 
     {
+        MyAttackRange = 1;
         ChangeState(new IdleState());
     }
 
@@ -59,15 +62,15 @@ public class Enemy : NPC
         base.DeSelect();
     }
 
-    private void OnMouseOver() 
-    {
-        CursorController.instance.ActivateTargetCursor();
-    }
+    // private void OnMouseOver() 
+    // {
+    //     CursorController.instance.ActivateTargetCursor();
+    // }
 
-    private void OnMouseExit()
-    {
-        CursorController.instance.ClearCursor();
-    }
+    // private void OnMouseExit()
+    // {
+    //     CursorController.instance.ClearCursor();
+    // }
 
     public void ChangeState(IState newState)
     {
