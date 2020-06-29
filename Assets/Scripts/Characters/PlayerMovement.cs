@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         direction.y = Input.GetAxisRaw("Vertical");
 
         UpdateAnimationAndMove();
-        UpdateFacing();
 
         // if (Input.GetMouseButtonDown(0))
         // {
@@ -89,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         if (direction != Vector2.zero)
         {
             MovePlayer();
+            UpdateFacing();
             animator.SetFloat("moveX", direction.x);
             animator.SetFloat("moveY", direction.y);
             animator.SetFloat("Speed", direction.sqrMagnitude);
@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (direction.y == -1)
         {
-            facingIndex = 2; //UP
+            facingIndex = 2; //DOWN
         }
         if (direction.x == 1) 
         {
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (direction.y == 1)
         {
-            facingIndex = 0; //DOWN
+            facingIndex = 0; //UP
         }
         if (direction.x == -1) 
         {
