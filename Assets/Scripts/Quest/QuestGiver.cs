@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestGiver : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{   
+    [SerializeField]
+    private Quest[] quests;
 
-    // Update is called once per frame
-    void Update()
+    // Debugging
+    [SerializeField]
+    private QuestLog tempLog;
+
+    private void Awake() 
     {
-        
+        // Here we need to accept a quest 
+        // DEBUGGING
+        tempLog.AcceptQuest(quests[0]);
+        tempLog.AcceptQuest(quests[1]);
     }
 }
