@@ -16,6 +16,9 @@ public class QuestLog : MonoBehaviour
     [SerializeField]
     private Text questDescription;
 
+    [SerializeField]
+    private GameObject actionsButtons;
+
     private static QuestLog instance;
 
     public static QuestLog MyInstance
@@ -53,10 +56,13 @@ public class QuestLog : MonoBehaviour
         if (selected != null)
         {
             selected.MyQuestScript.DeSelect();
+            actionsButtons.SetActive(false);
         }
 
         selected = quest;
 
         questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>", "[ " + quest.MyTitle + " ]", quest.MyDescription);
+
+        actionsButtons.SetActive(true);
     }
 }
