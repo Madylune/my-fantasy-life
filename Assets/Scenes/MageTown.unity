@@ -14086,7 +14086,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 508388282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RIGHT
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &508388282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14204,7 +14215,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 515450114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SKILL3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &515450114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17499,7 +17521,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 694204245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LEFT
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &694204245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19102,7 +19135,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 755924291}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SKILL1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &755924291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29303,7 +29347,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1186389691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UP
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1186389691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31032,7 +31087,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348273943}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DOWN
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1348273943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37406,7 +37472,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804343531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794580664}
+        m_MethodName: KeyBindOnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SKILL2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804343531
 MonoBehaviour:
   m_ObjectHideFlags: 0

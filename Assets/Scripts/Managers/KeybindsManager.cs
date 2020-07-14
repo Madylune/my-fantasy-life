@@ -66,4 +66,22 @@ public class KeybindsManager : MonoBehaviour
         UIManager.MyInstance.UpdateKeyText(key, keyBind);
         bindName = string.Empty;
     }
+
+    public void KeyBindOnClick(string bindName)
+    {
+        this.bindName = bindName;
+    }
+
+    public void OnGUI()
+    {
+        if (bindName != string.Empty)
+        {
+            Event e = Event.current;
+
+            if (e.isKey)
+            {
+                BindKey(bindName, e.keyCode);
+            }
+        }
+    }
 }
