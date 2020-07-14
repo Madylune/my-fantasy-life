@@ -35,27 +35,21 @@ public class KeybindsManager : MonoBehaviour
         BindKey("RIGHT", KeyCode.S);
         BindKey("DOWN", KeyCode.W);
 
-        BindKey("ACT1", KeyCode.F1);
-        BindKey("ACT2", KeyCode.F2);
-        BindKey("ACT3", KeyCode.F3);
-        BindKey("ACT4", KeyCode.F4);
-        BindKey("ACT5", KeyCode.F5);
-        BindKey("ACT6", KeyCode.F6);
-        BindKey("ACT7", KeyCode.F7);
-        BindKey("ACT8", KeyCode.F8);
-        BindKey("ACT9", KeyCode.F9);
+        BindKey("SKILL1", KeyCode.F1);
+        BindKey("SKILL2", KeyCode.F2);
+        BindKey("SKILL3", KeyCode.F3);
     }
 
     public void BindKey(string key, KeyCode keyBind)
     {
         Dictionary<string, KeyCode> currentDictionary = Keybinds;
 
-        if (key.Contains("ACT"))
+        if (key.Contains("SKILL"))
         {
             currentDictionary = ActionBinds;
         }
 
-        if (!currentDictionary.ContainsValue(keyBind))
+        if (!currentDictionary.ContainsKey(key))
         {
             currentDictionary.Add(key, keyBind);
             UIManager.MyInstance.UpdateKeyText(key, keyBind);

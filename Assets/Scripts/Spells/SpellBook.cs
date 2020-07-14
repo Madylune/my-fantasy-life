@@ -6,6 +6,20 @@ using UnityEngine.UI;
 
 public class SpellBook : MonoBehaviour
 {
+    private static SpellBook instance;
+
+    public static SpellBook MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<SpellBook>();
+            }
+            return instance;
+        }
+    }
+
     [SerializeField]
     private Image castingBar;
 
@@ -27,25 +41,27 @@ public class SpellBook : MonoBehaviour
     private Coroutine spellRoutine;
     private Coroutine fadeRoutine;
 
-    public Spell CastSpell(int index)
+    public Spell CastSpell(string skillName)
     {
+        Spell spell = Array.Find(spells, x => x.MyName == skillName);
+
         castingBar.fillAmount = 0;
 
-        castingBar.color = spells[index].MyBarColor;
-        spellName.text = spells[index].MyName;
-        icon.sprite = spells[index].MyIcon;
+        castingBar.color = spell.MyBarColor;
+        spellName.text = spell.MyName;
+        icon.sprite = spell.MyIcon;
 
-        spellRoutine = StartCoroutine(Progress(index));
+        spellRoutine = StartCoroutine(Progress(spell));
 
         fadeRoutine = StartCoroutine(FadeBar());
 
-        return spells[index];
+        return spell;
     }
 
-    private IEnumerator Progress(int index)
+    private IEnumerator Progress(Spell spell)
     {
         float timePassed = Time.deltaTime;
-        float rate = 1.0f / spells[index].MyCastTime;
+        float rate = 1.0f / spell.MyCastTime;
         float progress = 0.0f;
 
         while (progress <= 1.0)
@@ -55,9 +71,9 @@ public class SpellBook : MonoBehaviour
             progress += rate * Time.deltaTime;
 
             timePassed += Time.deltaTime;
-            castTime.text = (spells[index].MyCastTime - timePassed).ToString("F2");
+            castTime.text = (spell.MyCastTime - timePassed).ToString("F2");
 
-            if (spells[index].MyCastTime - timePassed < 0)
+            if (spell.MyCastTime - timePassed < 0)
             {
                 castTime.text = "0.00";
             }
@@ -97,5 +113,11 @@ public class SpellBook : MonoBehaviour
             StopCoroutine(spellRoutine);
             spellRoutine = null;
         }
+    }
+
+    public Spell GetSpell(string spellName)
+    {
+        Spell spell = Array.Find(spells, x => x.MyName == spellName);
+        return spell;
     }
 }

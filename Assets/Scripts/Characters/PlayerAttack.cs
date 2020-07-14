@@ -28,9 +28,9 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private IEnumerator Attack(int spellIndex)
+    private IEnumerator Attack(string spellName)
     {
-        Spell spell = spellBook.CastSpell(spellIndex);
+        Spell spell = spellBook.CastSpell(spellName);
 
         magicCircle.SetActive(true);
         yield return new WaitForSeconds(spell.MyCastTime);
@@ -44,13 +44,13 @@ public class PlayerAttack : MonoBehaviour
         StopAttack();
     }
 
-    public void CastSpell(int spellIndex)
+    public void CastSpell(string spellName)
     {
         Block();
 
         if (MyTarget != null && InLineOfSight())
         {
-            attackRoutine = StartCoroutine(Attack(spellIndex));
+            attackRoutine = StartCoroutine(Attack(spellName));
         }
     }
 

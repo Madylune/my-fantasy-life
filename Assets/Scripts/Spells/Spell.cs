@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Spell
+public class Spell : IUseable
 {
   [SerializeField]
   private string name;
@@ -82,4 +82,11 @@ public class Spell
       return barColor;
     }
   }
+
+    Sprite IUseable.MyIcon { get; set; }
+
+    public void Use()
+    {
+        Player.MyInstance.attack.CastSpell(MyName);
+    }
 }
