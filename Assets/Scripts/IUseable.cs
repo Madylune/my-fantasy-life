@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface IUseable
 {
-    Sprite MyIcon { get; set; }
+    Sprite MyIcon { get; }
 
     void Use();
 }

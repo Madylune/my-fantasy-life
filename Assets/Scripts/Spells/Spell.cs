@@ -83,8 +83,6 @@ public class Spell : IUseable
     }
   }
 
-    Sprite IUseable.MyIcon { get; set; }
-
     public void Use()
     {
         Player.MyInstance.attack.CastSpell(MyName);

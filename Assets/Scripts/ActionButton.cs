@@ -8,16 +8,15 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
 
     public Button MyButton { get; private set; }
 
+    public Image MyIcon { get => icon; set => icon = value; }
+
+    [SerializeField]
+    private Image icon;
+
     void Start()
     {
         MyButton = GetComponent<Button>();
         MyButton.onClick.AddListener(OnClick);
-    }
-
-
-    void Update()
-    {
-        
     }
 
     public void OnClick()

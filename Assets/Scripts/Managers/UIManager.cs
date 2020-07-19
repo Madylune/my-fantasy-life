@@ -107,8 +107,8 @@ public class UIManager : MonoBehaviour
 
     public void SetUseable(ActionButton btn, IUseable useable)
     {
-        btn.MyButton.image.sprite = useable.MyIcon;
-        btn.MyButton.image.color = Color.white;
+        btn.MyIcon.sprite = useable.MyIcon;
+        btn.MyIcon.color = Color.white;
 
         btn.MyUseable = useable;
     }
