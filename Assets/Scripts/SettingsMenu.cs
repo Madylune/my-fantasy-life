@@ -11,8 +11,17 @@ public class SettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
+    public Slider musicSlider;
+    public Slider soundSlider;
+
     private void Start() 
     {
+        audioMixer.GetFloat("Music", out float musicValue);
+        musicSlider.value = musicValue;
+
+        audioMixer.GetFloat("Sound", out float soundValue);
+        soundSlider.value = soundValue;
+
         resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
         resolutionDropdown.ClearOptions();
         

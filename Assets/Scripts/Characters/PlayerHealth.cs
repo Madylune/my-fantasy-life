@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     
     public HealthBar healthBar;
 
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+
     public static PlayerHealth instance;
 
     private void Awake() 
@@ -42,11 +45,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if ((currentHealth - damage) < 0)
         {
+            AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
             currentHealth = 0;
             Die();
         }
         else
         {
+            AudioManager.MyInstance.PlayClipAt(hitSound, transform.position);
             currentHealth -= damage;
         }
         healthBar.SetHealth(currentHealth);

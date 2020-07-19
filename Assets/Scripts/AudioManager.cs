@@ -1,11 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    private static AudioManager instance;
+
+    public static AudioManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<AudioManager>();
+            }
+            return instance;
+        }
+    }
+
     public AudioClip[] playlist;
     public AudioSource audioSource;
     private string sceneName;
+
+    public AudioMixerGroup soundEffectMixer;
 
     private void Awake() 
     {
@@ -49,5 +66,25 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.clip = playlist[index];
         audioSource.Play();
+    }
+
+    public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
+    {
+        // Create a temporary empty Game Object
+        GameObject tempGO = new GameObject("TempAudio");
+
+        tempGO.transform.position = pos;
+
+        // Add a component AudioSource to the GameObject
+        AudioSource audioSource = tempGO.AddComponent<AudioSource>();
+
+        audioSource.clip = clip;
+        audioSource.outputAudioMixerGroup = soundEffectMixer;
+        audioSource.Play();
+
+        // Destroy this GO after playing sound
+        Destroy(tempGO, clip.length);
+
+        return audioSource;
     }
 }

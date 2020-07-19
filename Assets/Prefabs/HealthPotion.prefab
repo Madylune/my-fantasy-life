@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemButton: {fileID: 7977236839982167071, guid: b56696f29aee04358a8e43de920a6b5d,
     type: 3}
+  sound: {fileID: 8300000, guid: 04aaa9b70ee7dce42a52ec18a5229d57, type: 3}
 --- !u!58 &868392798
 CircleCollider2D:
   m_ObjectHideFlags: 0

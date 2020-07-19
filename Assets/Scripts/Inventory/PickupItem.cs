@@ -4,7 +4,7 @@ public class PickupItem : MonoBehaviour
 {
     private Inventory inventory;
     public GameObject itemButton;
-    public AudioSource audioSource;
+
     public AudioClip sound;
 
     private void Start() 
@@ -16,7 +16,7 @@ public class PickupItem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            audioSource.PlayOneShot(sound);
+            AudioManager.MyInstance.PlayClipAt(sound, transform.position);
 
             for (int i = 0; i < inventory.slots.Length; i++)
             {
