@@ -31,9 +31,6 @@ public class UIManager : MonoBehaviour
 
     private Stats stats;
 
-    [SerializeField]
-    private CanvasGroup keybindsPanel;
-
     private GameObject[] keybindsButtons;
 
     private void Awake() 
@@ -87,11 +84,10 @@ public class UIManager : MonoBehaviour
         targetHealthBar.SetHealth(stats.currentHealth);
     }
 
-    public void TogglePanel()
+    public void TogglePanel(CanvasGroup canvasGroup)
     {
-        keybindsPanel.alpha = keybindsPanel.alpha > 0 ? 0 : 1;
-        keybindsPanel.blocksRaycasts = keybindsPanel.blocksRaycasts == true ? false : true; 
-        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
+        canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true; 
     }
 
     public void UpdateKeyText(string key, KeyCode code)

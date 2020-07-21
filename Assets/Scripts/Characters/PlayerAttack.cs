@@ -12,12 +12,9 @@ public class PlayerAttack : MonoBehaviour
 
     private PlayerMovement movement;
 
-    private SpellBook spellBook;
-
     private void Start() 
     {
         movement = GetComponent<PlayerMovement>();
-        spellBook = GetComponent<SpellBook>();
     }
 
     private void Update() 
@@ -30,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
 
     private IEnumerator Attack(string spellName)
     {
-        Spell spell = spellBook.CastSpell(spellName);
+        Spell spell = SpellBook.MyInstance.CastSpell(spellName);
 
         magicCircle.SetActive(true);
         yield return new WaitForSeconds(spell.MyCastTime);
@@ -83,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void StopAttack()
     {
-        spellBook.StopCasting();
+        SpellBook.MyInstance.StopCasting();
         magicCircle.SetActive(false);
 
         if (attackRoutine != null)
