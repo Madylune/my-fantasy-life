@@ -45,10 +45,6 @@ public class UIManager : MonoBehaviour
         {
             targetHealthBar.SetMaxHealth(stats.maxHealth);
         }
-
-        SetUseable(actionButtons[0], SpellBook.MyInstance.GetSpell("Fireball"));
-        SetUseable(actionButtons[1], SpellBook.MyInstance.GetSpell("Lightningbolt"));
-        SetUseable(actionButtons[2], SpellBook.MyInstance.GetSpell("Waterball"));
     }
 
     private void Update() 
@@ -99,13 +95,5 @@ public class UIManager : MonoBehaviour
     public void ClickActionButton(string buttonName)
     {
         Array.Find(actionButtons, x => x.gameObject.name == buttonName).MyButton.onClick.Invoke();
-    }
-
-    public void SetUseable(ActionButton btn, IUseable useable)
-    {
-        btn.MyIcon.sprite = useable.MyIcon;
-        btn.MyIcon.color = Color.white;
-
-        btn.MyUseable = useable;
     }
 }
