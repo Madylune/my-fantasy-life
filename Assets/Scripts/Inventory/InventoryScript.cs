@@ -49,6 +49,13 @@ public class InventoryScript : MonoBehaviour
             bag.Initialize(6);
             bag.Use();
         }
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Bag bag = (Bag)Instantiate(items[0]);
+            bag.Initialize(6);
+            AddItem(bag);
+        }
     }
 
     public void AddBag(Bag bag)
@@ -61,6 +68,17 @@ public class InventoryScript : MonoBehaviour
                 bags.Add(bag);
 
                 break;
+            }
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        foreach (Bag bag in bags)
+        {
+            if (bag.MyBagScript.AddItem(item))
+            {
+                return;
             }
         }
     }
