@@ -50,11 +50,17 @@ public class InventoryScript : MonoBehaviour
             bag.Use();
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V)) // Debugging: Add a bag to the inventory
         {
             Bag bag = (Bag)Instantiate(items[0]);
             bag.Initialize(6);
             AddItem(bag);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) // Debugging: Add a potion to the inventory
+        {
+            HealthPotion healthPotion = (HealthPotion)Instantiate(items[1]);
+            AddItem(healthPotion);
         }
     }
 

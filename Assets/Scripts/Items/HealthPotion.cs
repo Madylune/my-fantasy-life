@@ -1,24 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HealthPotion : MonoBehaviour
+[CreateAssetMenu(fileName = "HealthPotion", menuName = "Items/Potion", order = 1)]
+public class HealthPotion : Item, IUseable
 {
-    // public GameObject effect;
-    private Transform player;
-
-    public int potionsHealthPoints = 10;
-    public KeyCode keyCode;
-
-    private void Start() 
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;   
-    }
+    [SerializeField]
+    private int health;
 
     public void Use()
     {
-        PlayerHealth playerHealth = player.transform.GetComponent<PlayerHealth>();
-        playerHealth.HealPlayer(potionsHealthPoints);
-        Destroy(gameObject);
+        if (Player.MyInstance.health.currentHealth < Player.MyInstance.health.maxHealth)
+        {
+            Remove();
+
+            Player.MyInstance.health.HealPlayer(health);
+        }
     }
 }
