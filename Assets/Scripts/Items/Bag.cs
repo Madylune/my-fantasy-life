@@ -21,6 +21,7 @@ public class Bag : Item, IUseable
     {
         if (InventoryScript.MyInstance.canAddBag)
         {
+            Remove();
             MyBagScript = Instantiate(bagPrefab, InventoryScript.MyInstance.transform).GetComponent<BagScript>();
             MyBagScript.AddSlots(slots);
 

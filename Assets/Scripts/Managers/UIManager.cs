@@ -96,4 +96,12 @@ public class UIManager : MonoBehaviour
     {
         Array.Find(actionButtons, x => x.gameObject.name == buttonName).MyButton.onClick.Invoke();
     }
+
+    public void UpdateStackSize(IClickable clickable)
+    {
+        if (clickable.MyCount == 0)
+        {
+            clickable.MyIcon.color = new Color(0, 0, 0, 0);
+        }
+    }
 }
