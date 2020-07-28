@@ -12,7 +12,7 @@ public abstract class Item : ScriptableObject // Not having attached GO
 
     public Sprite MyIcon { get => icon; }
 
-    public int StackSize { get => stackSize; }
+    public int MyStackSize { get => stackSize; }
 
     public SlotScript MySlot { get => slot; set => slot = value; }
 
