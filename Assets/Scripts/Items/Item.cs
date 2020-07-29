@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Item : ScriptableObject // Not having attached GO 
+public abstract class Item : ScriptableObject, IMoveable //ScriptableObject: Not having attached GO 
 {
     [SerializeField]
     private Sprite icon;

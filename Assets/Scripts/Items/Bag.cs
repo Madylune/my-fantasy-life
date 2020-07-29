@@ -19,7 +19,7 @@ public class Bag : Item, IUseable
 
     public void Use()
     {
-        if (InventoryScript.MyInstance.canAddBag)
+        if (InventoryScript.MyInstance.CanAddBag)
         {
             Remove();
             MyBagScript = Instantiate(bagPrefab, InventoryScript.MyInstance.transform).GetComponent<BagScript>();

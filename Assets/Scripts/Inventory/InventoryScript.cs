@@ -17,6 +17,8 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
+    private SlotScript fromSlot;
+
     private List<Bag> bags = new List<Bag>();
 
     [SerializeField]
@@ -26,11 +28,26 @@ public class InventoryScript : MonoBehaviour
     [SerializeField]
     private Item[] items;
 
-    public bool canAddBag
+    public bool CanAddBag
     {
         get
         {
             return bags.Count < 5;
+        }
+    }
+
+    public SlotScript FromSlot
+    {
+        get => fromSlot;
+
+        set
+        {
+            fromSlot = value;
+
+            if (value != null)
+            {
+                fromSlot.MyIcon.color = Color.grey;
+            }
         }
     }
 
@@ -43,13 +60,6 @@ public class InventoryScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Bag bag = (Bag)Instantiate(items[0]);
-            bag.Initialize(6);
-            bag.Use();
-        }
-
         if (Input.GetKeyDown(KeyCode.V)) // Debugging: Add a bag to the inventory
         {
             Bag bag = (Bag)Instantiate(items[0]);
