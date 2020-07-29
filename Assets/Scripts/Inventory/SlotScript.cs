@@ -124,6 +124,14 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         }
     }
 
+    public void Clear()
+    {
+        if (items.Count > 0)
+        {
+            items.Clear();
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
