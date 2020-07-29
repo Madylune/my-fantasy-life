@@ -108,6 +108,7 @@ public class UIManager : MonoBehaviour
         else
         {
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
+            clickable.MyIcon.color = Color.white;
         }
 
         if (clickable.MyCount == 0) // Hide the icon and stack text if the slot is empty

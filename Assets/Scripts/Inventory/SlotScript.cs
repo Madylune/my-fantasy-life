@@ -135,7 +135,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
             }
             else if (InventoryScript.MyInstance.FromSlot != null) //If we have something to move
             {
-                if (PutItemBack() || SwapItems(InventoryScript.MyInstance.FromSlot) || AddItems(InventoryScript.MyInstance.FromSlot.items))
+                if (PutItemBack() || MergeItems(InventoryScript.MyInstance.FromSlot) || SwapItems(InventoryScript.MyInstance.FromSlot) || AddItems(InventoryScript.MyInstance.FromSlot.items))
                 {
                     HandScript.MyInstance.Drop();
                     InventoryScript.MyInstance.FromSlot = null;
@@ -200,6 +200,27 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
             items.Clear();
             // Move items from ACopy to slot B
             AddItems(tmpFrom);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool MergeItems(SlotScript from)
+    {
+        if (IsEmpty)
+        {
+            return false;
+        }
+        if (from.MyItem.GetType() == MyItem.GetType() && !IsFull)
+        {
+            int freeSlots = MyItem.MyStackSize - MyCount;
+
+            for (int i = 0; i < freeSlots; i++)
+            {
+                AddItem(from.items.Pop());
+            }
 
             return true;
         }
