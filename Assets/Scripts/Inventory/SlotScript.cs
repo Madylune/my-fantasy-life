@@ -13,11 +13,13 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     [SerializeField]
     private Text stackSize;
 
+    public BagScript MyBag { get; set; }
+
     public bool IsEmpty
     {
         get
         {
-            return items.Count == 0;
+            return MyItems.Count == 0;
         }
     }
 
@@ -40,7 +42,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         {
             if (!IsEmpty)
             {
-                return items.Peek();
+                return MyItems.Peek();
             }
 
             return null;
@@ -64,7 +66,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     {
         get
         {
-            return items.Count;
+            return MyItems.Count;
         }
     }
 
@@ -76,16 +78,18 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         }
     }
 
+    public ObservableStack<Item> MyItems { get => items; }
+
     private void Awake()
     {
-        items.OnPop += new UpdateStackEvent(UpdateSlot);
-        items.OnPush += new UpdateStackEvent(UpdateSlot);
-        items.OnClear += new UpdateStackEvent(UpdateSlot);
+        MyItems.OnPop += new UpdateStackEvent(UpdateSlot);
+        MyItems.OnPush += new UpdateStackEvent(UpdateSlot);
+        MyItems.OnClear += new UpdateStackEvent(UpdateSlot);
     }
 
     public bool AddItem(Item item)
     {
-        items.Push(item);
+        MyItems.Push(item);
         icon.sprite = item.MyIcon;
         icon.color = Color.white;
 
@@ -120,15 +124,15 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     {
         if (!IsEmpty)
         {
-            items.Pop();
+            MyItems.Pop();
         }
     }
 
     public void Clear()
     {
-        if (items.Count > 0)
+        if (MyItems.Count > 0)
         {
-            items.Clear();
+            MyItems.Clear();
         }
     }
 
@@ -143,7 +147,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
             }
             else if (InventoryScript.MyInstance.FromSlot != null) //If we have something to move
             {
-                if (PutItemBack() || MergeItems(InventoryScript.MyInstance.FromSlot) || SwapItems(InventoryScript.MyInstance.FromSlot) || AddItems(InventoryScript.MyInstance.FromSlot.items))
+                if (PutItemBack() || MergeItems(InventoryScript.MyInstance.FromSlot) || SwapItems(InventoryScript.MyInstance.FromSlot) || AddItems(InventoryScript.MyInstance.FromSlot.MyItems))
                 {
                     HandScript.MyInstance.Drop();
                     InventoryScript.MyInstance.FromSlot = null;
@@ -166,9 +170,9 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 
     public bool StackItem(Item item)
     {
-        if (!IsEmpty && item.name == MyItem.name && items.Count < MyItem.MyStackSize)
+        if (!IsEmpty && item.name == MyItem.name && MyItems.Count < MyItem.MyStackSize)
         {
-            items.Push(item);
+            MyItems.Push(item);
             item.MySlot = this;
             return true;
         }
@@ -197,15 +201,15 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
         if (from.MyItem.GetType() != MyItem.GetType() || from.MyCount+MyCount > MyItem.MyStackSize)
         {
             // Copy all the items we need to swap from slot A
-            ObservableStack<Item> tmpFrom = new ObservableStack<Item>(from.items);
+            ObservableStack<Item> tmpFrom = new ObservableStack<Item>(from.MyItems);
 
             // Clear slot A
-            from.items.Clear();
+            from.MyItems.Clear();
             // All items  from slot B and copy them into slot A
-            from.AddItems(items);
+            from.AddItems(MyItems);
 
             // Clear slot B
-            items.Clear();
+            MyItems.Clear();
             // Move items from ACopy to slot B
             AddItems(tmpFrom);
 
@@ -227,7 +231,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
 
             for (int i = 0; i < freeSlots; i++)
             {
-                AddItem(from.items.Pop());
+                AddItem(from.MyItems.Pop());
             }
 
             return true;

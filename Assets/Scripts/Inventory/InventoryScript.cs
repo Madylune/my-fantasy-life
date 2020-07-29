@@ -36,6 +36,44 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
+    public int MyEmptySlotCount
+    {
+        get
+        {
+            int count = 0;
+
+            foreach (Bag bag in bags)
+            {
+                count += bag.MyBagScript.MyEmptySlotCount;
+            }
+
+            return count;
+        }
+    }
+
+    public int MyTotalSlotCount
+    {
+        get
+        {
+            int count = 0;
+
+            foreach (Bag bag in bags)
+            {
+                count += bag.MyBagScript.MySlots.Count;
+            }
+
+            return count;
+        }
+    }
+
+    public int MyFullSlotCount
+    {
+        get
+        {
+            return MyTotalSlotCount - MyEmptySlotCount;
+        }
+    }
+
     public SlotScript FromSlot
     {
         get => fromSlot;
@@ -82,6 +120,7 @@ public class InventoryScript : MonoBehaviour
             {
                 bagButton.MyBag = bag;
                 bags.Add(bag);
+                bag.MyBagButton = bagButton;
 
                 break;
             }
@@ -126,5 +165,26 @@ public class InventoryScript : MonoBehaviour
         }
 
         return false;
+    }
+
+    public Stack<IUseable> GetUseables(IUseable type)
+    {
+        Stack<IUseable> useables = new Stack<IUseable>();
+
+        foreach (Bag bag in bags)
+        {
+            foreach (SlotScript slot in bag.MyBagScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.GetType() == type.GetType())
+                {
+                    foreach (Item item in slot.MyItems)
+                    {
+                        useables.Push(item as IUseable);
+                    }
+                }
+            }
+        }
+
+        return useables;
     }
 }
