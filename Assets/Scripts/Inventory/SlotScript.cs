@@ -124,7 +124,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     {
         if (!IsEmpty)
         {
-            MyItems.Pop();
+            InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
         }
     }
 
@@ -132,6 +132,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
     {
         if (MyItems.Count > 0)
         {
+            InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
             MyItems.Clear();
         }
     }

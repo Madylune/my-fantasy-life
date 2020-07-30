@@ -1,8 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// To create an event to trigger items count
+public delegate void ItemCountChanged(Item item);
+
 public class InventoryScript : MonoBehaviour
 {
+    public event ItemCountChanged itemCountChangedEvent;
+
     private static InventoryScript instance;
 
     public static InventoryScript MyInstance
@@ -146,6 +151,7 @@ public class InventoryScript : MonoBehaviour
         {
             if (bag.MyBagScript.AddItem(item))
             {
+                OnItemCountChanged(item);
                 return;
             }
         }
@@ -157,8 +163,9 @@ public class InventoryScript : MonoBehaviour
         {
             foreach (SlotScript slots in bag.MyBagScript.MySlots)
             {
-                if (slots.StackItem(item))
+                if (slots.StackItem(item)) // Try to stack the item
                 {
+                    OnItemCountChanged(item);
                     return true;
                 }
             }
@@ -186,5 +193,13 @@ public class InventoryScript : MonoBehaviour
         }
 
         return useables;
+    }
+
+    public void OnItemCountChanged(Item item)
+    {
+        if (itemCountChangedEvent != null)
+        {
+            itemCountChangedEvent.Invoke(item);
+        }
     }
 }

@@ -3,17 +3,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ActionButton : MonoBehaviour, IPointerClickHandler
+public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable
 {
     public IUseable MyUseable { get; set; }
 
-    private Stack<IUseable> useables;
+    [SerializeField]
+    private Text stackSize;
+
+    private Stack<IUseable> useables = new Stack<IUseable>();
 
     private int count;
 
     public Button MyButton { get; private set; }
 
     public Image MyIcon { get => icon; set => icon = value; }
+
+    public int MyCount { get => count; }
+
+    public Text MyStackText { get => stackSize; }
 
     [SerializeField]
     private Image icon;
@@ -22,6 +29,8 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
     {
         MyButton = GetComponent<Button>();
         MyButton.onClick.AddListener(OnClick);
+
+        InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
     }
 
     public void OnClick()
@@ -35,7 +44,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
 
             if (useables != null && useables.Count > 0) // If we have something in the stack
             {
-                useables.Pop().Use();
+                useables.Peek().Use();
             }
         }
     }
@@ -73,5 +82,25 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
     {
         MyIcon.sprite = HandScript.MyInstance.Put().MyIcon;
         MyIcon.color = Color.white;
+
+        if (count > 1)
+        {
+            UIManager.MyInstance.UpdateStackSize(this);
+        }
+    }
+
+    public void UpdateItemCount(Item item)
+    {
+        if (item is IUseable && useables.Count > 0)
+        {
+            if (useables.Peek().GetType() == item.GetType())
+            {
+                useables = InventoryScript.MyInstance.GetUseables(item as IUseable);
+
+                count = useables.Count;
+
+                UIManager.MyInstance.UpdateStackSize(this);
+            }
+        }
     }
 }
