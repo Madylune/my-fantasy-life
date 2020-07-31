@@ -38,6 +38,9 @@ public class KeybindsManager : MonoBehaviour
         BindKey("SKILL1", KeyCode.F1);
         BindKey("SKILL2", KeyCode.F2);
         BindKey("SKILL3", KeyCode.F3);
+        BindKey("SKILL4", KeyCode.F4);
+        BindKey("SKILL5", KeyCode.F5);
+        BindKey("SKILL6", KeyCode.F6);
     }
 
     public void BindKey(string key, KeyCode keyBind)
