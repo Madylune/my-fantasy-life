@@ -24,6 +24,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject targetFrame;
 
+    [SerializeField]
+    private GameObject tooltip;
+
     public Text targetName;
     public Text targetLevel;
     public Image targetIcon;
@@ -116,5 +119,10 @@ public class UIManager : MonoBehaviour
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public void ToggleTooltip(bool param)
+    {
+        tooltip.SetActive(param);
     }
 }
