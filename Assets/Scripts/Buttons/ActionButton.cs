@@ -106,18 +106,27 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (MyUseable != null)
+        IDescribable tmp = null;
+
+        if (MyUseable != null && MyUseable is IDescribable)
         {
+            tmp = (IDescribable)MyUseable;
+
             //UIManager.MyInstance.ToggleTooltip(true, transform.position);
         }
         else if (useables.Count > 0)
         {
             //UIManager.MyInstance.ToggleTooltip(true, transform.position);
         }
+
+        if (tmp != null)
+        {
+            UIManager.MyInstance.ShowTooltip(transform.position, tmp);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //UIManager.MyInstance.ToggleTooltip(false, transform.position);
+        UIManager.MyInstance.HideTooltip();
     }
 }

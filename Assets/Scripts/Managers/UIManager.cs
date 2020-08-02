@@ -125,10 +125,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleTooltip(bool param, Vector3 position, IDescribable description)
+    public void ShowTooltip(Vector3 position, IDescribable description)
     {
-        tooltip.SetActive(param);
+        tooltip.SetActive(true);
         tooltip.transform.position = position;
         tooltipText.text = description.GetDescription();
+    }
+
+    public void HideTooltip()
+    {
+        tooltip.SetActive(false);
     }
 }

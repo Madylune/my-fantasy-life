@@ -13882,6 +13882,7 @@ MonoBehaviour:
     castTime: 2
     spellPrefab: {fileID: 1326474511052640201, guid: 9ad2b3f9045374102b2309aac8851af1,
       type: 3}
+    description: Hits the targeted enemy with 1 fire ball.
     barColor: {r: 0.9686275, g: 0.7843138, b: 0.5686275, a: 1}
   - name: Lightningbolt
     damage: 20
@@ -13890,6 +13891,7 @@ MonoBehaviour:
     castTime: 1
     spellPrefab: {fileID: 1326474511052640201, guid: bca6fd80e0a8746aab95a0df3f63cf1a,
       type: 3}
+    description: Hits the targeted enemy with 1 lightning bolt
     barColor: {r: 0.80392164, g: 0.6431373, b: 0.9450981, a: 1}
   - name: Waterball
     damage: 30
@@ -13898,6 +13900,7 @@ MonoBehaviour:
     castTime: 1.5
     spellPrefab: {fileID: 1326474511052640201, guid: 155770983f3e64b3cbcd7f1902265b1f,
       type: 3}
+    description: Hits the targeted enemy with 1 water ball
     barColor: {r: 0.74509805, g: 0.909804, b: 0.98823535, a: 1}
 --- !u!225 &480649966
 CanvasGroup:
