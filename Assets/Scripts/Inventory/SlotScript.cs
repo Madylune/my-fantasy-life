@@ -250,12 +250,12 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     {
         if (!IsEmpty)
         {
-            UIManager.MyInstance.ToggleTooltip(true, transform.position);
+            UIManager.MyInstance.ToggleTooltip(true, transform.position, MyItem);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        UIManager.MyInstance.ToggleTooltip(false, transform.position);
+        UIManager.MyInstance.ToggleTooltip(false, transform.position, MyItem);
     }
 }

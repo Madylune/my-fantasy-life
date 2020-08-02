@@ -33,4 +33,9 @@ public class Bag : Item, IUseable
             }
         }
     }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\nThis bag can add {0} empty slots in your inventory.", slots);
+    }
 }

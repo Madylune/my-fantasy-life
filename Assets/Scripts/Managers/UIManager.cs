@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject tooltip;
 
+    private Text tooltipText;
+
     public Text targetName;
     public Text targetLevel;
     public Image targetIcon;
@@ -39,6 +41,8 @@ public class UIManager : MonoBehaviour
     private void Awake() 
     {
         keybindsButtons = GameObject.FindGameObjectsWithTag("Keybind");
+
+        tooltipText = tooltip.GetComponentInChildren<Text>();
     }
 
     private void Start() 
@@ -121,9 +125,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleTooltip(bool param, Vector3 position)
+    public void ToggleTooltip(bool param, Vector3 position, IDescribable description)
     {
         tooltip.SetActive(param);
         tooltip.transform.position = position;
+        tooltipText.text = description.GetDescription();
     }
 }

@@ -15,4 +15,9 @@ public class HealthPotion : Item, IUseable
             Player.MyInstance.health.HealPlayer(health);
         }
     }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\nThis potion was made with red herbs and can restore about {0} HP.", health);
+    }
 }
