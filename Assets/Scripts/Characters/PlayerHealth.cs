@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     
     public HealthBar healthBar;
+
+    public GameObject heartEffect;
+
+    private Coroutine effectRoutine;
 
     public AudioClip hitSound;
     public AudioClip deathSound;
@@ -39,6 +44,17 @@ public class PlayerHealth : MonoBehaviour
             currentHealth += amount;
         }
         healthBar.SetHealth(currentHealth);
+        effectRoutine = StartCoroutine(ShowHealAnimation());
+    }
+
+    private IEnumerator ShowHealAnimation()
+    {
+        heartEffect.SetActive(true);
+
+        yield return new WaitForSeconds(1);
+
+        heartEffect.SetActive(false);
+        StopCoroutine(effectRoutine);
     }
 
     public void TakeDamage(int damage)
