@@ -115,6 +115,16 @@ public class InventoryScript : MonoBehaviour
             HealthPotion healthPotion = (HealthPotion)Instantiate(items[1]);
             AddItem(healthPotion);
         }
+
+        if (Input.GetKeyDown(KeyCode.M)) // Debugging: Add armors
+        {
+            AddItem((Armor)Instantiate(items[2])); //Armor
+            AddItem((Armor)Instantiate(items[3])); //Footgears
+            AddItem((Armor)Instantiate(items[4])); //Garment
+            AddItem((Armor)Instantiate(items[5])); //Headgears
+            AddItem((Armor)Instantiate(items[6])); //Shield
+            AddItem((Armor)Instantiate(items[7])); //Accessories
+        }
     }
 
     public void AddBag(Bag bag)
