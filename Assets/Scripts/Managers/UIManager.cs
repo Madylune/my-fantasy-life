@@ -121,8 +121,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleTooltip(bool param)
+    public void ToggleTooltip(bool param, Vector3 position)
     {
         tooltip.SetActive(param);
+        tooltip.transform.position = position;
     }
 }
