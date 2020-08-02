@@ -11,6 +11,9 @@ public abstract class Character : MonoBehaviour
 
     private Stats stats;
 
+    [SerializeField]
+    private GameObject lootsPrefab;
+
     private void Start() 
     {
         stats = GetComponent<Stats>();
@@ -31,6 +34,9 @@ public abstract class Character : MonoBehaviour
 
     public void Die()
     {
+        // Show loots sprite
+        Instantiate(lootsPrefab, transform.position, transform.rotation);
+
         Destroy(gameObject);
         UIManager.MyInstance.HideTargetFrame();
     }
