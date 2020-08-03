@@ -22,9 +22,13 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable //Scripta
 
     public SlotScript MySlot { get => slot; set => slot = value; }
 
+    public Quality MyQuality { get => quality; }
+
+    public string MyTitle { get => title; }
+
     public virtual string GetDescription()
     {
-        return string.Format("<color={0}>{1}</color>", QualityColor.MyColors[quality], title);
+        return string.Format("<color={0}>{1}</color>", QualityColor.MyColors[MyQuality], MyTitle);
     }
 
     public void Remove()
