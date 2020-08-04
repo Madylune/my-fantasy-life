@@ -112,4 +112,22 @@ public class LootPanel : MonoBehaviour
             AddLoot();
         }
     }
+
+    public void TakeLoot(Item loot)
+    {
+        pages[pageIndex].Remove(loot);
+
+        if (pages[pageIndex].Count == 0) // Go back to the previous page if no item
+        {
+            // Remove the empty page
+            pages.Remove(pages[pageIndex]);
+
+            if (pageIndex == pages.Count && pageIndex > 0) // If the page is the last page and is not the first one
+            {
+                pageIndex--;
+            }
+
+            AddLoot();
+        }
+    }
 }

@@ -26780,7 +26780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 1043572066}
-  lootsPrefab: {fileID: 0}
+  gravePrefab: {fileID: 0}
   canvasGroup: {fileID: 1300496425}
   speed: 0
   atk: 0
@@ -38628,6 +38628,7 @@ GameObject:
   - component: {fileID: 1687826544}
   - component: {fileID: 1687826543}
   - component: {fileID: 1687826545}
+  - component: {fileID: 1687826546}
   m_Layer: 5
   m_Name: LootPanel
   m_TagString: Untagged
@@ -38723,6 +38724,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f8d7f7d6d33945ae8e02b4cba368b2f, type: 2}
   - {fileID: 11400000, guid: 88b9e031b4bf64c5ca403700ba5125ac, type: 2}
   - {fileID: 11400000, guid: a8a83a1f801014740833e5ea9d6be94c, type: 2}
+--- !u!225 &1687826546
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687826541}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1691315500
 GameObject:
   m_ObjectHideFlags: 0
@@ -56162,11 +56175,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 788243809}
+        m_MethodName: TogglePanel
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 718979091}
+          m_ObjectArgument: {fileID: 1687826546}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -56663,6 +56676,12 @@ PrefabInstance:
     - target: {fileID: 3245463980073523642, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: lootsPrefab
+      value: 
+      objectReference: {fileID: 8125104367984308153, guid: 4f62e122ec7d74938a696f78fe82d1fd,
+        type: 3}
+    - target: {fileID: 3245463980073523642, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: gravePrefab
       value: 
       objectReference: {fileID: 8125104367984308153, guid: 4f62e122ec7d74938a696f78fe82d1fd,
         type: 3}

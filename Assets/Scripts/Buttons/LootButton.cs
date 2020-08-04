@@ -10,11 +10,18 @@ public class LootButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField]
     private Text title;
 
+    private LootPanel lootPanel;
+
     public Image MyIcon { get => icon; }
 
     public Text MyTitle { get => title; }
 
     public Item MyLoot { get; set; }
+
+    private void Awake()
+    {
+        lootPanel = GetComponentInParent<LootPanel>();
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -22,6 +29,7 @@ public class LootButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (InventoryScript.MyInstance.AddItem(MyLoot))
         {
             gameObject.SetActive(false);
+            lootPanel.TakeLoot(MyLoot);
             UIManager.MyInstance.HideTooltip();
         }
     }

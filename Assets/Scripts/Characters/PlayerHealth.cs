@@ -61,13 +61,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if ((currentHealth - damage) < 0)
         {
-            AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
             currentHealth = 0;
             Die();
         }
         else
         {
-            AudioManager.MyInstance.PlayClipAt(hitSound, transform.position);
+            //AudioManager.MyInstance.PlayClipAt(hitSound, transform.position);
             currentHealth -= damage;
         }
         healthBar.SetHealth(currentHealth);
@@ -75,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
         GameOverManager.instance.OnPlayerDeath();
     }
 }

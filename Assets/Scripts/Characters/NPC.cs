@@ -13,4 +13,10 @@ public class NPC : Character
     {
         return hitBox;
     }
+
+    public virtual void Interact()
+    {
+        // Not implemented
+        Debug.Log("This will open a dialogue with the NPC");
+    }
 }

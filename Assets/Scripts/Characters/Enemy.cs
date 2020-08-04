@@ -81,4 +81,10 @@ public class Enemy : NPC
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         playerHealth.TakeDamage(atk);
     }
+
+    public override void Interact()
+    {
+        // Loot
+
+    }
 }

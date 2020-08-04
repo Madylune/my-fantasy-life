@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
     private Stats stats;
 
     [SerializeField]
-    private GameObject lootsPrefab;
+    private GameObject gravePrefab;
 
     private void Start() 
     {
@@ -34,8 +34,8 @@ public abstract class Character : MonoBehaviour
 
     public void Die()
     {
-        // Show loots sprite
-        Instantiate(lootsPrefab, transform.position, transform.rotation);
+        // Show grave
+        Instantiate(gravePrefab, transform.position, transform.rotation);
 
         Destroy(gameObject);
         UIManager.MyInstance.HideTargetFrame();
