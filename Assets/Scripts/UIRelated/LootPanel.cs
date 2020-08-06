@@ -4,11 +4,29 @@ using UnityEngine.UI;
 
 public class LootPanel : MonoBehaviour
 {
+    private static LootPanel instance;
+
+    public static LootPanel MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LootPanel>();
+            }
+            return instance;
+        }
+    }
+
     [SerializeField]
     private LootButton[] lootButtons;
 
+    private CanvasGroup canvasGroup;
+
     // Contains pages of items
     private List<List<Item>> pages = new List<List<Item>>();
+
+    private List<Item> droppedLoot = new List<Item>();
 
     private int pageIndex = 0;
 
@@ -22,35 +40,44 @@ public class LootPanel : MonoBehaviour
     [SerializeField]
     private Item[] items;
 
-    void Start()
+    public bool IsOpen
     {
-        // For debugging
-        List<Item> tmp = new List<Item>();
-        for (int i = 0; i < items.Length; i++)
+        get
         {
-            tmp.Add(items[i]);
+            return canvasGroup.alpha > 0;
         }
+    }
 
-        CreatePages(tmp);
+    private void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void CreatePages(List<Item> items)
     {
-        List<Item> page = new List<Item>();
-
-        for (int i = 0; i < items.Count; i++)
+        if (!IsOpen)
         {
-            page.Add(items[i]);
+            List<Item> page = new List<Item>();
 
-            if (page.Count == 4 || i == items.Count -1) // Full items on page
+            droppedLoot = items;
+
+            for (int i = 0; i < items.Count; i++)
             {
-                // Add a new page
-                pages.Add(page);
-                page = new List<Item>();
-            }
-        }
+                page.Add(items[i]);
 
-        AddLoot();
+                if (page.Count == 4 || i == items.Count -1) // Full items on page
+                {
+                    // Add a new page
+                    pages.Add(page);
+                    page = new List<Item>();
+                }
+            }
+
+            AddLoot();
+
+            OpenPanel();
+
+        }
     }
 
     private void AddLoot()
@@ -117,6 +144,8 @@ public class LootPanel : MonoBehaviour
     {
         pages[pageIndex].Remove(loot);
 
+        droppedLoot.Remove(loot);
+
         if (pages[pageIndex].Count == 0) // Go back to the previous page if no item
         {
             // Remove the empty page
@@ -129,5 +158,22 @@ public class LootPanel : MonoBehaviour
 
             AddLoot();
         }
+    }
+
+    public void ClosePanel()
+    {
+        pages.Clear();
+
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
+
+        ClearPage();
+    }
+
+
+    public void OpenPanel()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.blocksRaycasts = true;
     }
 }

@@ -14,7 +14,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private GameObject gravePrefab;
 
-    private void Start() 
+    private void Start()
     {
         stats = GetComponent<Stats>();
     }
@@ -35,7 +35,10 @@ public abstract class Character : MonoBehaviour
     public void Die()
     {
         // Show grave
-        Instantiate(gravePrefab, transform.position, transform.rotation);
+        GameObject grave = Instantiate(gravePrefab, transform.position, transform.rotation);
+
+        // Send to GraveScript the LootTable from the Enemy
+        grave.GetComponent<GraveScript>().SetLoot(gameObject.GetComponent<LootTable>());
 
         Destroy(gameObject);
         UIManager.MyInstance.HideTargetFrame();
