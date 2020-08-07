@@ -22,6 +22,8 @@ public class CharacterPanel : MonoBehaviour
     [SerializeField]
     private EquipButton head, body, leftHand, rightHand, garment, shoes, leftAccessory, rightAccessory;
 
+    public EquipButton MySelectedButton { get; set; }
+
     public void EquipArmor(Armor armor)
     {
         switch (armor.MyArmorType)
@@ -45,10 +47,10 @@ public class CharacterPanel : MonoBehaviour
             case ArmorType.Head:
                 head.EquipArmor(armor);
                 break;
-            case ArmorType.LeftHand:
+            case ArmorType.LHand:
                 leftHand.EquipArmor(armor);
                 break;
-            case ArmorType.RightHand:
+            case ArmorType.RHand:
                 rightHand.EquipArmor(armor);
                 break;
             case ArmorType.Shoes:

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-enum ArmorType { Body, LeftHand, RightHand, Garment, Shoes, Accessory, Head }
+enum ArmorType { Body, LHand, RHand, Garment, Shoes, Accessory, Head }
 
 [CreateAssetMenu(fileName = "Armor", menuName = "Items/Armor", order = 2)]
 public class Armor : Item

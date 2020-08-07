@@ -23299,7 +23299,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: L-Hand
+  m_Text: LHand
 --- !u!222 &810934240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37170,7 +37170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: R-Hand
+  m_Text: RHand
 --- !u!222 &1569765614
 CanvasRenderer:
   m_ObjectHideFlags: 0

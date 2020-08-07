@@ -27,6 +27,14 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
                 {
                     EquipArmor(tmp);
                 }
+
+                UIManager.MyInstance.RefreshTooltip(tmp);
+            }
+            else if (HandScript.MyInstance.MyMoveable == null && equippedArmor != null)
+            {
+                HandScript.MyInstance.TakeMoveable(equippedArmor);
+                CharacterPanel.MyInstance.MySelectedButton = this;
+                icon.color = Color.grey;
             }
         }
     }
@@ -38,7 +46,11 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
         if (equippedArmor != null)
         {
-            armor.MySlot.AddItem(equippedArmor);
+            if (equippedArmor != armor)
+            {
+                armor.MySlot.AddItem(equippedArmor);
+            }
+
             UIManager.MyInstance.RefreshTooltip(equippedArmor);
         }
         else
@@ -58,6 +70,15 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         {
             HandScript.MyInstance.Drop();
         }
+    }
+
+    public void DequipArmor()
+    {
+        icon.color = Color.white;
+        icon.enabled = false;
+        title.text = equippedArmor.MyArmorType.ToString();
+
+        equippedArmor = null;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

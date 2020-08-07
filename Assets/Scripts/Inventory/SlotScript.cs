@@ -143,8 +143,37 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         {
             if (InventoryScript.MyInstance.FromSlot == null && !IsEmpty) //If we don't have something to move
             {
-                HandScript.MyInstance.TakeMoveable(MyItem);
-                InventoryScript.MyInstance.FromSlot = this;
+                if (HandScript.MyInstance.MyMoveable != null)
+                {
+                    if (HandScript.MyInstance.MyMoveable is Armor)
+                    {
+                        // Check if the clicked item is armor, then check if the type is the same one as the item in our hand for swaping
+                        if (MyItem is Armor && (MyItem as Armor).MyArmorType == (HandScript.MyInstance.MyMoveable as Armor).MyArmorType)
+                        {
+                            (MyItem as Armor).Equip();
+                            HandScript.MyInstance.Drop();
+                        }
+                    }
+                }
+                else
+                {
+                    HandScript.MyInstance.TakeMoveable(MyItem);
+                    InventoryScript.MyInstance.FromSlot = this;
+                }
+            }
+            else if (InventoryScript.MyInstance.FromSlot == null && IsEmpty)
+            {
+                if (HandScript.MyInstance.MyMoveable is Armor)
+                {
+                    // Desequip the armor
+                    Armor armor = (Armor)HandScript.MyInstance.MyMoveable;
+                    // Add armor into inventory
+                    AddItem(armor);
+                    // Dequip armor from the character panel
+                    CharacterPanel.MyInstance.MySelectedButton.DequipArmor();
+                    // Remove armor from hand
+                    HandScript.MyInstance.Drop();
+                }
             }
             else if (InventoryScript.MyInstance.FromSlot != null) //If we have something to move
             {
@@ -155,7 +184,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                 }
             }
         }
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && HandScript.MyInstance.MyMoveable == null)
         {
             UseItem();
         }
