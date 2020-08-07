@@ -32,6 +32,9 @@ public class UIManager : MonoBehaviour
 
     private Text tooltipText;
 
+    [SerializeField]
+    private RectTransform tooltipRect;
+
     public Text targetName;
     public Text targetLevel;
     public Image targetIcon;
@@ -133,8 +136,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowTooltip(Vector3 position, IDescribable description)
+    public void ShowTooltip(Vector2 pivot, Vector3 position, IDescribable description)
     {
+        tooltipRect.pivot = pivot;
         tooltip.SetActive(true);
         tooltip.transform.position = position;
         tooltipText.text = description.GetDescription();

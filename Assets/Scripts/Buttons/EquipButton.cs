@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipButton : MonoBehaviour, IPointerClickHandler
+public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private ArmorType armorType;
@@ -58,5 +58,18 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler
         {
             HandScript.MyInstance.Drop();
         }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (equippedArmor != null)
+        {
+            UIManager.MyInstance.ShowTooltip(new Vector2(0,0), transform.position, equippedArmor);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        UIManager.MyInstance.HideTooltip();
     }
 }
