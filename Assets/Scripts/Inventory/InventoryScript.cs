@@ -124,8 +124,9 @@ public class InventoryScript : MonoBehaviour
             AddItem((Armor)Instantiate(items[5])); //Hat
             AddItem((Armor)Instantiate(items[6])); //Shield
             AddItem((Armor)Instantiate(items[7])); //Necklace
-            AddItem((Armor)Instantiate(items[8])); //Staff
+            AddItem((Armor)Instantiate(items[8])); //Rod
             AddItem((Armor)Instantiate(items[9])); //Gloves
+            AddItem((Armor)Instantiate(items[10])); //Wand
         }
     }
 

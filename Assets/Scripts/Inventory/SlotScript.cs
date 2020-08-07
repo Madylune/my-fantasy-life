@@ -167,6 +167,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         {
             (MyItem as IUseable).Use();
         }
+        else if (MyItem is Armor)
+        {
+            (MyItem as Armor).Equip();
+        }
     }
 
     public bool StackItem(Item item)

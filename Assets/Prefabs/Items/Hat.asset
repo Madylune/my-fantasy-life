@@ -19,3 +19,5 @@ MonoBehaviour:
   armorType: 6
   defense: 5
   magicDefense: 0
+  attack: 0
+  magicAttack: 10
