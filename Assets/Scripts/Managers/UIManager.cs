@@ -27,6 +27,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject tooltip;
 
+    [SerializeField]
+    private CanvasGroup characterPanel;
+
     private Text tooltipText;
 
     public Text targetName;
@@ -60,6 +63,11 @@ public class UIManager : MonoBehaviour
         {
             targetHealthBar.SetHealth(stats.currentHealth);
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TogglePanel(characterPanel);
+        }
     }
 
 
@@ -90,7 +98,7 @@ public class UIManager : MonoBehaviour
     public void TogglePanel(CanvasGroup canvasGroup)
     {
         canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
-        canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true; 
+        canvasGroup.blocksRaycasts = canvasGroup.alpha > 0 ? true : false;
     }
 
     public void UpdateKeyText(string key, KeyCode code)

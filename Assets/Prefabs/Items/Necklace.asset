@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7aa28121e9324fb4a0a1a008ceec21b, type: 3}
-  m_Name: Garment
+  m_Name: Necklace
   m_EditorClassIdentifier: 
-  icon: {fileID: 6085918632964324225, guid: 546d05dff5f8e450399774d86352c985, type: 3}
+  icon: {fileID: 21300000, guid: 727a268a67226cc40ac7ae15fec944b4, type: 3}
   stackSize: 0
-  title: Cape
-  quality: 0
-  armorType: 3
+  title: Necklace of Snow
+  quality: 1
+  armorType: 5
   defense: 10
-  magicDefense: 5
+  magicDefense: 10

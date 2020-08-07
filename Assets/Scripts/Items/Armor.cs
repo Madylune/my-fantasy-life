@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-enum ArmorType { Armor, Shield, Garment, Footgears, Accessories, Headgears }
+enum ArmorType { Body, LeftHand, RightHand, Garment, Shoes, Accessory, Head }
 
 [CreateAssetMenu(fileName = "Armor", menuName = "Items/Armor", order = 2)]
 public class Armor : Item
@@ -13,6 +13,8 @@ public class Armor : Item
 
     [SerializeField]
     private int magicDefense;
+
+    internal ArmorType MyArmorType { get => armorType; }
 
     public override string GetDescription()
     {

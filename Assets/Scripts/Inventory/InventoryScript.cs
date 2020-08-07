@@ -97,13 +97,13 @@ public class InventoryScript : MonoBehaviour
     private void Awake()
     {
         Bag bag = (Bag)Instantiate(items[0]);
-        bag.Initialize(6);
+        bag.Initialize(12);
         bag.Use();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V)) // Debugging: Add a bag to the inventory
+        if (Input.GetKeyDown(KeyCode.B)) // Debugging: Add a bag to the inventory
         {
             Bag bag = (Bag)Instantiate(items[0]);
             bag.Initialize(6);
@@ -121,9 +121,11 @@ public class InventoryScript : MonoBehaviour
             AddItem((Armor)Instantiate(items[2])); //Armor
             AddItem((Armor)Instantiate(items[3])); //Footgears
             AddItem((Armor)Instantiate(items[4])); //Garment
-            AddItem((Armor)Instantiate(items[5])); //Headgears
+            AddItem((Armor)Instantiate(items[5])); //Hat
             AddItem((Armor)Instantiate(items[6])); //Shield
-            AddItem((Armor)Instantiate(items[7])); //Accessories
+            AddItem((Armor)Instantiate(items[7])); //Necklace
+            AddItem((Armor)Instantiate(items[8])); //Staff
+            AddItem((Armor)Instantiate(items[9])); //Gloves
         }
     }
 

@@ -16,6 +16,6 @@ MonoBehaviour:
   stackSize: 0
   title: Wooden Shield
   quality: 0
-  armorType: 1
+  armorType: 2
   defense: 5
   magicDefense: 0

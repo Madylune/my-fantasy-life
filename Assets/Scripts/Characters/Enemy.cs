@@ -84,7 +84,6 @@ public class Enemy : NPC
 
     public override void Interact()
     {
-        // Loot
 
     }
 }
