@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "Bag", menuName = "Items/Bag", order = 1)]
 public class Bag : Item, IUseable
 {
+    [SerializeField]
     private int slots;
 
     [SerializeField]
@@ -36,6 +37,6 @@ public class Bag : Item, IUseable
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\nThis bag can add {0} empty slots in your inventory.", slots);
+        return base.GetDescription() + string.Format("\nThis bag can add some empty slots in your inventory.\n+{0} slots", slots);
     }
 }
