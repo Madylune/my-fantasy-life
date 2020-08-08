@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
             // Make a raycast from the mouse position into the game world
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.tag == "Enemy")
             {
                 if (currentTarget != null)
                 {

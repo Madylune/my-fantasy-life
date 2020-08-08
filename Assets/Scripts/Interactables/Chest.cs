@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestScript : MonoBehaviour, IInteractable
+public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private SpriteRenderer spriteRenderer;
@@ -11,6 +11,9 @@ public class ChestScript : MonoBehaviour, IInteractable
     private Sprite openSprite, closeSprite;
 
     private bool isOpen;
+
+    [SerializeField]
+    private CanvasGroup chestPanel;
 
     public void Interact()
     {
@@ -22,6 +25,8 @@ public class ChestScript : MonoBehaviour, IInteractable
         {
             isOpen = true;
             spriteRenderer.sprite = openSprite;
+            chestPanel.alpha = 1;
+            chestPanel.blocksRaycasts = true;
         }
     }
 
@@ -29,5 +34,7 @@ public class ChestScript : MonoBehaviour, IInteractable
     {
         isOpen = false;
         spriteRenderer.sprite = closeSprite;
+        chestPanel.alpha = 0;
+        chestPanel.blocksRaycasts = false;
     }
 }

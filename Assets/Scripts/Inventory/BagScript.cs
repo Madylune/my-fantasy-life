@@ -69,4 +69,12 @@ public class BagScript : MonoBehaviour
 
         return false;
     }
+
+    public void Clear() // Clear bag
+    {
+        foreach (SlotScript slot in slots)
+        {
+            slot.Clear();
+        }
+    }
 }
