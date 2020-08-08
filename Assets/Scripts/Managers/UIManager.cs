@@ -136,6 +136,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ClearStackCount(IClickable clickable)
+    {
+        clickable.MyStackText.color = new Color(0, 0, 0, 0);
+        clickable.MyIcon.color = Color.white;
+    }
+
     public void ShowTooltip(Vector2 pivot, Vector3 position, IDescribable description)
     {
         tooltipRect.pivot = pivot;

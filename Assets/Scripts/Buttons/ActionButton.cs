@@ -72,9 +72,11 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         }
         else
         {
+            useables.Clear();
             this.MyUseable = useable;
         }
 
+        count = useables.Count;
         UpdateVisual();
     }
 
@@ -86,6 +88,10 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         if (count > 1)
         {
             UIManager.MyInstance.UpdateStackSize(this);
+        }
+        else if (MyUseable is Spell)
+        {
+            UIManager.MyInstance.ClearStackCount(this);
         }
     }
 
