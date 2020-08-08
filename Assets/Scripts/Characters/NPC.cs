@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : Character
+public class NPC : Character, IInteractable
 {
     public virtual void DeSelect()
     {
@@ -18,5 +18,10 @@ public class NPC : Character
     {
         // Not implemented
         Debug.Log("This will open a dialogue with the NPC");
+    }
+
+    public virtual void StopInteract()
+    {
+
     }
 }

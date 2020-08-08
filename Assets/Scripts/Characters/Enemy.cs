@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : NPC
 {
-    [SerializeField]
-    private CanvasGroup canvasGroup;
-
     private Transform target;
     private EnemyMovement movement;
     private Vector2 direction;
@@ -52,15 +49,11 @@ public class Enemy : NPC
 
     public override Transform Select()
     {
-        canvasGroup.alpha = 1;
-
         return base.Select();
     }
 
     public override void DeSelect()
     {
-        canvasGroup.alpha = 0;
-        
         base.DeSelect();
     }
 
@@ -83,6 +76,11 @@ public class Enemy : NPC
     }
 
     public override void Interact()
+    {
+        Debug.Log("Hi player, I'm going to kill you !");
+    }
+
+    public override void StopInteract()
     {
 
     }

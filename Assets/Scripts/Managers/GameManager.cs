@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private PlayerAttack player;
+    private Player player;
 
     private NPC currentTarget;
 
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
                 currentTarget = hit.collider.GetComponent<NPC>();
 
-                player.MyTarget = currentTarget.Select();
+                player.attack.MyTarget = currentTarget.Select();
 
                 UIManager.MyInstance.ShowTargetFrame(currentTarget);
             }
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
                 }
                 
                 currentTarget = null;
-                player.MyTarget = null;
+                player.attack.MyTarget = null;
             }
         }
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null && hit.collider.tag == "Enemy")
             {
-                hit.collider.GetComponent<NPC>().Interact();
+                player.Interact();
             }
         }
     }

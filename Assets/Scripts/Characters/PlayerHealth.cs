@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
+        //AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
         GameOverManager.instance.OnPlayerDeath();
     }
 }
