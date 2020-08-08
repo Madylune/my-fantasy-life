@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - HitBox
   - Keybind
+  - Interactable
   layers:
   - Default
   - TransparentFX
