@@ -64,7 +64,8 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
         title.text = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[armor.MyQuality], armor.MyTitle);
 
-        equippedArmor = armor; // Reference to the equipped armor
+        this.equippedArmor = armor; // Reference to the equipped armor
+        this.equippedArmor.MyEquipButton = this;
 
         if (HandScript.MyInstance.MyMoveable == (armor as IMoveable))
         {
@@ -78,6 +79,7 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         icon.enabled = false;
         title.text = equippedArmor.MyArmorType.ToString();
 
+        equippedArmor.MyEquipButton = null;
         equippedArmor = null;
     }
 

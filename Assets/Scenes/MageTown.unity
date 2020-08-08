@@ -26993,7 +26993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &932191728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28115,6 +28115,8 @@ MonoBehaviour:
     dropChance: 100
   - item: {fileID: 11400000, guid: a8a83a1f801014740833e5ea9d6be94c, type: 2}
     dropChance: 80
+  - item: {fileID: 11400000, guid: 4d597e0dd6b5648239a719f0b847b643, type: 2}
+    dropChance: 100
 --- !u!1 &995883185
 GameObject:
   m_ObjectHideFlags: 0

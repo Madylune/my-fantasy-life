@@ -16,6 +16,8 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable //Scripta
 
     private SlotScript slot;
 
+    private EquipButton equipButton;
+
     public Sprite MyIcon { get => icon; }
 
     public int MyStackSize { get => stackSize; }
@@ -25,6 +27,16 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable //Scripta
     public Quality MyQuality { get => quality; }
 
     public string MyTitle { get => title; }
+
+    public EquipButton MyEquipButton
+    {
+        get => equipButton;
+        set
+        {
+            MySlot = null;
+            equipButton = value;
+        }
+    }
 
     public virtual string GetDescription()
     {
