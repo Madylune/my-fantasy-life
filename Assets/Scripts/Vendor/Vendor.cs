@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Vendor : MonoBehaviour, IInteractable
 {
+    [SerializeField]
+    private CanvasGroup vendorPanel;
+
     public void Interact()
     {
-        Debug.Log("Interact");
+        vendorPanel.alpha = 1;
+        vendorPanel.blocksRaycasts = true;
     }
 
     public void StopInteract()
     {
-        Debug.Log("StopInteract");
+        vendorPanel.alpha = 0;
+        vendorPanel.blocksRaycasts = false;
     }
 }
