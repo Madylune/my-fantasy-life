@@ -16,6 +16,7 @@ MonoBehaviour:
   stackSize: 0
   title: Wooden Rod
   quality: 0
+  price: 17000
   armorType: 1
   defense: 0
   magicDefense: 0

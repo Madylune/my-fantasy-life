@@ -16,6 +16,7 @@ MonoBehaviour:
   stackSize: 0
   title: Wizard Wand
   quality: 2
+  price: 24000
   armorType: 1
   defense: 0
   magicDefense: 0

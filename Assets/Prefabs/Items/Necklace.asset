@@ -16,6 +16,7 @@ MonoBehaviour:
   stackSize: 0
   title: Necklace of Snow
   quality: 1
+  price: 27000
   armorType: 5
   defense: 10
   magicDefense: 10

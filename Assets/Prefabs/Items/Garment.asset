@@ -16,6 +16,9 @@ MonoBehaviour:
   stackSize: 0
   title: Cape
   quality: 0
+  price: 12000
   armorType: 3
   defense: 10
   magicDefense: 5
+  attack: 0
+  magicAttack: 0

@@ -40,6 +40,8 @@ public class LootPanel : MonoBehaviour
     [SerializeField]
     private Item[] items;
 
+    private int itemsPerPage = 4;
+
     public bool IsOpen
     {
         get
@@ -65,7 +67,7 @@ public class LootPanel : MonoBehaviour
             {
                 page.Add(items[i]);
 
-                if (page.Count == 4 || i == items.Count -1) // Full items on page
+                if (page.Count == itemsPerPage || i == items.Count -1) // Full items on page
                 {
                     // Add a new page
                     pages.Add(page);

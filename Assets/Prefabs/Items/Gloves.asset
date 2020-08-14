@@ -16,6 +16,9 @@ MonoBehaviour:
   stackSize: 0
   title: Gloves
   quality: 0
+  price: 20000
   armorType: 5
   defense: 2
   magicDefense: 2
+  attack: 0
+  magicAttack: 0

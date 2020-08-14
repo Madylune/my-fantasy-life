@@ -16,6 +16,9 @@ MonoBehaviour:
   stackSize: 0
   title: High Mage Robe
   quality: 2
+  price: 10000
   armorType: 0
   defense: 5
   magicDefense: 20
+  attack: 0
+  magicAttack: 0
