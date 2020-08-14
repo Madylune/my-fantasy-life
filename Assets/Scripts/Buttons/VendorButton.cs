@@ -34,6 +34,10 @@ public class VendorButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 quantity.text = vendorItem.MyQuantity.ToString();
             }
+            else
+            {
+                quantity.text = string.Empty;
+            }
 
             gameObject.SetActive(true);
         }

@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     public int MyMoney { get; set; }
 
+    public IInteractable MyInteractable { get => interactable; set => interactable = value; }
+
     [SerializeField]
     private Text moneyCount;
 
@@ -52,9 +54,9 @@ public class Player : MonoBehaviour
 
     public void Interact()
     {
-        if (interactable != null)
+        if (MyInteractable != null)
         {
-            interactable.Interact();
+            MyInteractable.Interact();
         }
     }
 
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            interactable = collision.GetComponent<IInteractable>();
+            MyInteractable = collision.GetComponent<IInteractable>();
         }
     }
 
@@ -70,10 +72,10 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            if (interactable != null)
+            if (MyInteractable != null)
             {
-                interactable.StopInteract();
-                interactable = null;
+                MyInteractable.StopInteract();
+                MyInteractable = null;
             }
         }
     }

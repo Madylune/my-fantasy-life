@@ -10,14 +10,24 @@ public class Vendor : MonoBehaviour, IInteractable
     [SerializeField]
     private VendorPanel vendorPanel;
 
+    public bool IsOpen { get; set; }
+
     public void Interact()
     {
-        vendorPanel.CreatePages(items);
-        vendorPanel.Open();
+        if (!IsOpen)
+        {
+            IsOpen = true;
+            vendorPanel.CreatePages(items);
+            vendorPanel.Open(this);
+        }
     }
 
     public void StopInteract()
     {
-        vendorPanel.Close();
+        if (IsOpen)
+        {
+            IsOpen = false;
+            vendorPanel.Close();
+        }
     }
 }

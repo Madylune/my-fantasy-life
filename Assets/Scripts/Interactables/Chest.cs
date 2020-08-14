@@ -32,9 +32,12 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void StopInteract()
     {
-        isOpen = false;
-        spriteRenderer.sprite = closeSprite;
-        chestPanel.alpha = 0;
-        chestPanel.blocksRaycasts = false;
+        if (isOpen)
+        {
+            isOpen = false;
+            spriteRenderer.sprite = closeSprite;
+            chestPanel.alpha = 0;
+            chestPanel.blocksRaycasts = false;
+        }
     }
 }

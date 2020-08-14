@@ -18,10 +18,14 @@ public class VendorPanel : MonoBehaviour
 
     private int pageIndex;
 
+    private Vendor vendor;
+
     private int itemsPerPage = 4;
 
     public void CreatePages(VendorItem[] items)
     {
+        pages.Clear();
+
         List<VendorItem> page = new List<VendorItem>();
 
         for (int i = 0; i < items.Length; i++)
@@ -82,15 +86,20 @@ public class VendorPanel : MonoBehaviour
         }
     }
 
-    public void Open()
+    public void Open(Vendor vendor)
     {
+        this.vendor = vendor;
         vendorPanel.alpha = 1;
         vendorPanel.blocksRaycasts = true;
     }
 
     public void Close()
     {
+        vendor.IsOpen = false;
+
         vendorPanel.alpha = 0;
         vendorPanel.blocksRaycasts = false;
+
+        vendor = null;
     }
 }
