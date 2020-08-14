@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd2c67539ffcf45c484d6c2d3fcce3bd, type: 3}
-  m_Name: HealthPotion
+  m_Name: ManaPotion
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
+  icon: {fileID: 21300000, guid: 6592b916f86b19e428db6f6847c7b6dd, type: 3}
   stackSize: 10
-  title: Health Potion
+  title: Mana Potion
   quality: 0
-  price: 100
-  health: 10
-  isRed: 1
+  price: 200
+  health: 0
+  mana: 10
+  isRed: 0
   isWhite: 0
   isGreen: 0
-  isBlue: 0
+  isBlue: 1

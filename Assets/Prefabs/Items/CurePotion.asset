@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7aa28121e9324fb4a0a1a008ceec21b, type: 3}
-  m_Name: Shield
+  m_Script: {fileID: 11500000, guid: fd2c67539ffcf45c484d6c2d3fcce3bd, type: 3}
+  m_Name: CurePotion
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
-  stackSize: 0
-  title: Wooden Shield
+  icon: {fileID: 21300000, guid: d318988fe7a598842b25a3a91f320d67, type: 3}
+  stackSize: 10
+  title: Cure Potion
   quality: 0
-  armorType: 2
-  defense: 5
-  magicDefense: 0
+  price: 300
+  health: 0
+  isRed: 0
+  isWhite: 0
+  isGreen: 1
+  isBlue: 0

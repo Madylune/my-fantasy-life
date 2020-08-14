@@ -116,6 +116,18 @@ public class InventoryScript : MonoBehaviour
             AddItem(healthPotion);
         }
 
+        if (Input.GetKeyDown(KeyCode.G)) // Debugging: Add a potion to the inventory
+        {
+            HealthPotion curePotion = (HealthPotion)Instantiate(items[11]);
+            AddItem(curePotion);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H)) // Debugging: Add a potion to the inventory
+        {
+            HealthPotion manaPotion = (HealthPotion)Instantiate(items[12]);
+            AddItem(manaPotion);
+        }
+
         if (Input.GetKeyDown(KeyCode.M)) // Debugging: Add armors
         {
             AddItem((Armor)Instantiate(items[2])); //Armor

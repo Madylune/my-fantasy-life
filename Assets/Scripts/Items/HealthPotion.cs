@@ -6,9 +6,17 @@ public class HealthPotion : Item, IUseable
     [SerializeField]
     private int health;
 
+    [SerializeField]
+    private int mana;
+
+    [SerializeField]
+    private bool isRed, isWhite, isGreen, isBlue;
+
+    private string description;
+
     public void Use()
     {
-        if (Player.MyInstance.health.currentHealth < Player.MyInstance.health.maxHealth)
+        if (isRed && Player.MyInstance.health.currentHealth < Player.MyInstance.health.maxHealth)
         {
             Remove();
 
@@ -18,6 +26,21 @@ public class HealthPotion : Item, IUseable
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\nThis potion was made with red herbs and can restore about {0} HP.", health);
+        if (isRed)
+        {
+            description = string.Format("\nThis potion was made with red herbs and can restore about {0} HP.", health);
+        }
+
+        if (isGreen)
+        {
+            description = string.Format("\nThis potion was made with green herbs and can cure Poison, Silence, Blind and Confusion effects.");
+        }
+
+        if (isBlue)
+        {
+            description = string.Format("\nThis potion was made with blue herbs and can restore about {0} MP", mana);
+        }
+
+        return base.GetDescription() + description;
     }
 }

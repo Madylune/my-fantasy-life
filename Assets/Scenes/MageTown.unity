@@ -2002,10 +2002,10 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 1d2d2f5ec44db43c8ac1318c579ad551, type: 2}
     quantity: 0
     unlimited: 1
-  - item: {fileID: 11400000, guid: 871fdfcb68c4843c8a68790c3264c103, type: 2}
+  - item: {fileID: 11400000, guid: 9da5ef11846614a6a8c6a55119686f14, type: 2}
     quantity: 0
     unlimited: 1
-  - item: {fileID: 11400000, guid: 6f8d7f7d6d33945ae8e02b4cba368b2f, type: 2}
+  - item: {fileID: 11400000, guid: fb9ef404cebc54b5a97b06a97bced118, type: 2}
     quantity: 0
     unlimited: 1
   - item: {fileID: 11400000, guid: ed29d3148cec4460c8588d20e7d33ca5, type: 2}
@@ -60323,7 +60323,7 @@ PrefabInstance:
     - target: {fileID: 1781682229825455515, guid: 44cdd6e2c4076474c937e7c26d83d861,
         type: 3}
       propertyPath: items.Array.size
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1781682229825455515, guid: 44cdd6e2c4076474c937e7c26d83d861,
         type: 3}
@@ -60420,6 +60420,18 @@ PrefabInstance:
       propertyPath: items.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: f4b541f05d44c4d77a167460a2a55ae4,
+        type: 2}
+    - target: {fileID: 1781682229825455515, guid: 44cdd6e2c4076474c937e7c26d83d861,
+        type: 3}
+      propertyPath: items.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb9ef404cebc54b5a97b06a97bced118,
+        type: 2}
+    - target: {fileID: 1781682229825455515, guid: 44cdd6e2c4076474c937e7c26d83d861,
+        type: 3}
+      propertyPath: items.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9da5ef11846614a6a8c6a55119686f14,
         type: 2}
     - target: {fileID: 7437363382570362076, guid: 44cdd6e2c4076474c937e7c26d83d861,
         type: 3}

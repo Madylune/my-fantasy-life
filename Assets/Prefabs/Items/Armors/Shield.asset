@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd2c67539ffcf45c484d6c2d3fcce3bd, type: 3}
-  m_Name: HealthPotion
+  m_Script: {fileID: 11500000, guid: c7aa28121e9324fb4a0a1a008ceec21b, type: 3}
+  m_Name: Shield
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e52ea25af699fd445b7046374f81a5b9, type: 3}
-  stackSize: 10
-  title: Health Potion
+  icon: {fileID: 21300000, guid: da4485cf717130847bc69dcdfa8ac824, type: 3}
+  stackSize: 0
+  title: Wooden Shield
   quality: 0
-  price: 100
-  health: 10
-  isRed: 1
-  isWhite: 0
-  isGreen: 0
-  isBlue: 0
+  price: 0
+  armorType: 2
+  defense: 5
+  magicDefense: 0
+  attack: 0
+  magicAttack: 0

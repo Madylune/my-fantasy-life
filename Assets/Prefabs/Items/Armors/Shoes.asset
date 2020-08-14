@@ -16,6 +16,9 @@ MonoBehaviour:
   stackSize: 0
   title: Kamikaze Boots
   quality: 3
+  price: 0
   armorType: 4
   defense: 25
   magicDefense: 0
+  attack: 0
+  magicAttack: 0
