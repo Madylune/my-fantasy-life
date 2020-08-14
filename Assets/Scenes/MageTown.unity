@@ -295,7 +295,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265267863}
   m_HandleRect: {fileID: 1265267862}
   m_Direction: 2
-  m_Value: 0.9878263
+  m_Value: 0.98782647
   m_Size: 0.44333768
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2852,11 +2852,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 932191727}
   dialogueName: {fileID: 1562111022}
-  name: Magician
+  characterName: High Magician
   dialogueText: {fileID: 1617029370}
   dialogue: "I can teach you some special magic spells. \nDo you want to learn them
     ?"
-  canOpenDialogue: 0
+  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &162989398
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -21268,13 +21268,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 932191727}
   dialogueName: {fileID: 1562111022}
-  name: An old man
+  characterName: Old Man
   dialogueText: {fileID: 1617029370}
   dialogue: 'I have lost my little girl, but I am so old for walking...
 
     Can
     you help me to look for her ?'
-  canOpenDialogue: 0
+  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &721896272
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -28969,6 +28969,7 @@ GameObject:
   - component: {fileID: 932191728}
   - component: {fileID: 932191730}
   - component: {fileID: 932191729}
+  - component: {fileID: 932191731}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: DialogueBox
@@ -29033,6 +29034,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932191727}
   m_CullTransparentMesh: 0
+--- !u!225 &932191731
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932191727}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &934208300
 GameObject:
   m_ObjectHideFlags: 0
@@ -32696,12 +32709,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 932191727}
   dialogueName: {fileID: 1562111022}
-  name: Lieutenant
+  characterName: Captain
   dialogueText: {fileID: 1617029370}
   dialogue: 'I have a mission for you !
 
     Do you accept it ?'
-  canOpenDialogue: 0
+  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1132299168
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -33323,10 +33336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 932191727}
   dialogueName: {fileID: 1562111022}
-  name: A little girl
+  characterName: Little Girl
   dialogueText: {fileID: 1617029370}
   dialogue: I don't speak to strangers ! Let me alone !
-  canOpenDialogue: 0
+  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1165955698
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -60233,10 +60246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 932191727}
   dialogueName: {fileID: 1562111022}
-  name: Maid
+  characterName: Maid
   dialogueText: {fileID: 1617029370}
   dialogue: "Welcome to Mage Town !  \nDo you want to save your position here ?"
-  canOpenDialogue: 0
+  dialogueCanvas: {fileID: 932191731}
 --- !u!1839735485 &509387053336661154
 Tilemap:
   m_ObjectHideFlags: 0
@@ -60755,6 +60768,16 @@ PrefabInstance:
       propertyPath: name
       value: A soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: characterName
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: dialogueCanvas
+      value: 
+      objectReference: {fileID: 932191731}
     - target: {fileID: 8486109707863655505, guid: 7f3a3340144034d5db697503fc4ef2e4,
         type: 3}
       propertyPath: m_LocalPosition.x

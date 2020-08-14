@@ -7,11 +7,15 @@ public class Dialogue : MonoBehaviour
 {
     public GameObject dialogueBox;
     public Text dialogueName;
-    public string name;
+    public string characterName;
     public Text dialogueText;
     [TextArea(3,10)]
     public string dialogue;
-    public bool canOpenDialogue;
+
+    private bool canOpenDialogue;
+
+    [SerializeField]
+    private CanvasGroup dialogueCanvas;
 
     private void Awake() 
     {
@@ -20,18 +24,13 @@ public class Dialogue : MonoBehaviour
         dialogueText = GameObject.FindGameObjectWithTag("DialogueText").GetComponent<Text>();
     }
 
-    private void Start() 
-    {
-        dialogueBox.SetActive(false);
-    }
-
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Space) && canOpenDialogue)
         {
-            dialogueBox.SetActive(true);
+            ShowDialogue();
             dialogueText.text = dialogue;
-            dialogueName.text = "[ " + name.ToUpper() + " ]";
+            dialogueName.text = "[ " + characterName.ToUpper() + " ]";
         }
     }
 
@@ -48,7 +47,19 @@ public class Dialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canOpenDialogue = false;
-            dialogueBox.SetActive(false);
+            HideDialogue();
         }
+    }
+
+    public void ShowDialogue()
+    {
+        dialogueCanvas.alpha = 1;
+        dialogueCanvas.blocksRaycasts = true;
+    }
+
+    public void HideDialogue()
+    {
+        dialogueCanvas.alpha = 0;
+        dialogueCanvas.blocksRaycasts = false;
     }
 }
