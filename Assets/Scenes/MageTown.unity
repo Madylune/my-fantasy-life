@@ -295,7 +295,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265267863}
   m_HandleRect: {fileID: 1265267862}
   m_Direction: 2
-  m_Value: 0.98782635
+  m_Value: 0.98782647
   m_Size: 0.44333768
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1625,7 +1625,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &107519977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1984,7 +1984,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &124912194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2151,8 +2151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - item: {fileID: 11400000, guid: 4d597e0dd6b5648239a719f0b847b643, type: 2}
-    quantity: 0
-    unlimited: 1
+    quantity: 5
+    unlimited: 0
   - item: {fileID: 11400000, guid: 1d2d2f5ec44db43c8ac1318c579ad551, type: 2}
     quantity: 0
     unlimited: 1
@@ -43784,7 +43784,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &1813301147
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51231,7 +51231,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 
 --- !u!222 &1949458119
 CanvasRenderer:
   m_ObjectHideFlags: 0

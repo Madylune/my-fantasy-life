@@ -16,6 +16,7 @@ MonoBehaviour:
   stackSize: 0
   title: Bag
   quality: 1
+  price: 5000
   slots: 6
   bagPrefab: {fileID: 1066154599987086709, guid: c2c3d8382515942c590b961011e953f5,
     type: 3}

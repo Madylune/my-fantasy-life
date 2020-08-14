@@ -20,7 +20,19 @@ public class VendorButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void AddItem(VendorItem vendorItem)
     {
-        gameObject.SetActive(true);
+        if (vendorItem.MyQuantity > 0 || vendorItem.MyQuantity == 0 && vendorItem.Unlimited)
+        {
+            icon.sprite = vendorItem.MyItem.MyIcon;
+            title.text = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[vendorItem.MyItem.MyQuality], vendorItem.MyItem.MyTitle);
+            price.text = vendorItem.MyItem.MyPrice.ToString() + " Z";
+
+            if (!vendorItem.Unlimited)
+            {
+                quantity.text = vendorItem.MyQuantity.ToString();
+            }
+
+            gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

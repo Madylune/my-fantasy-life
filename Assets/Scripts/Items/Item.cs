@@ -14,6 +14,9 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable //Scripta
     [SerializeField]
     private Quality quality;
 
+    [SerializeField]
+    private int price;
+
     private SlotScript slot;
 
     private EquipButton equipButton;
@@ -27,6 +30,8 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable //Scripta
     public Quality MyQuality { get => quality; }
 
     public string MyTitle { get => title; }
+
+    public int MyPrice { get => price; }
 
     public EquipButton MyEquipButton
     {
