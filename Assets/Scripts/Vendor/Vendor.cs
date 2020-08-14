@@ -5,17 +5,19 @@ using UnityEngine;
 public class Vendor : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    private CanvasGroup vendorPanel;
+    private VendorItem[] items;
+     
+    [SerializeField]
+    private VendorPanel vendorPanel;
 
     public void Interact()
     {
-        vendorPanel.alpha = 1;
-        vendorPanel.blocksRaycasts = true;
+        vendorPanel.CreatePages(items);
+        vendorPanel.Open();
     }
 
     public void StopInteract()
     {
-        vendorPanel.alpha = 0;
-        vendorPanel.blocksRaycasts = false;
+        vendorPanel.Close();
     }
 }
