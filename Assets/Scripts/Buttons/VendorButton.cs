@@ -18,8 +18,12 @@ public class VendorButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField]
     private Text quantity;
 
+    private VendorItem vendorItem;
+
     public void AddItem(VendorItem vendorItem)
     {
+        this.vendorItem = vendorItem;
+
         if (vendorItem.MyQuantity > 0 || vendorItem.MyQuantity == 0 && vendorItem.Unlimited)
         {
             icon.sprite = vendorItem.MyItem.MyIcon;
@@ -37,16 +41,35 @@ public class VendorButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        if (Player.MyInstance.MyMoney >= vendorItem.MyItem.MyPrice && InventoryScript.MyInstance.AddItem(vendorItem.MyItem))
+        {
+            SellItem();
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-
+        UIManager.MyInstance.ShowTooltip(new Vector2(1,0), transform.position, vendorItem.MyItem);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        UIManager.MyInstance.HideTooltip();
+    }
 
+    private void SellItem()
+    {
+        Player.MyInstance.MyMoney -= vendorItem.MyItem.MyPrice;
+
+        if (!vendorItem.Unlimited)
+        {
+            vendorItem.MyQuantity--;
+            quantity.text = vendorItem.MyQuantity.ToString();
+
+            if (vendorItem.MyQuantity == 0)
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class Player : MonoBehaviour
 
     private IInteractable interactable; // Represents the thing he can interact with (enemy, npc, bank, ...)
 
+    public int MyMoney { get; set; }
+
+    [SerializeField]
+    private Text moneyCount;
+
     public PlayerMovement movement;
     public PlayerAttack attack;
     public PlayerHealth health;
@@ -27,6 +33,8 @@ public class Player : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         attack = GetComponent<PlayerAttack>();
         health = GetComponent<PlayerHealth>();
+
+        MyMoney = 5000;
     }
 
     private void Update()
@@ -38,6 +46,8 @@ public class Player : MonoBehaviour
                 UIManager.MyInstance.ClickActionButton(action);
             }
         }
+
+        moneyCount.text = MyMoney.ToString();
     }
 
     public void Interact()
