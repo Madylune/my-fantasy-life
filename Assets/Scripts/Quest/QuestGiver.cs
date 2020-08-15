@@ -7,15 +7,5 @@ public class QuestGiver : NPC
     [SerializeField]
     private Quest[] quests;
 
-    // Debugging
-    [SerializeField]
-    private QuestLog tempLog;
-
-    private void Awake() 
-    {
-        // Here we need to accept a quest 
-        // DEBUGGING
-        tempLog.AcceptQuest(quests[0]);
-        tempLog.AcceptQuest(quests[1]);
-    }
+    public Quest[] MyQuests { get => quests; }
 }
