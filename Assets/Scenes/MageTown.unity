@@ -295,7 +295,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1265267863}
   m_HandleRect: {fileID: 1265267862}
   m_Direction: 2
-  m_Value: 0.98782647
+  m_Value: 0.9878263
   m_Size: 0.44333768
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643456999}
   m_HandleRect: {fileID: 1643456998}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2084,7 +2084,7 @@ Transform:
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &133851907
 BoxCollider2D:
@@ -35475,7 +35475,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 620234690}
   m_HandleRect: {fileID: 620234689}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -43972,169 +43972,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812034201}
   m_CullTransparentMesh: 0
---- !u!1 &1816976798
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1816976803}
-  - component: {fileID: 1816976802}
-  - component: {fileID: 1816976801}
-  - component: {fileID: 1816976800}
-  - component: {fileID: 1816976799}
-  m_Layer: 0
-  m_Name: QuestGiver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1816976799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816976798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483226f05cc7b4b1082a1eb52817f702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quests:
-  - title: Find the girl
-    description: "Find the old man to the west of Mage Town.  \n\nHe seems to be
-      sad.\n\nTalk to him to understand the problem.\n\nRewards: \nExp 200 \nCoints
-      1000"
-    collectObjectives: []
-  - title: Gather health potions
-    description: 'The old man is very sick, you have to help him to get better.
-
-
-      Collect
-      5 health potions for the health mixture.
-
-
-      Rewards:
-
-      Exp 500
-
-      Coints
-      3000'
-    collectObjectives:
-    - amount: 5
-      type: HealthPotion
-  tempLog: {fileID: 502970808}
---- !u!70 &1816976800
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816976798}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.027147073, y: 0.07963181}
-  m_Size: {x: 0.5330709, y: 0.53668976}
-  m_Direction: 0
---- !u!61 &1816976801
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816976798}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.014288962, y: -0.06572965}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.66277874, y: 0.8685407}
-  m_EdgeRadius: 0
---- !u!212 &1816976802
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816976798}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 959394329
-  m_SortingLayer: 1
-  m_SortingOrder: 2
-  m_Sprite: {fileID: -471275673474718184, guid: 8641dc0e3e8e64cfb8ba52b849541b37,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1816976803
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816976798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.53, y: -14.38, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1832540964
 GameObject:
   m_ObjectHideFlags: 0
@@ -50328,7 +50165,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000017287894, y: 118.5}
-  m_SizeDelta: {x: 229, y: 48.61407}
+  m_SizeDelta: {x: 229, y: 49.918434}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1909589453
 MonoBehaviour:
@@ -58803,6 +58640,7 @@ GameObject:
   - component: {fileID: 2095422030}
   - component: {fileID: 2095422029}
   - component: {fileID: 2095422028}
+  - component: {fileID: 2095422032}
   m_Layer: 5
   m_Name: QuestsButton
   m_TagString: Untagged
@@ -58934,6 +58772,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095422026}
   m_CullTransparentMesh: 0
+--- !u!114 &2095422032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095422026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483226f05cc7b4b1082a1eb52817f702, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - title: Find the girl
+    description: "Find the old man to the west of Mage Town.  \n\nHe seems to be
+      sad.\n\nTalk to him to understand the problem.\n\nRewards: \nExp 200 \nCoins
+      1000"
+    collectObjectives: []
+  - title: Gather health potions
+    description: 'The old man is very sick, you have to help him to get better.
+
+
+      Collect
+      5 health potions for the health mixture.
+
+
+      Rewards:
+
+      Exp 500
+
+      Coins
+      3000'
+    collectObjectives:
+    - amount: 5
+      type: Health Potion
+  tempLog: {fileID: 502970808}
 --- !u!1 &2106155665
 GameObject:
   m_ObjectHideFlags: 0

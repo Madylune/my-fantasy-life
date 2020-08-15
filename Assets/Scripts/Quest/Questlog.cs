@@ -35,20 +35,23 @@ public class QuestLog : MonoBehaviour
 
     public void AcceptQuest(Quest quest)
     {
+        foreach (CollectObjective o in quest.MyCollectObjectives)
+        {
+            InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+        }
+
         GameObject go = Instantiate(questPrefab, questParent);
 
         QuestScript qs = go.GetComponent<QuestScript>();
         quest.MyQuestScript = qs;
         qs.MyQuest = quest;
 
-        string objectives = string.Empty;
+        go.GetComponent<Text>().text = string.Format("{0}", "[REQUEST] " + quest.MyTitle);
+    }
 
-        foreach (Objective obj in quest.MyCollectObjectives)
-        {
-            objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
-        }
-
-        go.GetComponent<Text>().text = string.Format("{0}\n<size=11>{1}</size>", "[REQUEST] " + quest.MyTitle, objectives);
+    public void UpdateObjectives()
+    {
+        ShowDescription(selected);
     }
 
     public void ShowDescription(Quest quest)
@@ -61,7 +64,14 @@ public class QuestLog : MonoBehaviour
 
         selected = quest;
 
-        questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>", "[ " + quest.MyTitle + " ]", quest.MyDescription);
+        string objectives = string.Empty;
+
+        foreach (Objective obj in quest.MyCollectObjectives)
+        {
+            objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
+        }
+
+        questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>\n\n<size=12><color=red>{2}</color></size>", "[ " + quest.MyTitle + " ]", quest.MyDescription, objectives);
 
         actionsButtons.SetActive(true);
     }

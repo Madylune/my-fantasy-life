@@ -93,5 +93,12 @@ public abstract class Objective
 [System.Serializable]
 public class CollectObjective : Objective
 {
-
+    public void UpdateItemCount(Item item)
+    {
+        if (MyType.ToLower() == item.MyTitle.ToLower())
+        {
+            MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(item.MyTitle);
+            QuestLog.MyInstance.UpdateObjectives();
+        }
+    }
 }
