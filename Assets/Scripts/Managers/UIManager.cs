@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ShowTargetFrame(NPC target)
+    public void ShowTargetFrame(Enemy target)
     {
         UpdateTargetFrame(target);
 
@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
         stats = null;
     }
 
-    public void UpdateTargetFrame(NPC target)
+    public void UpdateTargetFrame(Enemy target)
     {
         stats = target.GetComponent<Stats>();
 

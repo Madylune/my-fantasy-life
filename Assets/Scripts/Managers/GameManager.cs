@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Player player;
 
-    private NPC currentTarget;
+    private Enemy currentTarget;
 
     private void Update() 
     {
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
                     currentTarget.DeSelect();
                 }
 
-                currentTarget = hit.collider.GetComponent<NPC>();
+                currentTarget = hit.collider.GetComponent<Enemy>();
 
                 player.attack.MyTarget = currentTarget.Select();
 

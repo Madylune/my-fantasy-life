@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : NPC
+public class Enemy : Character
 {
     private Transform target;
     private EnemyMovement movement;
@@ -47,14 +47,14 @@ public class Enemy : NPC
         currentState.Update();
     }
 
-    public override Transform Select()
+    public Transform Select()
     {
-        return base.Select();
+        return hitBox;
     }
 
-    public override void DeSelect()
+    public void DeSelect()
     {
-        base.DeSelect();
+        
     }
 
     public void ChangeState(IState newState)
@@ -73,15 +73,5 @@ public class Enemy : NPC
     {
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         playerHealth.TakeDamage(atk);
-    }
-
-    public override void Interact()
-    {
-        Debug.Log("Hi player, I'm going to kill you !");
-    }
-
-    public override void StopInteract()
-    {
-
     }
 }

@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VendorPanel : MonoBehaviour
+public class VendorPanel : Panel
 {
-    [SerializeField]
-    private CanvasGroup vendorPanel;
-
     [SerializeField]
     private VendorButton[] vendorButtons;
 
@@ -17,8 +14,6 @@ public class VendorPanel : MonoBehaviour
     private List<List<VendorItem>> pages = new List<List<VendorItem>>();
 
     private int pageIndex;
-
-    private Vendor vendor;
 
     private int itemsPerPage = 4;
 
@@ -86,20 +81,9 @@ public class VendorPanel : MonoBehaviour
         }
     }
 
-    public void Open(Vendor vendor)
+    public override void Open(NPC npc)
     {
-        this.vendor = vendor;
-        vendorPanel.alpha = 1;
-        vendorPanel.blocksRaycasts = true;
-    }
-
-    public void Close()
-    {
-        vendor.IsOpen = false;
-
-        vendorPanel.alpha = 0;
-        vendorPanel.blocksRaycasts = false;
-
-        vendor = null;
+        CreatePages((npc as Vendor).MyItems);
+        base.Open(npc);
     }
 }

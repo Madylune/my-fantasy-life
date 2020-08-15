@@ -19,6 +19,8 @@ public class QuestLog : MonoBehaviour
     [SerializeField]
     private GameObject actionsButtons;
 
+    private List<QuestScript> questScripts = new List<QuestScript>();
+
     private static QuestLog instance;
 
     public static QuestLog MyInstance
@@ -47,6 +49,8 @@ public class QuestLog : MonoBehaviour
             QuestScript qs = go.GetComponent<QuestScript>();
             quest.MyQuestScript = qs;
             qs.MyQuest = quest;
+
+            questScripts.Add(qs);
 
             go.GetComponent<Text>().text = string.Format("{0}", "[REQUEST] " + quest.MyTitle);
         }
@@ -79,6 +83,14 @@ public class QuestLog : MonoBehaviour
             questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>\n\n<size=12><color=red>{2}</color></size>", "[ " + quest.MyTitle + " ]", quest.MyDescription, objectives);
 
             actionsButtons.SetActive(true);
+        }
+    }
+
+    public void CheckCompletion()
+    {
+        foreach (QuestScript qs in questScripts)
+        {
+            qs.SetComplete();
         }
     }
 }

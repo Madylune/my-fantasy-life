@@ -48,6 +48,21 @@ public class Quest
             return collectObjectives;
         }
     }
+
+    public bool IsComplete
+    {
+        get
+        {
+            foreach (Objective o in collectObjectives)
+            {
+                if (!o.IsComplete)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }
 
 [System.Serializable]
@@ -88,6 +103,14 @@ public abstract class Objective
             return type;
         }
     }
+
+    public bool IsComplete
+    {
+        get
+        {
+            return MyCurrentAmount >= MyAmount;
+        }
+    }
 }
 
 [System.Serializable]
@@ -99,6 +122,7 @@ public class CollectObjective : Objective
         {
             MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(item.MyTitle);
             QuestLog.MyInstance.UpdateObjectives();
+            QuestLog.MyInstance.CheckCompletion();
         }
     }
 }
