@@ -61,7 +61,7 @@ public class QuestLog : MonoBehaviour
     {
         if (quest != null)
         {
-            if (selected != null)
+            if (selected != null && selected != quest)
             {
                 selected.MyQuestScript.DeSelect();
                 actionsButtons.SetActive(false);
