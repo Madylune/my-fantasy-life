@@ -167,10 +167,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                 {
                     // Desequip the armor
                     Armor armor = (Armor)HandScript.MyInstance.MyMoveable;
-                    // Add armor into inventory
-                    AddItem(armor);
                     // Dequip armor from the character panel
                     CharacterPanel.MyInstance.MySelectedButton.DequipArmor();
+                    // Add armor into inventory
+                    AddItem(armor);
                     // Remove armor from hand
                     HandScript.MyInstance.Drop();
                 }
