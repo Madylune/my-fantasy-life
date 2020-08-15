@@ -1251,7 +1251,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000015258789, y: 144.94998}
-  m_SizeDelta: {x: 250, y: 10}
+  m_SizeDelta: {x: 250, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &72568730
 MonoBehaviour:
@@ -16332,13 +16332,14 @@ GameObject:
   - component: {fileID: 502970807}
   - component: {fileID: 502970806}
   - component: {fileID: 502970808}
+  - component: {fileID: 502970809}
   m_Layer: 5
   m_Name: QuestPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &502970805
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16419,6 +16420,18 @@ MonoBehaviour:
   questParent: {fileID: 72568729}
   questDescription: {fileID: 1909589454}
   actionsButtons: {fileID: 1538771641}
+--- !u!225 &502970809
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502970804}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &507790808
 GameObject:
   m_ObjectHideFlags: 0
@@ -19646,7 +19659,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20662,7 +20675,7 @@ PrefabInstance:
     - target: {fileID: 3436116432841490581, guid: 36b65a0e667734ba8b968c30015f6236,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3436116432841490581, guid: 36b65a0e667734ba8b968c30015f6236,
         type: 3}
@@ -20673,7 +20686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2095422028}
+      objectReference: {fileID: 788243809}
     - target: {fileID: 3436116432841490581, guid: 36b65a0e667734ba8b968c30015f6236,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -20682,8 +20695,13 @@ PrefabInstance:
     - target: {fileID: 3436116432841490581, guid: 36b65a0e667734ba8b968c30015f6236,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.CanvasGroup, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3436116432841490581, guid: 36b65a0e667734ba8b968c30015f6236,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 502970809}
     - target: {fileID: 4676575543314803657, guid: 36b65a0e667734ba8b968c30015f6236,
         type: 3}
       propertyPath: m_IsActive
@@ -40718,7 +40736,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -50165,7 +50183,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000017287894, y: 118.5}
-  m_SizeDelta: {x: 229, y: 49.918434}
+  m_SizeDelta: {x: 229, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1909589453
 MonoBehaviour:
@@ -58639,7 +58657,6 @@ GameObject:
   - component: {fileID: 2095422031}
   - component: {fileID: 2095422030}
   - component: {fileID: 2095422029}
-  - component: {fileID: 2095422028}
   - component: {fileID: 2095422032}
   m_Layer: 5
   m_Name: QuestsButton
@@ -58668,20 +58685,6 @@ RectTransform:
   m_AnchoredPosition: {x: -480.91354, y: 93.399994}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2095422028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095422026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245dcf50731d741d999da00d18e94313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 502970804}
-  keyCode: 113
 --- !u!114 &2095422029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58725,12 +58728,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095422028}
+      - m_Target: {fileID: 788243809}
         m_MethodName: TogglePanel
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 502970809}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

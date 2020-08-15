@@ -35,18 +35,21 @@ public class QuestLog : MonoBehaviour
 
     public void AcceptQuest(Quest quest)
     {
-        foreach (CollectObjective o in quest.MyCollectObjectives)
+        if (quest != null)
         {
-            InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+            foreach (CollectObjective o in quest.MyCollectObjectives)
+            {
+                InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+            }
+
+            GameObject go = Instantiate(questPrefab, questParent);
+
+            QuestScript qs = go.GetComponent<QuestScript>();
+            quest.MyQuestScript = qs;
+            qs.MyQuest = quest;
+
+            go.GetComponent<Text>().text = string.Format("{0}", "[REQUEST] " + quest.MyTitle);
         }
-
-        GameObject go = Instantiate(questPrefab, questParent);
-
-        QuestScript qs = go.GetComponent<QuestScript>();
-        quest.MyQuestScript = qs;
-        qs.MyQuest = quest;
-
-        go.GetComponent<Text>().text = string.Format("{0}", "[REQUEST] " + quest.MyTitle);
     }
 
     public void UpdateObjectives()
@@ -56,23 +59,26 @@ public class QuestLog : MonoBehaviour
 
     public void ShowDescription(Quest quest)
     {
-        if (selected != null)
+        if (quest != null)
         {
-            selected.MyQuestScript.DeSelect();
-            actionsButtons.SetActive(false);
+            if (selected != null)
+            {
+                selected.MyQuestScript.DeSelect();
+                actionsButtons.SetActive(false);
+            }
+
+            selected = quest;
+
+            string objectives = string.Empty;
+
+            foreach (Objective obj in quest.MyCollectObjectives)
+            {
+                objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
+            }
+
+            questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>\n\n<size=12><color=red>{2}</color></size>", "[ " + quest.MyTitle + " ]", quest.MyDescription, objectives);
+
+            actionsButtons.SetActive(true);
         }
-
-        selected = quest;
-
-        string objectives = string.Empty;
-
-        foreach (Objective obj in quest.MyCollectObjectives)
-        {
-            objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
-        }
-
-        questDescription.text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>\n\n<size=12><color=red>{2}</color></size>", "[ " + quest.MyTitle + " ]", quest.MyDescription, objectives);
-
-        actionsButtons.SetActive(true);
     }
 }
