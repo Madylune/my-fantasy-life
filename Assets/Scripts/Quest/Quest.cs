@@ -125,4 +125,11 @@ public class CollectObjective : Objective
             QuestLog.MyInstance.CheckCompletion();
         }
     }
+
+    public void UpdateItemCount()
+    {
+        MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(MyType);
+        QuestLog.MyInstance.UpdateObjectives();
+        QuestLog.MyInstance.CheckCompletion();
+    }
 }

@@ -42,6 +42,8 @@ public class QuestLog : MonoBehaviour
             foreach (CollectObjective o in quest.MyCollectObjectives)
             {
                 InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+
+                o.UpdateItemCount();
             }
 
             GameObject go = Instantiate(questPrefab, questParent);
@@ -53,6 +55,8 @@ public class QuestLog : MonoBehaviour
             questScripts.Add(qs);
 
             go.GetComponent<Text>().text = string.Format("{0}", "[REQUEST] " + quest.MyTitle);
+
+            CheckCompletion();
         }
     }
 
