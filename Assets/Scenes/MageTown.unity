@@ -786,7 +786,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643456999}
   m_HandleRect: {fileID: 1643456998}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15334,9 +15334,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Refuse
-
-'
+  m_Text: Cancel
 --- !u!222 &403299494
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43155,7 +43153,7 @@ GameObject:
   - component: {fileID: 1693407421}
   - component: {fileID: 1693407420}
   m_Layer: 5
-  m_Name: RefuseBtn
+  m_Name: CancelBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43223,7 +43221,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1693407421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1084258612}
+        m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1693407421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45136,7 +45145,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1823091382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1084258612}
+        m_MethodName: AcceptQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1823091382
 MonoBehaviour:
   m_ObjectHideFlags: 0

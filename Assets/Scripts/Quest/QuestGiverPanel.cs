@@ -30,9 +30,21 @@ public class QuestGiverPanel : Panel
     [SerializeField]
     private Transform questArea;
 
+    private List<GameObject> quests = new List<GameObject>();
+
+    private Quest selectedQuest;
+
     public void ShowQuests(QuestGiver questGiver)
     {
         this.questGiver = questGiver;
+
+        foreach (GameObject go in quests)
+        {
+            Destroy(go);
+        }
+
+        questArea.gameObject.SetActive(true);
+        questDescription.SetActive(false);
 
         foreach (Quest quest in questGiver.MyQuests)
         {
@@ -40,6 +52,8 @@ public class QuestGiverPanel : Panel
             go.GetComponent<Text>().text = quest.MyTitle;
 
             go.GetComponent<QuestGiverQuestScript>().MyQuest = quest;
+
+            quests.Add(go);
         }
     }
 
@@ -51,6 +65,8 @@ public class QuestGiverPanel : Panel
 
     public void ShowQuestInfo(Quest quest)
     {
+        this.selectedQuest = quest;
+
         actionButtons.SetActive(true);
         questArea.gameObject.SetActive(false);
         questDescription.SetActive(true);
@@ -64,6 +80,18 @@ public class QuestGiverPanel : Panel
             objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
         }
 
-        questDescription.GetComponent<Text>().text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>\n\n<size=12><color=red>{2}</color></size>", "[ " + title + " ]", description, objectives);
+        questDescription.GetComponent<Text>().text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>", "[ " + title + " ]", description);
+    }
+
+    public void Cancel()
+    {
+        actionButtons.SetActive(false);
+        ShowQuests(questGiver);
+    }
+
+    public void AcceptQuest()
+    {
+        QuestLog.MyInstance.AcceptQuest(selectedQuest);
+        Cancel();
     }
 }
