@@ -22,7 +22,7 @@ public class QuestGiverPanel : Panel
     private QuestGiver questGiver;
 
     [SerializeField]
-    private GameObject actionButtons, questDescription;
+    private GameObject cancelBtn, acceptBtn, abandonBtn, completeBtn, questDescription;
 
     [SerializeField]
     private GameObject questPrefab;
@@ -48,12 +48,27 @@ public class QuestGiverPanel : Panel
 
         foreach (Quest quest in questGiver.MyQuests)
         {
-            GameObject go = Instantiate(questPrefab, questArea);
-            go.GetComponent<Text>().text = quest.MyTitle;
+            if (quest != null)
+            {
+                GameObject go = Instantiate(questPrefab, questArea);
+                go.GetComponent<Text>().text = quest.MyTitle;
 
-            go.GetComponent<QuestGiverQuestScript>().MyQuest = quest;
+                go.GetComponent<QuestGiverQuestScript>().MyQuest = quest;
 
-            quests.Add(go);
+                quests.Add(go);
+
+                if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
+                {
+                    go.GetComponent<Text>().text = string.Format("<color=#00D50A>{0}</color>", "[COMPLETE] " + quest.MyTitle);
+                }
+                else if (QuestLog.MyInstance.HasQuest(quest))
+                {
+                    // Greys out accepted quest
+                    Color c = go.GetComponent<Text>().color;
+                    c.a = 0.5f;
+                    go.GetComponent<Text>().color = c;
+                }
+            }
         }
     }
 
@@ -67,25 +82,38 @@ public class QuestGiverPanel : Panel
     {
         this.selectedQuest = quest;
 
-        actionButtons.SetActive(true);
+        if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
+        {
+            acceptBtn.SetActive(false);
+            completeBtn.SetActive(true);
+        }
+        else if (QuestLog.MyInstance.HasQuest(quest))
+        {
+            abandonBtn.SetActive(true);
+        }
+        else if (!QuestLog.MyInstance.HasQuest(quest))
+        {
+            acceptBtn.SetActive(true);
+            abandonBtn.SetActive(false);
+        }
+
+        cancelBtn.SetActive(true);
         questArea.gameObject.SetActive(false);
         questDescription.SetActive(true);
 
         string title = quest.MyTitle;
         string description = quest.MyDescription;
-        string objectives = string.Empty;
-
-        foreach (Objective obj in quest.MyCollectObjectives)
-        {
-            objectives = obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
-        }
 
         questDescription.GetComponent<Text>().text = string.Format("<b>{0}</b>\n\n<size=13>{1}</size>", "[ " + title + " ]", description);
     }
 
     public void Cancel()
     {
-        actionButtons.SetActive(false);
+        acceptBtn.SetActive(false);
+        cancelBtn.SetActive(false);
+        abandonBtn.SetActive(false);
+        completeBtn.SetActive(false);
+
         ShowQuests(questGiver);
     }
 
@@ -93,5 +121,28 @@ public class QuestGiverPanel : Panel
     {
         QuestLog.MyInstance.AcceptQuest(selectedQuest);
         Cancel();
+    }
+
+    public void CompleteQuest()
+    {
+        if (selectedQuest.IsComplete)
+        {
+            for (int i = 0; i < questGiver.MyQuests.Length; i++)
+            {
+                if (selectedQuest == questGiver.MyQuests[i])
+                {
+                    questGiver.MyQuests[i] = null;
+                }
+            }
+
+            Cancel();
+        }
+    }
+
+    public override void Close()
+    {
+        completeBtn.SetActive(false);
+        cancelBtn.SetActive(false);
+        base.Close();
     }
 }

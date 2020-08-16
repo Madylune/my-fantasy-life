@@ -21,6 +21,8 @@ public class QuestLog : MonoBehaviour
 
     private List<QuestScript> questScripts = new List<QuestScript>();
 
+    private List<Quest> quests = new List<Quest>();
+
     private static QuestLog instance;
 
     public static QuestLog MyInstance
@@ -45,6 +47,8 @@ public class QuestLog : MonoBehaviour
 
                 o.UpdateItemCount();
             }
+
+            quests.Add(quest);
 
             GameObject go = Instantiate(questPrefab, questParent);
 
@@ -96,5 +100,15 @@ public class QuestLog : MonoBehaviour
         {
             qs.SetComplete();
         }
+    }
+
+    public void AbandonQuest()
+    {
+
+    }
+
+    public bool HasQuest(Quest quest)
+    {
+        return quests.Exists(x => x.MyTitle == quest.MyTitle);
     }
 }

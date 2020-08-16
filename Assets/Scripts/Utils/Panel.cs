@@ -16,7 +16,7 @@ public class Panel : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void Close()
+    public virtual void Close()
     {
         npc.IsInteracting = false;
 
