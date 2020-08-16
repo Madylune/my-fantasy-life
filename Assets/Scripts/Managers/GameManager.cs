@@ -3,8 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public delegate void KillConfirmed(Character character);
+
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+
+    public static GameManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameManager>();
+            }
+            return instance;
+        }
+    }
+
+    public event KillConfirmed killConfirmedEvent;
+
     [SerializeField]
     private Player player;
 
@@ -57,6 +75,14 @@ public class GameManager : MonoBehaviour
             {
                 player.Interact();
             }
+        }
+    }
+
+    public void OnKillConfirmed(Character character)
+    {
+        if (killConfirmedEvent != null)
+        {
+            killConfirmedEvent(character);
         }
     }
 }

@@ -12,7 +12,12 @@ public abstract class Character : MonoBehaviour
     private Stats stats;
 
     [SerializeField]
+    private string type;
+
+    [SerializeField]
     private GameObject gravePrefab;
+
+    public string MyType { get => type; }
 
     private void Start()
     {
@@ -39,6 +44,8 @@ public abstract class Character : MonoBehaviour
 
         // Send to GraveScript the LootTable from the Enemy
         grave.GetComponent<GraveScript>().SetLoot(gameObject.GetComponent<LootTable>());
+
+        GameManager.MyInstance.OnKillConfirmed(this);
 
         Destroy(gameObject);
         UIManager.MyInstance.HideTargetFrame();

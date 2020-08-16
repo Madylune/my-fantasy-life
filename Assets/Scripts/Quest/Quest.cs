@@ -15,6 +15,9 @@ public class Quest
     [SerializeField]
     private CollectObjective[] collectObjectives;
 
+    [SerializeField]
+    private KillObjective[] killObjectives;
+
     public QuestScript MyQuestScript { get; set; }
 
     public string MyTitle
@@ -49,6 +52,8 @@ public class Quest
         }
     }
 
+    public KillObjective[] MyKillObjectives { get => killObjectives; }
+
     public bool IsComplete
     {
         get
@@ -60,6 +65,15 @@ public class Quest
                     return false;
                 }
             }
+
+            foreach (Objective ob in killObjectives)
+            {
+                if (!ob.IsComplete)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
     }
@@ -131,5 +145,20 @@ public class CollectObjective : Objective
         MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(MyType);
         QuestLog.MyInstance.UpdateObjectives();
         QuestLog.MyInstance.CheckCompletion();
+    }
+}
+
+[System.Serializable]
+public class KillObjective : Objective
+{
+    public void UpdateKillCount(Character character)
+    {
+        if (MyType == character.MyType)
+        {
+            MyCurrentAmount++;
+
+            QuestLog.MyInstance.UpdateObjectives();
+            QuestLog.MyInstance.CheckCompletion();
+        }
     }
 }
