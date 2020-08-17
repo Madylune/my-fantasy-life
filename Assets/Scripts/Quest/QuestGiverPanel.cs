@@ -146,6 +146,7 @@ public class QuestGiverPanel : Panel
                 GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(o.UpdateKillCount);
             }
 
+            QuestLog.MyInstance.RemoveQuest(selectedQuest.MyQuestScript);
             Cancel();
         }
     }

@@ -20,6 +20,8 @@ public class Quest
 
     public QuestScript MyQuestScript { get; set; }
 
+    public QuestGiver MyQuestGiver { get; set; }
+
     public string MyTitle
     {
         get
