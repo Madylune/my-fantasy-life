@@ -138,6 +138,7 @@ public class QuestGiverPanel : Panel
             foreach (CollectObjective o in selectedQuest.MyCollectObjectives)
             {
                 InventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
+                o.Complete();
             }
 
             foreach (KillObjective o in selectedQuest.MyKillObjectives)

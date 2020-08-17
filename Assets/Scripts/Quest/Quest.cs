@@ -152,6 +152,16 @@ public class CollectObjective : Objective
         QuestLog.MyInstance.UpdateObjectives();
         QuestLog.MyInstance.CheckCompletion();
     }
+
+    public void Complete()
+    {
+        Stack<Item> items = InventoryScript.MyInstance.GetItems(MyType, MyAmount);
+
+        foreach (Item item in items)
+        {
+            item.Remove();
+        }
+    }
 }
 
 [System.Serializable]
