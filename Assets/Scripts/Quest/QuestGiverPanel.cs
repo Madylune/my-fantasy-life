@@ -135,6 +135,16 @@ public class QuestGiverPanel : Panel
                 }
             }
 
+            foreach (CollectObjective o in selectedQuest.MyCollectObjectives)
+            {
+                InventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
+            }
+
+            foreach (KillObjective o in selectedQuest.MyKillObjectives)
+            {
+                GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(o.UpdateKillCount);
+            }
+
             Cancel();
         }
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class QuestScript : MonoBehaviour
@@ -26,6 +24,7 @@ public class QuestScript : MonoBehaviour
         {
             markedComplete = true;
             GetComponent<Text>().text = string.Format("{0}", "[COMPLETE] " + MyQuest.MyTitle);
+            MessageFeedManager.MyInstance.WriteMessage(string.Format("<size=20>{0} (COMPLETE)</size>", MyQuest.MyTitle));
         }
         else if (!MyQuest.IsComplete)
         {

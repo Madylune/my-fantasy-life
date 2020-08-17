@@ -135,6 +135,12 @@ public class CollectObjective : Objective
         if (MyType.ToLower() == item.MyTitle.ToLower())
         {
             MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(item.MyTitle);
+
+            if (MyCurrentAmount <= MyAmount)
+            {
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", item.MyTitle, MyCurrentAmount, MyAmount));
+            }
+
             QuestLog.MyInstance.UpdateObjectives();
             QuestLog.MyInstance.CheckCompletion();
         }
@@ -156,6 +162,11 @@ public class KillObjective : Objective
         if (MyType == character.MyType)
         {
             MyCurrentAmount++;
+
+            if (MyCurrentAmount <= MyAmount)
+            {
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", character.MyType, MyCurrentAmount, MyAmount));
+            }
 
             QuestLog.MyInstance.UpdateObjectives();
             QuestLog.MyInstance.CheckCompletion();
