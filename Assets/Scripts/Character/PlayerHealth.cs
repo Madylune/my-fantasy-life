@@ -42,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             currentHealth += amount;
+            CombatTextManager.MyInstance.CreateText(transform.position, amount.ToString(), CombatTextType.HEAL, false);
         }
         healthBar.SetHealth(currentHealth);
         effectRoutine = StartCoroutine(ShowHealAnimation());
@@ -68,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //AudioManager.MyInstance.PlayClipAt(hitSound, transform.position);
             currentHealth -= damage;
+            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), CombatTextType.DAMAGE, false);
         }
         healthBar.SetHealth(currentHealth);
     }

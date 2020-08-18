@@ -33,8 +33,10 @@ public abstract class Character : MonoBehaviour
         }
         else
         {
+            bool critChance = Random.Range(0, 5) < 1 ? true : false;
+
             stats.currentHealth -= damage;
-            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString());
+            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), CombatTextType.HIT, critChance);
         }
     }
 
