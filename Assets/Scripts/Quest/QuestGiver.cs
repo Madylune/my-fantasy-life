@@ -25,6 +25,8 @@ public class QuestGiver : NPC
 
     public void UpdateQuestStatus()
     {
+        int count = 0;
+
         foreach (Quest quest in quests)
         {
             if (quest != null)
@@ -44,6 +46,15 @@ public class QuestGiver : NPC
                 else
                 {
                     statusRenderer.sprite = exclamation;
+                }
+            }
+            else
+            {
+                count++;
+
+                if (count == quests.Length)
+                {
+                    statusRenderer.enabled = false;
                 }
             }
         }

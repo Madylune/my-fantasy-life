@@ -59,7 +59,7 @@ public class QuestGiverPanel : Panel
 
                 if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
                 {
-                    go.GetComponent<Text>().text = string.Format("<color=#00D50A>{0}</color>", "[COMPLETE] " + quest.MyTitle);
+                    go.GetComponent<Text>().text = string.Format("<color=red>{0}</color>", "[COMPLETE] " + quest.MyTitle);
                 }
                 else if (QuestLog.MyInstance.HasQuest(quest))
                 {
