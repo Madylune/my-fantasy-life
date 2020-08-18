@@ -173,15 +173,15 @@ public class KillObjective : Objective
     {
         if (MyType == character.MyType)
         {
-            MyCurrentAmount++;
-
-            if (MyCurrentAmount <= MyAmount)
+            if (MyCurrentAmount < MyAmount)
             {
-                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", character.MyType, MyCurrentAmount, MyAmount));
-            }
+                MyCurrentAmount++;
 
-            QuestLog.MyInstance.UpdateObjectives();
-            QuestLog.MyInstance.CheckCompletion();
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", character.MyType, MyCurrentAmount, MyAmount));
+
+                QuestLog.MyInstance.UpdateObjectives();
+                QuestLog.MyInstance.CheckCompletion();
+            }
         }
     }
 }
