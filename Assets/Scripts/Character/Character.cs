@@ -34,6 +34,7 @@ public abstract class Character : MonoBehaviour
         else
         {
             stats.currentHealth -= damage;
+            CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString());
         }
     }
 
