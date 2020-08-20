@@ -23,8 +23,19 @@ public class Player : MonoBehaviour
 
     public IInteractable MyInteractable { get => interactable; set => interactable = value; }
 
+    public int MyLevel { get => level; set => level = value; }
+
     [SerializeField]
     private Text moneyCount;
+
+    [SerializeField]
+    private ExpBar expBar;
+
+    [SerializeField]
+    private int level;
+
+    [SerializeField]
+    private Text levelText;
 
     public PlayerMovement movement;
     public PlayerAttack attack;
@@ -37,10 +48,23 @@ public class Player : MonoBehaviour
         health = GetComponent<PlayerHealth>();
 
         MyMoney = 5000;
+
+        expBar.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+
+        levelText.text = MyLevel.ToString();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            expBar.MyCurrentValue -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            expBar.MyCurrentValue += 10;
+        }
+
         foreach (string action in KeybindsManager.MyInstance.ActionBinds.Keys)
         {
             if (Input.GetKeyDown(KeybindsManager.MyInstance.ActionBinds[action]))
