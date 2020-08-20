@@ -19,6 +19,8 @@ public class ExpBar : MonoBehaviour
 
     private float currentFill;
 
+    private float overflow;
+
     public float MyMaxValue { get; set; }
 
     public float MyCurrentValue
@@ -29,6 +31,7 @@ public class ExpBar : MonoBehaviour
         {
             if (value > MyMaxValue)
             {
+                overflow = value - MyMaxValue;
                 currentValue = MyMaxValue;
             }
             else if (value < 0)
@@ -46,12 +49,19 @@ public class ExpBar : MonoBehaviour
         }
     }
 
-    private float currentValue;
+    public bool IsFull { get => slider.value == MyMaxValue; }
 
-    private void Start()
+    public float MyOverflow
     {
-
+        get
+        {
+            float tmp = overflow;
+            overflow = 0;
+            return tmp;
+        }
     }
+
+    private float currentValue;
 
     private void Update()
     {
@@ -66,6 +76,12 @@ public class ExpBar : MonoBehaviour
         slider.maxValue = maxValue;
     }
 
+    public void SetMaxValue(float maxValue)
+    {
+        MyMaxValue = maxValue;
+        slider.maxValue = maxValue;
+    }
+
     private void HandleBar()
     {
         if (currentFill != slider.value)
@@ -73,5 +89,10 @@ public class ExpBar : MonoBehaviour
             // Smooth bar's fill
             slider.value = Mathf.MoveTowards(slider.value, currentFill, Time.deltaTime * lerpSpeed);
         }
+    }
+
+    public void Reset()
+    {
+        slider.value = 0;
     }
 }

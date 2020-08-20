@@ -1225,7 +1225,7 @@ MonoBehaviour:
   slider: {fileID: 52681460}
   fill: {fileID: 917943468}
   expText: {fileID: 1801914830}
-  lerpSpeed: 15
+  lerpSpeed: 20
 --- !u!1 &54660764
 GameObject:
   m_ObjectHideFlags: 0
@@ -16992,7 +16992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyCount: {fileID: 1078223604}
   expBar: {fileID: 52681461}
-  level: 3
+  level: 1
   levelText: {fileID: 520184751}
   movement: {fileID: 502487034}
   attack: {fileID: 502487037}
@@ -37453,7 +37453,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 620234690}
   m_HandleRect: {fileID: 620234689}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

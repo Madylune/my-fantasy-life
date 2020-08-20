@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CombatTextType { DAMAGE, HEAL, HIT }
+public enum CombatTextType { DAMAGE, HEAL, HIT, EXP }
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -30,7 +30,8 @@ public class CombatTextManager : MonoBehaviour
 
         Text txt = Instantiate(combatText, transform).GetComponent<Text>();
         txt.transform.position = position;
-        txt.text = text;
+
+        string after = string.Empty; 
 
         switch (type)
         {
@@ -43,9 +44,14 @@ public class CombatTextManager : MonoBehaviour
             case CombatTextType.HIT:
                 txt.color = crit ? Color.yellow : Color.white;
                 break;
+            case CombatTextType.EXP:
+                after = " XP";
+                break;
             default:
                 break;
         }
+
+        txt.text = text + after;
 
         if (crit)
         {

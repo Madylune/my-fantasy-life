@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,11 +59,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            expBar.MyCurrentValue -= 10;
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            expBar.MyCurrentValue += 10;
+            GainExp(16);
         }
 
         foreach (string action in KeybindsManager.MyInstance.ActionBinds.Keys)
@@ -82,6 +79,33 @@ public class Player : MonoBehaviour
         {
             MyInteractable.Interact();
         }
+    }
+
+    public void GainExp(int exp)
+    {
+        expBar.MyCurrentValue += exp;
+        CombatTextManager.MyInstance.CreateText(transform.position, exp.ToString(), CombatTextType.EXP, false);
+
+        if (expBar.MyCurrentValue >= expBar.MyMaxValue)
+        {
+            StartCoroutine(Ding());
+        }
+    }
+
+    private IEnumerator Ding()
+    {
+        while (!expBar.IsFull)
+        {
+            yield return null;
+        }
+
+        MyLevel++;
+        levelText.text = MyLevel.ToString();
+
+        expBar.SetMaxValue(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+
+        expBar.MyCurrentValue = expBar.MyOverflow;
+        expBar.Reset();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
