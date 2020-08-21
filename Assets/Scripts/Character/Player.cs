@@ -106,6 +106,11 @@ public class Player : MonoBehaviour
 
         expBar.MyCurrentValue = expBar.MyOverflow;
         expBar.Reset();
+
+        if (expBar.MyCurrentValue >= expBar.MyMaxValue)
+        {
+            StartCoroutine(Ding());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
