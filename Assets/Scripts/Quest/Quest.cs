@@ -13,6 +13,12 @@ public class Quest
     private string description;
 
     [SerializeField]
+    private int level;
+
+    [SerializeField]
+    private int xp;
+
+    [SerializeField]
     private CollectObjective[] collectObjectives;
 
     [SerializeField]
@@ -79,6 +85,10 @@ public class Quest
             return true;
         }
     }
+
+    public int MyLevel { get => level; set => level = value; }
+
+    public int MyXp { get => xp; set => xp = value; }
 }
 
 [System.Serializable]

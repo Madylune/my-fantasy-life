@@ -2,7 +2,7 @@
 
 static class XPManager
 {
-    public static int CalculateXP(Enemy e)
+    public static int CalculateXP(Enemy enemy)
     {
         int baseXP = (Player.MyInstance.MyLevel * 5) + 45;
 
@@ -10,16 +10,46 @@ static class XPManager
 
         int totalXP = 0;
 
-        if (e.MyLevel >= Player.MyInstance.MyLevel) // High level mobs
+        if (enemy.MyLevel >= Player.MyInstance.MyLevel) // High level mobs
         {
-            totalXP = (int)(baseXP * (1 + 0.05 * (e.MyLevel - Player.MyInstance.MyLevel)));
+            totalXP = (int)(baseXP * (1 + 0.05 * (enemy.MyLevel - Player.MyInstance.MyLevel)));
         }
-        else if (e.MyLevel > grayLevel) // Lower level mobs
+        else if (enemy.MyLevel > grayLevel) // Lower level mobs
         {
-            totalXP = (baseXP) * (1 - (Player.MyInstance.MyLevel - e.MyLevel) / ZeroDifference());
+            totalXP = (baseXP) * (1 - (Player.MyInstance.MyLevel - enemy.MyLevel) / ZeroDifference());
         }
 
         return totalXP;
+    }
+
+    public static int CalculateXP(Quest quest)
+    {
+        if (Player.MyInstance.MyLevel <= quest.MyLevel + 5)
+        {
+            return quest.MyXp;
+        }
+        if (Player.MyInstance.MyLevel == quest.MyLevel + 6)
+        {
+            return (int)(quest.MyXp * 0.8 / 5) * 5;
+        }
+        if (Player.MyInstance.MyLevel == quest.MyLevel + 7)
+        {
+            return (int)(quest.MyXp * 0.6 / 5) * 5;
+        }
+        if (Player.MyInstance.MyLevel == quest.MyLevel + 8)
+        {
+            return (int)(quest.MyXp * 0.4 / 5) * 5;
+        }
+        if (Player.MyInstance.MyLevel == quest.MyLevel + 9)
+        {
+            return (int)(quest.MyXp * 0.2 / 5) * 5;
+        }
+        if (Player.MyInstance.MyLevel >= quest.MyLevel + 10)
+        {
+            return (int)(quest.MyXp * 0.1 / 5) * 5;
+        }
+
+        return 0;
     }
 
     private static int ZeroDifference()

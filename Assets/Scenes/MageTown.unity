@@ -34688,6 +34688,8 @@ MonoBehaviour:
       2000
 
       Coins 15000'
+    level: 5
+    xp: 25
     collectObjectives: []
     killObjectives:
     - amount: 1
@@ -34706,6 +34708,8 @@ MonoBehaviour:
 
       Coins
       3000'
+    level: 5
+    xp: 25
     collectObjectives:
     - amount: 5
       type: Health Potion

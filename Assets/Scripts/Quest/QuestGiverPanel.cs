@@ -51,7 +51,8 @@ public class QuestGiverPanel : Panel
             if (quest != null)
             {
                 GameObject go = Instantiate(questPrefab, questArea);
-                go.GetComponent<Text>().text = quest.MyTitle;
+
+                go.GetComponent<Text>().text = "[LVL " + quest.MyLevel + "] " + quest.MyTitle;
 
                 go.GetComponent<QuestGiverQuestScript>().MyQuest = quest;
 
@@ -59,7 +60,7 @@ public class QuestGiverPanel : Panel
 
                 if (QuestLog.MyInstance.HasQuest(quest) && quest.IsComplete)
                 {
-                    go.GetComponent<Text>().text = string.Format("<color=red>{0}</color>", "[COMPLETE] " + quest.MyTitle);
+                    go.GetComponent<Text>().text = string.Format("<color=red>{0}</color>", "[LVL " + quest.MyLevel + "] " + quest.MyTitle + " (COMPLETE)");
                 }
                 else if (QuestLog.MyInstance.HasQuest(quest))
                 {
@@ -145,6 +146,8 @@ public class QuestGiverPanel : Panel
             {
                 GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(o.UpdateKillCount);
             }
+
+            Player.MyInstance.GainExp(XPManager.CalculateXP(selectedQuest));
 
             QuestLog.MyInstance.RemoveQuest(selectedQuest.MyQuestScript);
             Cancel();
