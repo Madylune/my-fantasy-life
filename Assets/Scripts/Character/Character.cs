@@ -15,9 +15,14 @@ public abstract class Character : MonoBehaviour
     private string type;
 
     [SerializeField]
+    private int level;
+
+    [SerializeField]
     private GameObject gravePrefab;
 
     public string MyType { get => type; }
+
+    public int MyLevel { get => level; set => level = value; }
 
     private void Start()
     {
@@ -42,6 +47,11 @@ public abstract class Character : MonoBehaviour
 
     public void Die()
     {
+        if (this is Enemy)
+        {
+            Player.MyInstance.GainExp(XPManager.CalculateXP((this as Enemy)));
+        }
+
         // Show grave
         GameObject grave = Instantiate(gravePrefab, transform.position, transform.rotation);
 

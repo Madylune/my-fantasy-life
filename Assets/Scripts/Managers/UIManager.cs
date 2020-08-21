@@ -35,10 +35,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private RectTransform tooltipRect;
 
-    public Text targetName;
-    public Text targetLevel;
-    public Image targetIcon;
-    public HealthBar targetHealthBar;
+    [SerializeField]
+    private Text targetName;
+
+    [SerializeField]
+    private Text targetLevel;
+
+    [SerializeField]
+    private Image targetIcon;
+
+    [SerializeField]
+    private HealthBar targetHealthBar;
 
     private Stats stats;
 
@@ -78,12 +85,40 @@ public class UIManager : MonoBehaviour
     {
         UpdateTargetFrame(target);
 
+        stats = target.GetComponent<Stats>();
+
+        targetName.text = stats.name;
+        targetLevel.text = target.MyLevel.ToString();
+        targetIcon.sprite = stats.icon;
+
+        if (target.MyLevel >= Player.MyInstance.MyLevel + 5)
+        {
+            targetLevel.color = Color.red;
+        }
+        else if (target.MyLevel == Player.MyInstance.MyLevel + 3 || target.MyLevel == Player.MyInstance.MyLevel + 4)
+        {
+            targetLevel.color = new Color32(255, 124, 0, 255); //Orange
+        }
+        else if (target.MyLevel >= Player.MyInstance.MyLevel - 2 && target.MyLevel <= Player.MyInstance.MyLevel + 2)
+        {
+            targetLevel.color = Color.yellow;
+        }
+        else if (target.MyLevel <= Player.MyInstance.MyLevel - 3 && target.MyLevel > XPManager.CalculateGrayLevel())
+        {
+            targetLevel.color = Color.green;
+        }
+        else
+        {
+            targetLevel.color = Color.white;
+        }
+
         targetFrame.SetActive(true);
     }
 
     public void HideTargetFrame()
     {
         targetFrame.SetActive(false);
+
         stats = null;
     }
 
@@ -91,10 +126,6 @@ public class UIManager : MonoBehaviour
     {
         stats = target.GetComponent<Stats>();
 
-        targetName.text = stats.name;
-        targetLevel.text = stats.level.ToString();
-        targetIcon.sprite = stats.icon;
-        
         targetHealthBar.SetHealth(stats.currentHealth);
     }
 

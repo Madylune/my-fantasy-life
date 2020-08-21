@@ -9,7 +9,6 @@ public class Stats : MonoBehaviour
     public int currentHealth;
 
     public string name;
-    public int level;
     public Sprite icon;
 
     void Start()
