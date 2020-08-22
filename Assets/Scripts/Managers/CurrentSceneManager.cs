@@ -2,17 +2,26 @@
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public bool isPlayerPresentByDefault = false;
+    private static CurrentSceneManager instance;
 
-    public static CurrentSceneManager instance;
+    public static CurrentSceneManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<CurrentSceneManager>();
+            }
+            return instance;
+        }
+    }
+
+    [SerializeField]
+    private Vector3 respawnPoint;
 
     private void Awake() 
     {
-        if (instance != null)
-        {
-            Debug.LogWarning("The scene already has a CurrentSceneManager");
-            return;
-        }
-        instance = this;
+        respawnPoint = GameObject.FindGameObjectWithTag("Player").transform.position;
+        Debug.Log("respawnPoint: " + respawnPoint);
     }
 }

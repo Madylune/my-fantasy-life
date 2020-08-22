@@ -24,12 +24,10 @@ public class LoadSpecificScene : MonoBehaviour
     public IEnumerator loadNextScene()
     {
         fadeSystem.SetTrigger("FadeIn");
+
         yield return new WaitForSeconds(1f);
+
         SceneManager.LoadScene(sceneName);
-        if (sceneName == "MageTown")
-        {
-            DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
-        }
         dialogueBox.SetActive(true);
     }
 }

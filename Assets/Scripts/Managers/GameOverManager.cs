@@ -31,7 +31,6 @@ public class GameOverManager : MonoBehaviour
     public void Respawn()
     {
         SceneManager.LoadScene(savePoint);
-        DontDestroyOnLoadScene.instance.DestroyOnLoad();
         CloseGameOverPanel();
     }
 }
