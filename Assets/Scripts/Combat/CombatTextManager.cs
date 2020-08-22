@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CombatTextType { DAMAGE, HEAL, HIT, EXP }
+public enum CombatTextType { DAMAGE, HEAL, HIT, EXP, LVL }
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -46,6 +46,9 @@ public class CombatTextManager : MonoBehaviour
                 break;
             case CombatTextType.EXP:
                 after = " XP";
+                break;
+            case CombatTextType.LVL:
+                txt.color = new Color32(255, 124, 0, 255); // orange
                 break;
             default:
                 break;

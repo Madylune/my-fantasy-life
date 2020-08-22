@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Text levelText;
 
+    [SerializeField]
+    private GameObject dingEffect;
+
     public PlayerMovement movement;
     public PlayerAttack attack;
     public PlayerHealth health;
@@ -59,7 +62,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GainExp(16);
+            GainExp(100);
         }
 
         foreach (string action in KeybindsManager.MyInstance.ActionBinds.Keys)
@@ -84,7 +87,7 @@ public class Player : MonoBehaviour
     public void GainExp(int exp)
     {
         expBar.MyCurrentValue += exp;
-        CombatTextManager.MyInstance.CreateText(transform.position, exp.ToString(), CombatTextType.EXP, false);
+        //CombatTextManager.MyInstance.CreateText(transform.position, exp.ToString(), CombatTextType.EXP, false);
 
         if (expBar.MyCurrentValue >= expBar.MyMaxValue)
         {
@@ -100,6 +103,10 @@ public class Player : MonoBehaviour
         }
 
         MyLevel++;
+
+        dingEffect.SetActive(true);
+        CombatTextManager.MyInstance.CreateText(transform.position, "LEVEL UP", CombatTextType.LVL, false);
+
         levelText.text = MyLevel.ToString();
 
         expBar.SetMaxValue(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
@@ -111,6 +118,10 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Ding());
         }
+
+        yield return new WaitForSeconds(1);
+
+        dingEffect.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
