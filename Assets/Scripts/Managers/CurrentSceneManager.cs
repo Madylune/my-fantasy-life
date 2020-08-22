@@ -22,6 +22,5 @@ public class CurrentSceneManager : MonoBehaviour
     private void Awake() 
     {
         respawnPoint = GameObject.FindGameObjectWithTag("Player").transform.position;
-        Debug.Log("respawnPoint: " + respawnPoint);
     }
 }

@@ -124,6 +124,12 @@ public class Player : MonoBehaviour
         dingEffect.SetActive(false);
     }
 
+    public void UpdateLevel()
+    {
+        Debug.Log("UpdateLevel");
+        levelText.text = MyLevel.ToString();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy" || collision.tag == "Interactable")
