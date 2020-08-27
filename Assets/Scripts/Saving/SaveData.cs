@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[Serializable]
 public class SaveData
 {
     public PlayerData MyPlayerData { get; set; }

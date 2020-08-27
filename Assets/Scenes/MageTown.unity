@@ -3229,6 +3229,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 454973223}
+    - target: {fileID: 635811274730428344, guid: 5dccf48d78793435bbd7ab007c095b61,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 635811274730428349, guid: 5dccf48d78793435bbd7ab007c095b61,
         type: 3}
       propertyPath: m_LocalPosition.x

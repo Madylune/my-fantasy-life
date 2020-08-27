@@ -22,9 +22,10 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/" + "SaveTest.fun";
 
-            FileStream file = File.Open(Application.persistentDataPath + "/" + "SaveTest.dat", FileMode.Create);
+            FileStream file = new FileStream(path, FileMode.Create);
 
             SaveData data = new SaveData();
 
@@ -35,7 +36,7 @@ public class SaveManager : MonoBehaviour
                 Debug.Log("Game is saved.");
             }
 
-            bf.Serialize(file, data);
+            formatter.Serialize(file, data);
 
             file.Close();
         }
@@ -61,20 +62,31 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/" + "SaveTest.fun";
 
-            FileStream file = File.Open(Application.persistentDataPath + "/" + "SaveTest.dat", FileMode.Open);
-
-            SaveData data = (SaveData)bf.Deserialize(file);
-
-            if (data != null)
+            if (File.Exists(path))
             {
-                Debug.Log("Game is loaded.");
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream file = new FileStream(path, FileMode.Open);
+
+                SaveData data = (SaveData)formatter.Deserialize(file) as SaveData;
+
+                LoadPlayer(data);
+
+                if (data != null)
+                {
+                    Debug.Log("Game is loaded.");
+                }
+
+                file.Close();
+
+                //return data;
             }
-
-            LoadPlayer(data);
-
-            file.Close();
+            else
+            {
+                Debug.LogError("Save file not found in " + path);
+                //return null;
+            }
         }
         catch (System.Exception err)
         {
@@ -84,10 +96,11 @@ public class SaveManager : MonoBehaviour
 
     private void LoadPlayer(SaveData data)
     {
-        Debug.Log("LoadPlayer");
         Player.MyInstance.MyLevel = data.MyPlayerData.MyLevel;
 
         Player.MyInstance.UpdateLevel();
         Player.MyInstance.health.healthBar.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
+        Player.MyInstance.MyExp.Initialize(data.MyPlayerData.MyXp, data.MyPlayerData.MyMaxXp);
+        Player.MyInstance.transform.position = new Vector2(data.MyPlayerData.MyX, data.MyPlayerData.MyY);
     }
 }
