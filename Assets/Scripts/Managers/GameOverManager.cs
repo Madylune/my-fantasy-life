@@ -21,6 +21,7 @@ public class GameOverManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f; // Freeze time and game
     }
 
     public void CloseGameOverPanel()
@@ -30,7 +31,8 @@ public class GameOverManager : MonoBehaviour
 
     public void Respawn()
     {
-        SceneManager.LoadScene(savePoint);
         CloseGameOverPanel();
+        SceneManager.LoadScene(savePoint);
+        Time.timeScale = 1f;
     }
 }

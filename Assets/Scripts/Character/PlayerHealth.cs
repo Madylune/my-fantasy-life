@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
         if ((currentHealth - damage) < 0)
         {
             currentHealth = 0;
-            Die();
+            StartCoroutine(Die());
         }
         else
         {
@@ -61,9 +61,13 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void Die()
+    private IEnumerator Die()
     {
         //AudioManager.MyInstance.PlayClipAt(deathSound, transform.position);
+        // Death animation
+
+        yield return new WaitForSeconds(2);
+
         GameOverManager.instance.OnPlayerDeath();
     }
 }
