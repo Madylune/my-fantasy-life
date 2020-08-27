@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -6,6 +7,16 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
+    [SerializeField]
+    private Item[] items;
+
+    private Chest[] chests;
+
+    private void Awake()
+    {
+        chests = FindObjectsOfType<Chest>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -30,6 +41,7 @@ public class SaveManager : MonoBehaviour
             SaveData data = new SaveData();
 
             SavePlayer(data);
+            SaveChests(data);
 
             if (data != null)
             {
@@ -43,6 +55,7 @@ public class SaveManager : MonoBehaviour
         catch (System.Exception err)
         {
             Debug.Log(err);
+            throw;
         }
     }
 
@@ -58,6 +71,22 @@ public class SaveManager : MonoBehaviour
         );
     }
 
+    private void SaveChests(SaveData data)
+    {
+        for (int i = 0; i < chests.Length; i++)
+        {
+            data.MyChestData.Add(new ChestData(chests[i].name));
+
+            foreach (Item item in chests[i].MyItems)
+            {
+                if (chests[i].MyItems.Count > 0)
+                {
+                    data.MyChestData[i].MyItems.Add(new ItemData(item.MyTitle, item.MySlot.MyItems.Count, item.MySlot.MyIndex));
+                }
+            }
+        }
+    }
+
     private void Load()
     {
         try
@@ -69,9 +98,10 @@ public class SaveManager : MonoBehaviour
                 BinaryFormatter formatter = new BinaryFormatter();
                 FileStream file = new FileStream(path, FileMode.Open);
 
-                SaveData data = (SaveData)formatter.Deserialize(file) as SaveData;
+                SaveData data = (SaveData)formatter.Deserialize(file);
 
                 LoadPlayer(data);
+                LoadChests(data);
 
                 if (data != null)
                 {
@@ -79,18 +109,16 @@ public class SaveManager : MonoBehaviour
                 }
 
                 file.Close();
-
-                //return data;
             }
             else
             {
                 Debug.LogError("Save file not found in " + path);
-                //return null;
             }
         }
         catch (System.Exception err)
         {
             Debug.Log(err);
+            throw;
         }
     }
 
@@ -102,5 +130,20 @@ public class SaveManager : MonoBehaviour
         Player.MyInstance.health.healthBar.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
         Player.MyInstance.MyExp.Initialize(data.MyPlayerData.MyXp, data.MyPlayerData.MyMaxXp);
         Player.MyInstance.transform.position = new Vector2(data.MyPlayerData.MyX, data.MyPlayerData.MyY);
+    }
+
+    private void LoadChests(SaveData data)
+    {
+        foreach (ChestData chest in data.MyChestData)
+        {
+            Chest c = Array.Find(chests, x => x.name == chest.MyName);
+
+            foreach (ItemData itemData in chest.MyItems)
+            {
+                Item item = Array.Find(items, x => x.MyTitle == itemData.MyTitle);
+                item.MySlot = c.MyBag.MySlots.Find(x => x.MyIndex == itemData.MySlotIndex);
+                c.MyItems.Add(item);
+            }
+        }
     }
 }

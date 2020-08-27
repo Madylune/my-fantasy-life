@@ -15,6 +15,8 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     public BagScript MyBag { get; set; }
 
+    public int MyIndex { get; set; }
+
     public bool IsEmpty
     {
         get
