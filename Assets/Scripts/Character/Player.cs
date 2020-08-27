@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public IInteractable MyInteractable { get => interactable; set => interactable = value; }
 
     public int MyLevel { get => level; set => level = value; }
+    public ExpBar MyExp { get => expBar; set => expBar = value; }
 
     [SerializeField]
     private Text moneyCount;
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
 
         MyMoney = 5000;
 
-        expBar.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        MyExp.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
 
         levelText.text = MyLevel.ToString();
     }
@@ -86,10 +87,10 @@ public class Player : MonoBehaviour
 
     public void GainExp(int exp)
     {
-        expBar.MyCurrentValue += exp;
+        MyExp.MyCurrentValue += exp;
         //CombatTextManager.MyInstance.CreateText(transform.position, exp.ToString(), CombatTextType.EXP, false);
 
-        if (expBar.MyCurrentValue >= expBar.MyMaxValue)
+        if (MyExp.MyCurrentValue >= MyExp.MyMaxValue)
         {
             StartCoroutine(Ding());
         }
@@ -97,7 +98,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator Ding()
     {
-        while (!expBar.IsFull)
+        while (!MyExp.IsFull)
         {
             yield return null;
         }
@@ -109,12 +110,12 @@ public class Player : MonoBehaviour
 
         levelText.text = MyLevel.ToString();
 
-        expBar.SetMaxValue(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        MyExp.SetMaxValue(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
 
-        expBar.MyCurrentValue = expBar.MyOverflow;
-        expBar.Reset();
+        MyExp.MyCurrentValue = MyExp.MyOverflow;
+        MyExp.Reset();
 
-        if (expBar.MyCurrentValue >= expBar.MyMaxValue)
+        if (MyExp.MyCurrentValue >= MyExp.MyMaxValue)
         {
             StartCoroutine(Ding());
         }
@@ -126,7 +127,6 @@ public class Player : MonoBehaviour
 
     public void UpdateLevel()
     {
-        Debug.Log("UpdateLevel");
         levelText.text = MyLevel.ToString();
     }
 

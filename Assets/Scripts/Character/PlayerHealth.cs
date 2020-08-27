@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
     
     public HealthBar healthBar;
 
@@ -15,22 +15,9 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip deathSound;
 
-    public static PlayerHealth instance;
-
-    private void Awake() 
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("The scene already has a PlayerHealth");
-            return;
-        }
-        instance = this;
-    }
-
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.Initialize(currentHealth, maxHealth);
     }
 
     public void HealPlayer(int amount)

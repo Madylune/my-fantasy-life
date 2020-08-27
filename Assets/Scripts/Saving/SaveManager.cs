@@ -47,7 +47,14 @@ public class SaveManager : MonoBehaviour
 
     private void SavePlayer(SaveData data)
     {
-        data.MyPlayerData = new PlayerData(Player.MyInstance.MyLevel);
+        data.MyPlayerData = new PlayerData(
+            Player.MyInstance.MyLevel,
+            Player.MyInstance.MyExp.MyCurrentValue,
+            Player.MyInstance.MyExp.MyMaxValue,
+            Player.MyInstance.health.currentHealth,
+            Player.MyInstance.health.maxHealth,
+            Player.MyInstance.transform.position
+        );
     }
 
     private void Load()
@@ -79,7 +86,8 @@ public class SaveManager : MonoBehaviour
     {
         Debug.Log("LoadPlayer");
         Player.MyInstance.MyLevel = data.MyPlayerData.MyLevel;
-        Debug.Log("Level: " + data.MyPlayerData.MyLevel);
+
         Player.MyInstance.UpdateLevel();
+        Player.MyInstance.health.healthBar.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
     }
 }
