@@ -234,6 +234,24 @@ public class InventoryScript : MonoBehaviour
         return useables;
     }
 
+    public IUseable GetUseable(string type)
+    {
+        Stack<IUseable> useables = new Stack<IUseable>();
+
+        foreach (Bag bag in MyBags)
+        {
+            foreach (SlotScript slot in bag.MyBagScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+                {
+                    return (slot.MyItem as IUseable);
+                }
+            }
+        }
+
+        return null;
+    }
+
     public int GetItemCount(string type)
     {
         int itemCount = 0;

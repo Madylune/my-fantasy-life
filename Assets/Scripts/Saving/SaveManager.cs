@@ -14,6 +14,9 @@ public class SaveManager : MonoBehaviour
 
     private EquipButton[] equips;
 
+    [SerializeField]
+    private ActionButton[] actionsButtons;
+
     private void Awake()
     {
         chests = FindObjectsOfType<Chest>();
@@ -47,6 +50,7 @@ public class SaveManager : MonoBehaviour
             SaveBags(data);
             SavePlayer(data);
             SaveChests(data);
+            SaveActionBar(data);
 
             if (data != null)
             {
@@ -111,6 +115,28 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private void SaveActionBar(SaveData data)
+    {
+        for (int i = 0; i < actionsButtons.Length; i++)
+        {
+            if (actionsButtons[i].MyUseable != null)
+            {
+                ActionBarData action;
+
+                if (actionsButtons[i].MyUseable is Spell)
+                {
+                    action = new ActionBarData((actionsButtons[i].MyUseable as Spell).MyName, false, i);
+                }
+                else
+                {
+                    action = new ActionBarData((actionsButtons[i].MyUseable as Item).MyTitle, true, i);
+                }
+
+                data.MyActionBarData.Add(action);
+            }
+        }
+    }
+
     private void Load()
     {
         try
@@ -128,6 +154,7 @@ public class SaveManager : MonoBehaviour
                 LoadBags(data);
                 LoadPlayer(data);
                 LoadChests(data);
+                LoadActionBar(data);
 
                 if (data != null)
                 {
@@ -191,6 +218,21 @@ public class SaveManager : MonoBehaviour
             EquipButton equip = Array.Find(equips, x => x.name == equipmentData.MyType);
 
             equip.EquipArmor(Array.Find(items, x => x.MyTitle == equipmentData.MyTitle) as Armor);
+        }
+    }
+
+    private void LoadActionBar(SaveData data)
+    {
+        foreach (ActionBarData actionData in data.MyActionBarData)
+        {
+            if (actionData.IsItem)
+            {
+                actionsButtons[actionData.MyIndex].SetUseable(InventoryScript.MyInstance.GetUseable(actionData.MyAction));
+            }
+            else
+            {
+                actionsButtons[actionData.MyIndex].SetUseable(SpellBook.MyInstance.GetSpell(actionData.MyAction));
+            }
         }
     }
 }

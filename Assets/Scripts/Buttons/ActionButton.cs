@@ -96,13 +96,18 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         }
 
         count = MyUseables.Count;
-        UpdateVisual();
+        UpdateVisual(useable as IMoveable);
         UIManager.MyInstance.RefreshTooltip(MyUseable as IDescribable);
     }
 
-    public void UpdateVisual()
+    public void UpdateVisual(IMoveable moveable)
     {
-        MyIcon.sprite = HandScript.MyInstance.Put().MyIcon;
+        if (HandScript.MyInstance.MyMoveable != null)
+        {
+            HandScript.MyInstance.Drop();
+        }
+
+        MyIcon.sprite = moveable.MyIcon;
         MyIcon.color = Color.white;
 
         if (count > 1)
