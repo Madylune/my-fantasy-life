@@ -15,6 +15,8 @@ public class EquipButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField]
     private Text title;
 
+    public Armor MyEquippedArmor { get => equippedArmor; }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)

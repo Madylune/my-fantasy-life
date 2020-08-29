@@ -12,9 +12,12 @@ public class SaveManager : MonoBehaviour
 
     private Chest[] chests;
 
+    private EquipButton[] equips;
+
     private void Awake()
     {
         chests = FindObjectsOfType<Chest>();
+        equips = FindObjectsOfType<EquipButton>();
     }
 
     private void Update()
@@ -40,9 +43,10 @@ public class SaveManager : MonoBehaviour
 
             SaveData data = new SaveData();
 
+            SaveEquipment(data);
+            SaveBags(data);
             SavePlayer(data);
             SaveChests(data);
-            SaveBags(data);
 
             if (data != null)
             {
@@ -96,6 +100,17 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private void SaveEquipment(SaveData data)
+    {
+        foreach (EquipButton equip in equips)
+        {
+            if (equip.MyEquippedArmor != null)
+            {
+                data.MyEquipmentData.Add(new EquipmentData(equip.MyEquippedArmor.MyTitle, equip.name));
+            }
+        }
+    }
+
     private void Load()
     {
         try
@@ -109,9 +124,10 @@ public class SaveManager : MonoBehaviour
 
                 SaveData data = (SaveData)formatter.Deserialize(file);
 
+                LoadEquipment(data);
+                LoadBags(data);
                 LoadPlayer(data);
                 LoadChests(data);
-                LoadBags(data);
 
                 if (data != null)
                 {
@@ -165,6 +181,16 @@ public class SaveManager : MonoBehaviour
             newBag.Initialize(bagData.MySlotCount);
 
             InventoryScript.MyInstance.AddBag(newBag, bagData.MyBagIndex);
+        }
+    }
+
+    private void LoadEquipment(SaveData data)
+    {
+        foreach (EquipmentData equipmentData in data.MyEquipmentData)
+        {
+            EquipButton equip = Array.Find(equips, x => x.name == equipmentData.MyType);
+
+            equip.EquipArmor(Array.Find(items, x => x.MyTitle == equipmentData.MyTitle) as Armor);
         }
     }
 }

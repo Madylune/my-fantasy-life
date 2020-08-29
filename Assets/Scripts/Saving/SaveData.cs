@@ -11,10 +11,13 @@ public class SaveData
 
     public InventoryData MyInventoryData { get; set; }
 
+    public List<EquipmentData> MyEquipmentData { get; set; }
+
     public SaveData()
     {
         MyChestData = new List<ChestData>();
         MyInventoryData = new InventoryData();
+        MyEquipmentData = new List<EquipmentData>();
     }
 }
 
@@ -91,5 +94,18 @@ public class BagData
     {
         MySlotCount = count;
         MyBagIndex = index;
+    }
+}
+
+[Serializable]
+public class EquipmentData
+{
+    public string MyTitle { get; set; }
+    public string MyType { get; set; }
+
+    public EquipmentData(string title, string type)
+    {
+        MyTitle = title;
+        MyType = type;
     }
 }
