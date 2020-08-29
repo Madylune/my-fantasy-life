@@ -32,6 +32,8 @@ public class Bag : Item, IUseable
             {
                 InventoryScript.MyInstance.AddBag(this);
             }
+
+            MyBagScript.MyBagIndex = MyBagButton.MyBagIndex;
         }
     }
 

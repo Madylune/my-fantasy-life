@@ -213,6 +213,29 @@ public class InventoryScript : MonoBehaviour
         return false;
     }
 
+    public void PlaceInSpecificSlot(Item item, int slotIndex, int bagIndex)
+    {
+        bags[bagIndex].MyBagScript.MySlots[slotIndex].AddItem(item);
+    }
+
+    public List<SlotScript> GetAllItems()
+    {
+        List<SlotScript> slots = new List<SlotScript>();
+
+        foreach (Bag bag in MyBags)
+        {
+            foreach (SlotScript slot in bag.MyBagScript.MySlots)
+            {
+                if (!slot.IsEmpty)
+                {
+                    slots.Add(slot);
+                }
+            }
+        }
+
+        return slots;
+    }
+
     public Stack<IUseable> GetUseables(IUseable type)
     {
         Stack<IUseable> useables = new Stack<IUseable>();

@@ -48,6 +48,7 @@ public class SaveManager : MonoBehaviour
 
             SaveEquipment(data);
             SaveBags(data);
+            SaveInventory(data);
             SavePlayer(data);
             SaveChests(data);
             SaveActionBar(data);
@@ -137,6 +138,16 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private void SaveInventory(SaveData data)
+    {
+        List<SlotScript> slots = InventoryScript.MyInstance.GetAllItems();
+
+        foreach (SlotScript slot in slots)
+        {
+            data.MyInventoryData.MyItems.Add(new ItemData(slot.MyItem.MyTitle, slot.MyItems.Count, slot.MyIndex, slot.MyBag.MyBagIndex));
+        }
+    }
+
     private void Load()
     {
         try
@@ -152,6 +163,7 @@ public class SaveManager : MonoBehaviour
 
                 LoadEquipment(data);
                 LoadBags(data);
+                LoadInventory(data);
                 LoadPlayer(data);
                 LoadChests(data);
                 LoadActionBar(data);
@@ -232,6 +244,19 @@ public class SaveManager : MonoBehaviour
             else
             {
                 actionsButtons[actionData.MyIndex].SetUseable(SpellBook.MyInstance.GetSpell(actionData.MyAction));
+            }
+        }
+    }
+
+    private void LoadInventory(SaveData data)
+    {
+        foreach (ItemData itemData in data.MyInventoryData.MyItems)
+        {
+            Item item = Array.Find(items, x => x.MyTitle == itemData.MyTitle);
+
+            for (int i = 0; i < itemData.MyStackCount; i++)
+            {
+                InventoryScript.MyInstance.PlaceInSpecificSlot(item, itemData.MySlotIndex, itemData.MyBagIndex);
             }
         }
     }

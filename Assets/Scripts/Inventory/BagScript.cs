@@ -10,6 +10,8 @@ public class BagScript : MonoBehaviour
 
     public List<SlotScript> MySlots { get => slots; }
 
+    public int MyBagIndex { get; set; }
+
     public int MyEmptySlotCount
     {
         get
