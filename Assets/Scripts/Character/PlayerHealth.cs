@@ -29,9 +29,10 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             currentHealth += amount;
-            CombatTextManager.MyInstance.CreateText(transform.position, amount.ToString(), CombatTextType.HEAL, false);
         }
+
         healthBar.SetHealth(currentHealth);
+        CombatTextManager.MyInstance.CreateText(transform.position, amount.ToString(), CombatTextType.HEAL, false);
         effectRoutine = StartCoroutine(ShowHealAnimation());
     }
 

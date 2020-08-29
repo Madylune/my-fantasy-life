@@ -19,6 +19,9 @@ public class Spell : IUseable, IMoveable, IDescribable
   [SerializeField]
   private float castTime;
 
+    [SerializeField]
+    private float mana;
+
   [SerializeField]
   private GameObject spellPrefab;
 
@@ -84,9 +87,11 @@ public class Spell : IUseable, IMoveable, IDescribable
     }
   }
 
+    public float MyMana { get => mana; }
+
     public string GetDescription()
     {
-        return string.Format("<color='#FFF390'>{0}</color>\n{1}\nCast Time: {2}s\nDamage: {3}", name, description, castTime, damage);
+        return string.Format("<color='#FFF390'>{0}</color>\n{1}\nCast Time: {2}s\nDamage: {3}\nCost: {4}mp", name, description, castTime, damage, mana);
     }
 
     public void Use()

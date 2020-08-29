@@ -7,8 +7,10 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
+    [SerializeField]
+    private Text healthText;
+
     private float currentFill;
-    private float currentValue;
 
     public float MyMaxValue { get; set; }
 
@@ -32,8 +34,11 @@ public class HealthBar : MonoBehaviour
             }
 
             currentFill = currentValue;
+            healthText.text = currentValue + "/" + MyMaxValue;
         }
     }
+
+    private float currentValue;
 
     public void Initialize(float currentValue, float maxValue)
     {
@@ -55,6 +60,7 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float health)
     {
         slider.value = health;
+        MyCurrentValue = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }

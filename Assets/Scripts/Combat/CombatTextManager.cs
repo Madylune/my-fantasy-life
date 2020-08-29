@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum CombatTextType { DAMAGE, HEAL, HIT, EXP, LVL }
+public enum CombatTextType { DAMAGE, HEAL, MP, HIT, EXP, LVL }
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -40,6 +40,9 @@ public class CombatTextManager : MonoBehaviour
                 break;
             case CombatTextType.HEAL:
                 txt.color = Color.green;
+                break;
+            case CombatTextType.MP:
+                txt.color = Color.blue;
                 break;
             case CombatTextType.HIT:
                 txt.color = crit ? Color.yellow : Color.white;

@@ -34,6 +34,15 @@ public class Player : MonoBehaviour
     private ExpBar expBar;
 
     [SerializeField]
+    private ManaBar manaBar;
+
+    [SerializeField]
+    private float currentMana;
+
+    [SerializeField]
+    private float maxMana = 70;
+
+    [SerializeField]
     private int level;
 
     [SerializeField]
@@ -55,6 +64,7 @@ public class Player : MonoBehaviour
         MyMoney = 5000;
 
         MyExp.Initialize(0, Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.5f)));
+        manaBar.Initialize(currentMana, maxMana);
 
         levelText.text = MyLevel.ToString();
     }
@@ -64,6 +74,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             GainExp(100);
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GainMana(50);
         }
 
         foreach (string action in KeybindsManager.MyInstance.ActionBinds.Keys)
@@ -83,6 +98,34 @@ public class Player : MonoBehaviour
         {
             MyInteractable.Interact();
         }
+    }
+
+    public void GainMana(float amount)
+    {
+        if ((currentMana + amount) > maxMana)
+        {
+            currentMana = maxMana;
+        }
+        else
+        {
+            currentMana += amount;
+        }
+
+        manaBar.SetMana(currentMana);
+        CombatTextManager.MyInstance.CreateText(transform.position, amount.ToString(), CombatTextType.MP, false);
+    }
+
+    public void LoseMana(float amount)
+    {
+        if ((currentMana - amount) < 0)
+        {
+            currentMana = 0;
+        }
+        else
+        {
+            currentMana -= amount;
+        }
+        manaBar.SetMana(currentMana);
     }
 
     public void GainExp(int exp)

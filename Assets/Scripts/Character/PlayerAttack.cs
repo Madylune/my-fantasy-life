@@ -36,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
         {
             Projectile projectile = Instantiate(spell.MySpellPrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
             projectile.Initialize(MyTarget, spell.MyDamage);
+            Player.MyInstance.LoseMana(spell.MyMana);
         }
 
         StopAttack();
