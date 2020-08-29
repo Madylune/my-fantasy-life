@@ -6,6 +6,9 @@ public class BagButton : MonoBehaviour
     private Bag bag;
 
     [SerializeField]
+    private int bagIndex;
+
+    [SerializeField]
     private Sprite full, empty;
 
     public Bag MyBag
@@ -25,4 +28,6 @@ public class BagButton : MonoBehaviour
             bag = value;
         }
     }
+
+    public int MyBagIndex { get => bagIndex; set => bagIndex = value; }
 }

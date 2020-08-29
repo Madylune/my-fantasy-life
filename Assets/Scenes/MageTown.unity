@@ -296,7 +296,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1265267862}
   m_Direction: 2
   m_Value: 0.9878263
-  m_Size: 0.44333768
+  m_Size: 0.44333762
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -863,7 +863,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1643456999}
   m_HandleRect: {fileID: 1643456998}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -19795,6 +19795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16aab239ac0294a0fac9ef0be57fab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 1
   full: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   empty: {fileID: 21300000, guid: 310e0f30c5cb4944382d257588a39a94, type: 3}
 --- !u!1 &594071776
@@ -20849,6 +20850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16aab239ac0294a0fac9ef0be57fab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 0
   full: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   empty: {fileID: 21300000, guid: 310e0f30c5cb4944382d257588a39a94, type: 3}
 --- !u!1 &687603817
@@ -23134,6 +23136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16aab239ac0294a0fac9ef0be57fab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 3
   full: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   empty: {fileID: 21300000, guid: 310e0f30c5cb4944382d257588a39a94, type: 3}
 --- !u!1 &760028654
@@ -24109,6 +24112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16aab239ac0294a0fac9ef0be57fab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 2
   full: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   empty: {fileID: 21300000, guid: 310e0f30c5cb4944382d257588a39a94, type: 3}
 --- !u!1 &804979904
@@ -43478,6 +43482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16aab239ac0294a0fac9ef0be57fab0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 4
   full: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   empty: {fileID: 21300000, guid: 310e0f30c5cb4944382d257588a39a94, type: 3}
 --- !u!1 &1664217606

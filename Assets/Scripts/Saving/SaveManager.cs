@@ -42,6 +42,7 @@ public class SaveManager : MonoBehaviour
 
             SavePlayer(data);
             SaveChests(data);
+            SaveBags(data);
 
             if (data != null)
             {
@@ -87,6 +88,14 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private void SaveBags(SaveData data)
+    {
+        for (int i = 1; i < InventoryScript.MyInstance.MyBags.Count; i++)
+        {
+            data.MyInventoryData.MyBags.Add(new BagData(InventoryScript.MyInstance.MyBags[i].MySlotCount, InventoryScript.MyInstance.MyBags[i].MyBagButton.MyBagIndex));
+        }
+    }
+
     private void Load()
     {
         try
@@ -102,6 +111,7 @@ public class SaveManager : MonoBehaviour
 
                 LoadPlayer(data);
                 LoadChests(data);
+                LoadBags(data);
 
                 if (data != null)
                 {
@@ -144,6 +154,17 @@ public class SaveManager : MonoBehaviour
                 item.MySlot = c.MyBag.MySlots.Find(x => x.MyIndex == itemData.MySlotIndex);
                 c.MyItems.Add(item);
             }
+        }
+    }
+
+    private void LoadBags(SaveData data)
+    {
+        foreach (BagData bagData in data.MyInventoryData.MyBags)
+        {
+            Bag newBag = (Bag)Instantiate(items[0]);
+            newBag.Initialize(bagData.MySlotCount);
+
+            InventoryScript.MyInstance.AddBag(newBag, bagData.MyBagIndex);
         }
     }
 }

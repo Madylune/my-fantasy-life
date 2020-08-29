@@ -37,7 +37,7 @@ public class InventoryScript : MonoBehaviour
     {
         get
         {
-            return bags.Count < 5;
+            return MyBags.Count < 5;
         }
     }
 
@@ -47,7 +47,7 @@ public class InventoryScript : MonoBehaviour
         {
             int count = 0;
 
-            foreach (Bag bag in bags)
+            foreach (Bag bag in MyBags)
             {
                 count += bag.MyBagScript.MyEmptySlotCount;
             }
@@ -62,7 +62,7 @@ public class InventoryScript : MonoBehaviour
         {
             int count = 0;
 
-            foreach (Bag bag in bags)
+            foreach (Bag bag in MyBags)
             {
                 count += bag.MyBagScript.MySlots.Count;
             }
@@ -93,6 +93,8 @@ public class InventoryScript : MonoBehaviour
             }
         }
     }
+
+    public List<Bag> MyBags { get => bags; }
 
     private void Awake()
     {
@@ -149,12 +151,21 @@ public class InventoryScript : MonoBehaviour
             if (bagButton.MyBag == null)
             {
                 bagButton.MyBag = bag;
-                bags.Add(bag);
+                MyBags.Add(bag);
                 bag.MyBagButton = bagButton;
+                bag.MyBagScript.transform.SetSiblingIndex(bagButton.MyBagIndex);
 
                 break;
             }
         }
+    }
+
+    public void AddBag(Bag bag, int bagIndex)
+    {
+        bag.SetupScript();
+        MyBags.Add(bag);
+        bag.MyBagButton = bagButtons[bagIndex];
+        bagButtons[bagIndex].MyBag = bag;
     }
 
     public bool AddItem(Item item)
@@ -173,7 +184,7 @@ public class InventoryScript : MonoBehaviour
     // Place item into an empty slot
     private bool PlaceInEmpty(Item item)
     {
-        foreach (Bag bag in bags)
+        foreach (Bag bag in MyBags)
         {
             if (bag.MyBagScript.AddItem(item))
             {
@@ -187,7 +198,7 @@ public class InventoryScript : MonoBehaviour
 
     private bool PlaceInStack(Item item)
     {
-        foreach (Bag bag in bags)
+        foreach (Bag bag in MyBags)
         {
             foreach (SlotScript slots in bag.MyBagScript.MySlots)
             {
@@ -206,7 +217,7 @@ public class InventoryScript : MonoBehaviour
     {
         Stack<IUseable> useables = new Stack<IUseable>();
 
-        foreach (Bag bag in bags)
+        foreach (Bag bag in MyBags)
         {
             foreach (SlotScript slot in bag.MyBagScript.MySlots)
             {
@@ -227,7 +238,7 @@ public class InventoryScript : MonoBehaviour
     {
         int itemCount = 0;
 
-        foreach (Bag bag in bags)
+        foreach (Bag bag in MyBags)
         {
             foreach (SlotScript slot in bag.MyBagScript.MySlots)
             {
@@ -245,7 +256,7 @@ public class InventoryScript : MonoBehaviour
     {
         Stack<Item> items = new Stack<Item>();
 
-        foreach (Bag bag in bags)
+        foreach (Bag bag in MyBags)
         {
             foreach (SlotScript slot in bag.MyBagScript.MySlots)
             {
