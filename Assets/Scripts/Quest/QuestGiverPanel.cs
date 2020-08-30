@@ -75,8 +75,11 @@ public class QuestGiverPanel : Panel
 
     public override void Open(NPC npc)
     {
-        ShowQuests((npc as QuestGiver));
-        base.Open(npc);
+        if ((npc as QuestGiver).MyCompletedQuests.Count < (npc as QuestGiver).MyQuests.Length)
+        {
+            ShowQuests((npc as QuestGiver));
+            base.Open(npc);
+        }
     }
 
     public void ShowQuestInfo(Quest quest)
