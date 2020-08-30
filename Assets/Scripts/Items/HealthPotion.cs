@@ -22,6 +22,13 @@ public class HealthPotion : Item, IUseable
 
             Player.MyInstance.health.HealPlayer(health);
         }
+
+        if (isBlue && Player.MyInstance.MyCurrentMana < Player.MyInstance.MyMaxMana)
+        {
+            Remove();
+
+            Player.MyInstance.GainMana(mana);
+        }
     }
 
     public override string GetDescription()
