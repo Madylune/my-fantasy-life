@@ -34285,6 +34285,7 @@ MonoBehaviour:
   interrogationG: {fileID: 21300000, guid: 16cf5576d8876439f8c8c3e11cc515eb, type: 3}
   exclamation: {fileID: 21300000, guid: a1e799c6050ea4cdeb1a03082eda1b84, type: 3}
   statusRenderer: {fileID: 1358690246}
+  questGiverId: 1
 --- !u!1 &1132430471
 GameObject:
   m_ObjectHideFlags: 0

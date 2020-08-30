@@ -60,7 +60,7 @@ public class Quest
         }
     }
 
-    public KillObjective[] MyKillObjectives { get => killObjectives; }
+    public KillObjective[] MyKillObjectives { get => killObjectives; set => killObjectives = value; }
 
     public bool IsComplete
     {

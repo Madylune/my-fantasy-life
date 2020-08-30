@@ -52,6 +52,7 @@ public class SaveManager : MonoBehaviour
             SavePlayer(data);
             SaveChests(data);
             SaveActionBar(data);
+            SaveQuest(data);
 
             if (data != null)
             {
@@ -150,6 +151,14 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    private void SaveQuest(SaveData data)
+    {
+        foreach (Quest quest in QuestLog.MyInstance.MyQuests)
+        {
+            data.MyQuestData.Add(new QuestData(quest.MyTitle, quest.MyDescription, quest.MyCollectObjectives, quest.MyKillObjectives, quest.MyQuestGiver.MyQuestGiverId));
+        }
+    }
+
     private void Load()
     {
         try
@@ -169,6 +178,7 @@ public class SaveManager : MonoBehaviour
                 LoadPlayer(data);
                 LoadChests(data);
                 LoadActionBar(data);
+                LoadQuest(data);
 
                 if (data != null)
                 {
@@ -260,6 +270,22 @@ public class SaveManager : MonoBehaviour
             {
                 InventoryScript.MyInstance.PlaceInSpecificSlot(item, itemData.MySlotIndex, itemData.MyBagIndex);
             }
+        }
+    }
+
+    private void LoadQuest(SaveData data)
+    {
+        QuestGiver[] questGivers = FindObjectsOfType<QuestGiver>();
+
+        foreach (QuestData questData in data.MyQuestData)
+        {
+            QuestGiver qg = Array.Find(questGivers, x => x.MyQuestGiverId == questData.MyQuestGiverId);
+            Quest q = Array.Find(qg.MyQuests, x => x.MyTitle == questData.MyTitle);
+
+            q.MyQuestGiver = qg;
+            q.MyKillObjectives = questData.MyKillObjectives;
+
+            QuestLog.MyInstance.AcceptQuest(q);
         }
     }
 }
