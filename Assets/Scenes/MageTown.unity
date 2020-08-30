@@ -34093,7 +34093,7 @@ GameObject:
   - component: {fileID: 1132299168}
   - component: {fileID: 1132299170}
   m_Layer: 9
-  m_Name: Warrior
+  m_Name: QuestGiver
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
