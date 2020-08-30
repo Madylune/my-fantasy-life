@@ -77,6 +77,8 @@ public class SaveManager : MonoBehaviour
             Player.MyInstance.MyExp.MyMaxValue,
             Player.MyInstance.health.currentHealth,
             Player.MyInstance.health.maxHealth,
+            Player.MyInstance.MyCurrentMana,
+            Player.MyInstance.MyMaxMana,
             Player.MyInstance.transform.position
         );
     }
@@ -190,9 +192,9 @@ public class SaveManager : MonoBehaviour
     private void LoadPlayer(SaveData data)
     {
         Player.MyInstance.MyLevel = data.MyPlayerData.MyLevel;
-
         Player.MyInstance.UpdateLevel();
         Player.MyInstance.health.healthBar.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
+        Player.MyInstance.MyManaBar.Initialize(data.MyPlayerData.MyMana, data.MyPlayerData.MyMaxMana);
         Player.MyInstance.MyExp.Initialize(data.MyPlayerData.MyXp, data.MyPlayerData.MyMaxXp);
         Player.MyInstance.transform.position = new Vector2(data.MyPlayerData.MyX, data.MyPlayerData.MyY);
     }

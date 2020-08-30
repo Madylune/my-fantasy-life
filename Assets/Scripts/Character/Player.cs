@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
 
     public int MyLevel { get => level; set => level = value; }
     public ExpBar MyExp { get => expBar; set => expBar = value; }
+    public float MyCurrentMana { get => currentMana; set => currentMana = value; }
+    public float MyMaxMana { get => maxMana; set => maxMana = value; }
+    public ManaBar MyManaBar { get => manaBar; set => manaBar = value; }
 
     [SerializeField]
     private Text moneyCount;
