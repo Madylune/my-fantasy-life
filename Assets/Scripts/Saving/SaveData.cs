@@ -19,6 +19,8 @@ public class SaveData
 
     public List<QuestGiverData> MyQuestGiverData { get; set; }
 
+    public string MyScene { get; set; }
+
     public SaveData()
     {
         MyChestData = new List<ChestData>();
@@ -33,6 +35,9 @@ public class SaveData
 [Serializable]
 public class PlayerData
 {
+    //public Sprite MySprite { get; set; }
+    public string MyUsername { get; set; }
+    public string MyJob { get; set; }
     public int MyLevel { get; set; }
     public float MyXp { get; set; }
     public float MyMaxXp { get; set; }
@@ -44,8 +49,11 @@ public class PlayerData
     public float MyY { get; set; }
 
 
-    public PlayerData(int level, float xp, float maxXp, float health, float maxHealth, float mana, float maxMana, Vector2 position)
+    public PlayerData(string username, string job, int level, float xp, float maxXp, float health, float maxHealth, float mana, float maxMana, Vector2 position)
     {
+        //MySprite = sprite;
+        MyUsername = username;
+        MyJob = job;
         MyLevel = level;
         MyXp = xp;
         MyMaxXp = maxXp;

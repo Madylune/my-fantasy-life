@@ -29,6 +29,33 @@ public class Player : MonoBehaviour
     public float MyCurrentMana { get => currentMana; set => currentMana = value; }
     public float MyMaxMana { get => maxMana; set => maxMana = value; }
     public ManaBar MyManaBar { get => manaBar; set => manaBar = value; }
+    public string MyJob { get => job; set => job = value; }
+    public string MyUsername { get => username; set => username = value; }
+    public Sprite MySprite { get => sprite; set => sprite = value; }
+
+    [SerializeField]
+    private Sprite sprite;
+
+    [SerializeField]
+    private Image spriteImage;
+
+    [SerializeField]
+    private string username;
+
+    [SerializeField]
+    private Text usernameText;
+
+    [SerializeField]
+    private string job;
+
+    [SerializeField]
+    private Text jobText;
+
+    [SerializeField]
+    private int level;
+
+    [SerializeField]
+    private Text levelText;
 
     [SerializeField]
     private Text moneyCount;
@@ -44,12 +71,6 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float maxMana = 70;
-
-    [SerializeField]
-    private int level;
-
-    [SerializeField]
-    private Text levelText;
 
     [SerializeField]
     private GameObject dingEffect;
@@ -70,6 +91,10 @@ public class Player : MonoBehaviour
         manaBar.Initialize(currentMana, maxMana);
 
         levelText.text = MyLevel.ToString();
+        jobText.text = MyJob;
+        usernameText.text = MyUsername.ToUpper();
+        spriteImage.sprite = MySprite;
+        spriteImage.color = Color.white;
     }
 
     private void Update()

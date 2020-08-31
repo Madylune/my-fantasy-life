@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void Save()
+    public void Save()
     {
         try
         {
@@ -45,6 +46,8 @@ public class SaveManager : MonoBehaviour
             FileStream file = new FileStream(path, FileMode.Create);
 
             SaveData data = new SaveData();
+
+            data.MyScene = SceneManager.GetActiveScene().name;
 
             SaveEquipment(data);
             SaveBags(data);
@@ -63,6 +66,8 @@ public class SaveManager : MonoBehaviour
             formatter.Serialize(file, data);
 
             file.Close();
+
+            //ShowSavedFiles(savedCharacter);
         }
         catch (System.Exception err)
         {
@@ -74,6 +79,9 @@ public class SaveManager : MonoBehaviour
     private void SavePlayer(SaveData data)
     {
         data.MyPlayerData = new PlayerData(
+            //Player.MyInstance.MySprite,
+            Player.MyInstance.MyUsername,
+            Player.MyInstance.MyJob,
             Player.MyInstance.MyLevel,
             Player.MyInstance.MyExp.MyCurrentValue,
             Player.MyInstance.MyExp.MyMaxValue,
@@ -213,6 +221,9 @@ public class SaveManager : MonoBehaviour
 
     private void LoadPlayer(SaveData data)
     {
+        //Player.MyInstance.MySprite = data.MyPlayerData.MySprite;
+        Player.MyInstance.MyUsername = data.MyPlayerData.MyUsername;
+        Player.MyInstance.MyJob = data.MyPlayerData.MyJob;
         Player.MyInstance.MyLevel = data.MyPlayerData.MyLevel;
         Player.MyInstance.UpdateLevel();
         Player.MyInstance.health.healthBar.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
