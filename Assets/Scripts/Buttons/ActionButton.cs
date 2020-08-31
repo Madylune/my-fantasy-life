@@ -84,10 +84,14 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         if (useable is Item)
         {
             MyUseables = InventoryScript.MyInstance.GetUseables(useable);
-            count = MyUseables.Count;
 
-            InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
-            InventoryScript.MyInstance.FromSlot = null;
+            if (InventoryScript.MyInstance.FromSlot != null)
+            {
+                count = MyUseables.Count;
+
+                InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
+                InventoryScript.MyInstance.FromSlot = null;
+            }
         }
         else
         {
