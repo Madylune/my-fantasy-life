@@ -147,7 +147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3245463980073523643}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.54, y: -22.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -272,8 +272,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitBox: {fileID: 3245463978446854163}
-  gravePrefab: {fileID: 0}
-  canvasGroup: {fileID: 0}
+  type: Ghost Magician
+  level: 10
+  gravePrefab: {fileID: 8125104367984308153, guid: 4f62e122ec7d74938a696f78fe82d1fd,
+    type: 3}
   speed: 0.5
   atk: 1
 --- !u!70 &3245463980073523620
@@ -304,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0089c15f1ec0d469991a0b38702df86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   name: Ghost Magician
-  level: 8
   icon: {fileID: 754085303044119588, guid: 98383b58ad95640ebacc9712a94726d5, type: 3}
