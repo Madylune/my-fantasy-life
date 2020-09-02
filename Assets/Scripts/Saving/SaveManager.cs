@@ -178,7 +178,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void Load()
+    public void Load()
     {
         try
         {

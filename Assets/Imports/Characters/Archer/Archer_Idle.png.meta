@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: fdb35c41b574b443fa16e4472a3e702c
+guid: fa82f6b1a55264329b1811fc0f885477
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6658795156722872723
-    second: Female 03-1_0
+      213: -8213418984440360955
+    second: Female 03-2 idle_0
   - first:
-      213: 5524089288207099101
-    second: Female 03-1_1
+      213: -2913130594717482482
+    second: Female 03-2 idle_1
   - first:
-      213: -2221688459499614567
-    second: Female 03-1_2
+      213: -2966790695468415452
+    second: Female 03-2 idle_2
   - first:
-      213: -3136888541848795318
-    second: Female 03-1_3
+      213: 3979374022327637210
+    second: Female 03-2 idle_3
   - first:
-      213: -93123257786629078
-    second: Female 03-1_4
+      213: -335806779148350631
+    second: Female 03-2 idle_4
   - first:
-      213: -4920858874570725213
-    second: Female 03-1_5
+      213: -6042660322896183597
+    second: Female 03-2 idle_5
   - first:
-      213: -4625731608507102051
-    second: Female 03-1_6
+      213: -5917655263698685586
+    second: Female 03-2 idle_6
   - first:
-      213: 2517651451531649792
-    second: Female 03-1_7
-  - first:
-      213: 3857701739093712594
-    second: Female 03-1_8
-  - first:
-      213: 304954565741768405
-    second: Female 03-1_9
-  - first:
-      213: -7456371139514994301
-    second: Female 03-1_10
-  - first:
-      213: 8366416749983724703
-    second: Female 03-1_11
+      213: -1386352034654324723
+    second: Female 03-2 idle_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,70 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Female 03-1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 391fe8c4aeac86c50800000000000000
-      internalID: 6658795156722872723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Female 03-1_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd4ef1390f189ac40800000000000000
-      internalID: 5524089288207099101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Female 03-1_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99ec0f9fd1afa21e0800000000000000
-      internalID: -2221688459499614567
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Female 03-1_3
+      name: Female 03-2 idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -199,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a470c1bbd788774d0800000000000000
-      internalID: -3136888541848795318
+      spriteID: 5009bf043f2140e80800000000000000
+      internalID: -8213418984440360955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_4
+      name: Female 03-2 idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -220,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a240d43f3e825bef0800000000000000
-      internalID: -93123257786629078
+      spriteID: e02ca85982b7297d0800000000000000
+      internalID: -2913130594717482482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_5
+      name: Female 03-2 idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -241,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a82267ece895bbb0800000000000000
-      internalID: -4920858874570725213
+      spriteID: 426cba9c497d3d6d0800000000000000
+      internalID: -2966790695468415452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_6
+      name: Female 03-2 idle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -262,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9c43a83c991ecfb0800000000000000
-      internalID: -4625731608507102051
+      spriteID: ad49145f693993730800000000000000
+      internalID: 3979374022327637210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_7
+      name: Female 03-2 idle_4
       rect:
         serializedVersion: 2
         x: 32
@@ -283,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0036ac4f7ae70f220800000000000000
-      internalID: 2517651451531649792
+      spriteID: 95bc1b77389f65bf0800000000000000
+      internalID: -335806779148350631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_8
+      name: Female 03-2 idle_5
       rect:
         serializedVersion: 2
         x: 64
@@ -304,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2de5610fa4f498530800000000000000
-      internalID: 3857701739093712594
+      spriteID: 3defc63a378242ca0800000000000000
+      internalID: -6042660322896183597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_9
+      name: Female 03-2 idle_6
       rect:
         serializedVersion: 2
         x: 0
@@ -325,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5deeba3df8a6b3400800000000000000
-      internalID: 304954565741768405
+      spriteID: e61f40804e340eda0800000000000000
+      internalID: -5917655263698685586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Female 03-1_10
+      name: Female 03-2 idle_7
       rect:
         serializedVersion: 2
         x: 32
@@ -346,29 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381fbb344f5a58890800000000000000
-      internalID: -7456371139514994301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Female 03-1_11
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9478a9f4bb7b1470800000000000000
-      internalID: 8366416749983724703
+      spriteID: d08f9c07b20b2cce0800000000000000
+      internalID: -1386352034654324723
       vertices: []
       indices: 
       edges: []

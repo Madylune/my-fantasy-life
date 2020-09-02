@@ -3126,7 +3126,7 @@ PrefabInstance:
     - target: {fileID: 502487039, guid: 5dccf48d78793435bbd7ab007c095b61, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 6082339987025560736, guid: 5ab4c1a99c4424758bf1d81552e3ebff,
+      objectReference: {fileID: 3320937516250093955, guid: 6d752cecc16764c3d80a297a665d4dec,
         type: 3}
     - target: {fileID: 635811274730428344, guid: 5dccf48d78793435bbd7ab007c095b61,
         type: 3}
@@ -3193,6 +3193,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 635811274730428350, guid: 5dccf48d78793435bbd7ab007c095b61,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3320937516250093955, guid: 6d752cecc16764c3d80a297a665d4dec,
+        type: 3}
     - target: {fileID: 635811274730428351, guid: 5dccf48d78793435bbd7ab007c095b61,
         type: 3}
       propertyPath: m_Name
@@ -30797,6 +30803,27 @@ PrefabInstance:
       propertyPath: level
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3245463980073523619, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1685559386}
+    - target: {fileID: 3245463980073523619, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: name
+      value: Green Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 3245463980073523619, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: icon
+      value: 
+      objectReference: {fileID: -6847697653176967578, guid: be1aac1704e2f4766bc604eb69cf86f0,
+        type: 3}
+    - target: {fileID: 3245463980073523619, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3245463980073523621, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30852,6 +30879,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3245463980073523622, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6847697653176967578, guid: be1aac1704e2f4766bc604eb69cf86f0,
+        type: 3}
+    - target: {fileID: 3245463980073523641, guid: 734198cf1c0ee412bb44e791a7dfc856,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 43197781f2a5a4a6da039eeb5b2a24e4, type: 2}
     - target: {fileID: 3245463980073523642, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: atk
@@ -30872,7 +30910,7 @@ PrefabInstance:
     - target: {fileID: 3245463980073523642, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: type
-      value: Ghost Mage
+      value: Green Bunny
       objectReference: {fileID: 0}
     - target: {fileID: 3245463980073523642, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
@@ -30887,7 +30925,7 @@ PrefabInstance:
     - target: {fileID: 3245463980073523643, guid: 734198cf1c0ee412bb44e791a7dfc856,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 734198cf1c0ee412bb44e791a7dfc856, type: 3}

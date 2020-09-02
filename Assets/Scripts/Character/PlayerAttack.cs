@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator Attack(string spellName)
     {
         Spell spell = SpellBook.MyInstance.CastSpell(spellName);
-
+        movement.animator.SetTrigger("Attack");
         magicCircle.SetActive(true);
         yield return new WaitForSeconds(spell.MyCastTime);
         
