@@ -649,7 +649,7 @@ SpriteRenderer:
   m_SortingLayerID: 2056527051
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6082339987025560736, guid: 5ab4c1a99c4424758bf1d81552e3ebff,
+  m_Sprite: {fileID: 3320937516250093955, guid: 6d752cecc16764c3d80a297a665d4dec,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healthBar: {fileID: 0}
   heartEffect: {fileID: 1202524238505979}
   hitSound: {fileID: 8300000, guid: 5b451454cb990a749bf5033d3319cf46, type: 3}
@@ -795,10 +795,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf10236cafdfb4772bd8dbdd32ae0374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyCount: {fileID: 0}
-  expBar: {fileID: 0}
+  sprite: {fileID: 3320937516250093955, guid: 6d752cecc16764c3d80a297a665d4dec, type: 3}
+  spriteImage: {fileID: 0}
+  username: Symfony
+  usernameText: {fileID: 0}
+  job: Magician
+  jobText: {fileID: 0}
   level: 1
   levelText: {fileID: 0}
+  moneyCount: {fileID: 0}
+  expBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  currentMana: 70
+  maxMana: 70
   dingEffect: {fileID: 1500378083223497}
   movement: {fileID: 635811274730428346}
   attack: {fileID: 502487037}
