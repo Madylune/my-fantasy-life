@@ -694,7 +694,6 @@ MonoBehaviour:
     name: High Magician
     sentences:
     - "I can teach you some special magic spells. \nDo you want to learn them ?"
-  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &162989398
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11453,7 +11452,6 @@ MonoBehaviour:
 
       Can you
       help me to look for her ?'
-  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &721896272
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -17084,7 +17082,6 @@ MonoBehaviour:
     - 'I have a mission for you !
 
       Do you accept it ?'
-  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1132299168
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -17313,7 +17310,6 @@ MonoBehaviour:
     name: Little Girl
     sentences:
     - I don't speak to strangers ! Let me alone !
-  dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1165955698
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -30825,6 +30821,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
+      propertyPath: dialogue.choices.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 932191727}
@@ -30851,14 +30852,22 @@ PrefabInstance:
     - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
-      value: "Welcome to Mage Town !  \nDo you want to save your position here ?"
+      value: 'Welcome to Mage Town ! '
       objectReference: {fileID: 0}
     - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: '1) Save position
-
-        2) Cancel'
+      value: Do you want to save your position here ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
+      propertyPath: dialogue.choices.Array.data[0]
+      value: Yes
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
+      propertyPath: dialogue.choices.Array.data[1]
+      value: No
       objectReference: {fileID: 0}
     - target: {fileID: 509387053342320848, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}

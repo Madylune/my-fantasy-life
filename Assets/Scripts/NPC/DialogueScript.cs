@@ -7,9 +7,6 @@ public class DialogueScript : MonoBehaviour
 
     private bool canOpenDialogue;
 
-    [SerializeField]
-    private CanvasGroup dialogueCanvas;
-
     void Update() 
     {
         if (Input.GetKeyDown(KeyCode.Space) && canOpenDialogue)
