@@ -121,6 +121,135 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &30551156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 30551157}
+  - component: {fileID: 30551160}
+  - component: {fileID: 30551159}
+  - component: {fileID: 30551158}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &30551157
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30551156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1828504424}
+  m_Father: {fileID: 2927213959568306723}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -68.53, y: 33.56}
+  m_SizeDelta: {x: 68.81, y: 25.49}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &30551158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30551156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 30551159}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1557266388302780456}
+        m_MethodName: NextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &30551159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30551156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 41b00c3781537dd4e9d60980fc56f805, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &30551160
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30551156}
+  m_CullTransparentMesh: 0
 --- !u!114 &52575615 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2927213959568306726, guid: 164bbff0d662742b98a8ab67b47d6a60,
@@ -561,12 +690,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207854d94e6cb43bfbf1a8aac4ee16d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 932191727}
-  dialogueName: {fileID: 1562111022}
-  characterName: High Magician
-  dialogueText: {fileID: 1617029370}
-  dialogue: "I can teach you some special magic spells. \nDo you want to learn them
-    ?"
+  dialogue:
+    name: High Magician
+    sentences:
+    - "I can teach you some special magic spells. \nDo you want to learn them ?"
   dialogueCanvas: {fileID: 932191731}
 --- !u!70 &162989398
 CapsuleCollider2D:
@@ -4116,6 +4243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 932191727}
@@ -4133,6 +4265,21 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: A soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: characterName
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 8486109707863655505, guid: 7f3a3340144034d5db697503fc4ef2e4,
         type: 3}
@@ -9651,7 +9798,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1557266388302780454}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1557266388302780455}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fb82ad71a27041f1bf637ff4830f323, type: 3}
@@ -11299,14 +11446,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207854d94e6cb43bfbf1a8aac4ee16d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 932191727}
-  dialogueName: {fileID: 1562111022}
-  characterName: Old Man
-  dialogueText: {fileID: 1617029370}
-  dialogue: 'I have lost my little girl, but I am so old for walking...
+  dialogue:
+    name: Old Man
+    sentences:
+    - 'I have lost my little girl, but I am so old for walking...
 
-    Can
-    you help me to look for her ?'
+      Can you
+      help me to look for her ?'
   dialogueCanvas: {fileID: 932191731}
 --- !u!70 &721896272
 CapsuleCollider2D:
@@ -15518,6 +15664,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2927213959568306722}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &932191730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932191727}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9dcb3dbf23c24fa09ad91b1b4467928, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!225 &932191731 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 2927213959913287633, guid: 164bbff0d662742b98a8ab67b47d6a60,
@@ -16913,13 +17078,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207854d94e6cb43bfbf1a8aac4ee16d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 932191727}
-  dialogueName: {fileID: 1562111022}
-  characterName: Captain
-  dialogueText: {fileID: 1617029370}
-  dialogue: 'I have a mission for you !
+  dialogue:
+    name: Captain
+    sentences:
+    - 'I have a mission for you !
 
-    Do you accept it ?'
+      Do you accept it ?'
   dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1132299168
 CapsuleCollider2D:
@@ -17145,11 +17309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207854d94e6cb43bfbf1a8aac4ee16d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 932191727}
-  dialogueName: {fileID: 1562111022}
-  characterName: Little Girl
-  dialogueText: {fileID: 1617029370}
-  dialogue: I don't speak to strangers ! Let me alone !
+  dialogue:
+    name: Little Girl
+    sentences:
+    - I don't speak to strangers ! Let me alone !
   dialogueCanvas: {fileID: 932191731}
 --- !u!70 &1165955698
 CapsuleCollider2D:
@@ -19368,6 +19531,83 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2927213959568306722}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1828504423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828504424}
+  - component: {fileID: 1828504426}
+  - component: {fileID: 1828504425}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1828504424
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828504423}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 30551157}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1828504425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828504423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 063029f476744422280d2764696832ad, type: 3}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1828504426
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828504423}
+  m_CullTransparentMesh: 0
 --- !u!1 &1832540964
 GameObject:
   m_ObjectHideFlags: 0
@@ -30580,6 +30820,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 932191727}
@@ -30598,6 +30843,23 @@ PrefabInstance:
       propertyPath: dialogueCanvas
       value: 
       objectReference: {fileID: 932191731}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Maid
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: "Welcome to Mage Town !  \nDo you want to save your position here ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 509387053336661149, guid: 577b049e815844263b46bb2543a55fa8,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: '1) Save position
+
+        2) Cancel'
+      objectReference: {fileID: 0}
     - target: {fileID: 509387053342320848, guid: 577b049e815844263b46bb2543a55fa8,
         type: 3}
       propertyPath: m_Name
@@ -30739,6 +31001,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd47a254924a04fcd8366015cad6847e, type: 3}
+--- !u!1 &1557266388302780455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1557266388707132201, guid: bd47a254924a04fcd8366015cad6847e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1557266388302780454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1557266388302780456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557266388302780455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dc822f094ea43b58d020018b5d4df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 932191730}
+  nameText: {fileID: 1562111022}
+  dialogueText: {fileID: 1617029370}
+  buttonText: {fileID: 1828504425}
 --- !u!1001 &2046248220222696202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30904,6 +31188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927213958412230158, guid: 164bbff0d662742b98a8ab67b47d6a60,
+        type: 3}
+      propertyPath: m_Name
+      value: NameText
       objectReference: {fileID: 0}
     - target: {fileID: 2927213958423465016, guid: 164bbff0d662742b98a8ab67b47d6a60,
         type: 3}
@@ -31935,6 +32224,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2927213959913287633, guid: 164bbff0d662742b98a8ab67b47d6a60,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927213959913287633, guid: 164bbff0d662742b98a8ab67b47d6a60,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927213959913287633, guid: 164bbff0d662742b98a8ab67b47d6a60,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927213959913287634, guid: 164bbff0d662742b98a8ab67b47d6a60,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 158.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2927213959928120969, guid: 164bbff0d662742b98a8ab67b47d6a60,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -32508,6 +32817,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2927213959602367275, guid: 164bbff0d662742b98a8ab67b47d6a60, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 164bbff0d662742b98a8ab67b47d6a60, type: 3}
+--- !u!224 &2927213959568306723 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2927213959913287634, guid: 164bbff0d662742b98a8ab67b47d6a60,
+    type: 3}
+  m_PrefabInstance: {fileID: 2927213959568306722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3245463980144142775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33025,6 +33340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
         type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 932191727}
@@ -33053,6 +33373,16 @@ PrefabInstance:
       propertyPath: dialogueCanvas
       value: 
       objectReference: {fileID: 932191731}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Soldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245569327999514942, guid: 7f3a3340144034d5db697503fc4ef2e4,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: ...
+      objectReference: {fileID: 0}
     - target: {fileID: 8486109707863655505, guid: 7f3a3340144034d5db697503fc4ef2e4,
         type: 3}
       propertyPath: m_LocalPosition.x
